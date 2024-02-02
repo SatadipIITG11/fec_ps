@@ -82,6 +82,7 @@
    border-top-right-radius: 20px;
    border-top-left-radius:20px ;
     font-weight: 500;
+    
     /* font-family: 'Roboto Condensed', sans-serif; */
     /* font-family: 'Nunito', sans-serif; */
 }
@@ -93,9 +94,11 @@
     align-items: center;
     width: 350px;
     height: 40px;
-    
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 400;
     padding: 0 15px;
-    
+    outline: none;
+    border: none;
     background-color: white;
     border-radius: 50px;
     font-size: 20px;
