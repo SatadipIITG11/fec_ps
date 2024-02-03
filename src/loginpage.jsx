@@ -3,12 +3,27 @@ import React,{ useState } from 'react';
 import './loginpage.css'
 import {ethers} from 'ethers'
 import Web3 from 'web3';
+import { useNavigate } from 'react-router-dom';
 
 
 
 function Loginpage() {
 
  const[toggleState,setToggle]=useState(1);
+
+ const navigate=useNavigate();
+ const handleclick=(p)=>{
+   if(p==1)
+   {
+    navigate('/homepage')
+   }
+    else{
+      navigate('/homepagenew')
+    }
+  
+  
+ }
+
 
  const connectWalletHandler = async () => {
   window.web3 = new Web3(window.ethereum)
@@ -28,6 +43,11 @@ function Loginpage() {
     // });
     try{
       console.log(accounts[0]);
+
+      handleclick(toggleState);
+      //routing karna padega navigate and check the toggle state for this bcz of 2 tabs
+
+
     }catch(e){
       console.log(e);
     }
