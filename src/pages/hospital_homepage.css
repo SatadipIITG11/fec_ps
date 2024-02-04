@@ -43,7 +43,7 @@
     align-items: center;
     /* justify-content: center; */
     box-sizing: border-box;
-    padding: 0 5px;
+    padding: 0 6px;
 }
 .searchbar{
     border: none;
@@ -70,6 +70,8 @@
     font-weight: 600;
     cursor: pointer;
     padding-left: 2px;
+    outline: none;
+    border: none;
 }
 
 .bodyhospi{

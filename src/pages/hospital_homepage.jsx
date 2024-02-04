@@ -1,5 +1,6 @@
 import React from 'react'
 import './hospital_homepage.css'
+import testy from './testy'
 
 function HospitalHomepage() {
   return (
@@ -10,7 +11,7 @@ function HospitalHomepage() {
           <i class="fa-solid fa-magnifying-glass" id='searchicon'></i>
             <input className='searchbar' type="text" placeholder='Search by Id' />
           </div>
-          <div id="upload">Upload</div>
+          <button id="upload" onClick={testy}>Upload</button>
        </div>
     {/*Here i have to apply a js script which can render with respect to the existence of user
      Kam baccha hai eske bad user existence check karna padega */}
