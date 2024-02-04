@@ -4,6 +4,7 @@
     align-items: center;
     height: 100vh;
     width: 100vw;
+    overflow:scroll;
 }
 
 .navbarhospi{
@@ -69,4 +70,54 @@
     font-weight: 600;
     cursor: pointer;
     padding-left: 2px;
+}
+
+.bodyhospi{
+     width: 100vw;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+
+}
+.details{
+    display: flex;
+    margin-top: 30px;
+   justify-content: space-evenly;
+    width: 80vw;
+
+}
+.name{
+    display: flex;
+}
+#id{
+    display: flex;
+}
+.nametext{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight:600;
+    font-size: 20px;
+}
+.namebox{
+    height: 43px;
+    width: 30vw;
+    background-color: rgb(221, 219, 219);
+    border-radius: 10px;
+}
+
+.blockshospi{
+    margin-top: 30px;
+    display: grid;
+    grid-row-gap:45px;
+    grid-column-gap:45px ;
+    grid-template-columns: auto auto;
+}
+
+.box{
+    background-color: rgb(221, 219, 219);
+    height: 200px;
+    width: 33vw;
+    border-radius: 10px;
 }
