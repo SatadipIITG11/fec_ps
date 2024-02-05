@@ -1,0 +1,122 @@
+#userhome{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    overflow:scroll;
+}
+
+.navbaruser{
+    width: 100vw;
+    height: 80px;
+    box-sizing: border-box;
+    /* background-color: rgb(221, 219, 219); */
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+
+    justify-content: start;
+}
+
+.logouser{
+    height: 30px;
+    width: 120px;
+    /* background-color: rgb(217, 110, 110); */
+    background-color: rgb(140, 137, 137,0.5);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    cursor: pointer;
+    padding-right: 2px;
+    color: white;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+}
+
+
+
+.bodyuser{
+     width: 100vw;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+
+}
+.Details{
+    display: flex;
+    margin-top: 30px;
+   justify-content: space-evenly;
+    width: 80vw;
+
+}
+.Name{
+    display: flex;
+}
+#Id{
+    display: flex;
+}
+.Nametext{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight:500;
+    font-size: 20px;
+    font-family: 'Raleway', sans-serif;
+    padding-right: 5px;
+    color: white;
+}
+
+.Namebox{
+    height: 43px;
+    width: 30vw;
+    /* background-color: rgb(221, 219, 219); */
+    background-color: rgb(140, 137, 137);
+    opacity: 0.5;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    
+}
+
+.blocksuser{
+    margin-top: 30px;
+    display: grid;
+    grid-row-gap:45px;
+    grid-column-gap:45px ;
+    grid-template-columns: auto auto;
+}
+
+.Box{
+    /* background-color: rgb(221, 219, 219); */
+    background-color: rgb(140, 137, 137);
+    height: 200px;
+    width: 33vw;
+    border-radius: 10px;
+    opacity: 0.5;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+}
+
+.notificationuser{
+    position:absolute;
+    right: 4.5vw;
+    top: 88vh;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: rgb(140, 137, 137,0.5);
+    border-radius: 5px;
+
+}
+#notiIcon{
+    color: white;
+    
+}

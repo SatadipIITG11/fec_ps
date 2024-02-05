@@ -16,10 +16,10 @@ function Loginpage() {
  const handleclick=(p)=>{
    if(p===1)
    {
-    navigate('/homepage')
+    navigate('/userpage')
    }
     else{
-      navigate('/homepagenew')
+      navigate('/hospitalpage')
     }
   
   
