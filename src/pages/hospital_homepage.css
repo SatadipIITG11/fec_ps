@@ -11,7 +11,7 @@
     width: 100vw;
     height: 80px;
     box-sizing: border-box;
-    background-color: rgb(221, 219, 219);
+    /* background-color: rgb(221, 219, 219); */
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     display: flex;
@@ -24,7 +24,8 @@
 .logohospi{
     height: 30px;
     width: 120px;
-    background-color: rgb(217, 110, 110);
+    /* background-color: rgb(217, 110, 110); */
+    background-color: rgb(140, 137, 137,0.5);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -32,37 +33,59 @@
     font-weight: 600;
     cursor: pointer;
     padding-right: 2px;
+    color: white;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
 }
 
 .searchdiv{
-    height: 30px;
+    height: 40px;
     border-radius: 10px;
     width: 60vw;
-    background-color: rgb(217, 110, 110);
+    /* background-color: rgb(217, 110, 110); */
+    background-color: rgb(140, 137, 137,0.5);
     display: flex;
     align-items: center;
     /* justify-content: center; */
     box-sizing: border-box;
     padding: 0 6px;
+
+    /* opacity: 0.5; */
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
 }
 .searchbar{
     border: none;
     outline: none;
-    background-color: rgb(217, 110, 110);
+    background-color: rgb(140, 137, 137,0.001);
+    /* background-color: rgb(217, 110, 110); */
     width: 50vw;
     padding-left: 5px;
+    color: white;
+    /* opacity: 0.5; */
+    /* backdrop-filter: blur(12px); */
+    /* box-shadow: 0 0 25px rgba(0, 0, 0, 0.4); */
+    
     
 
 }
 
+.searchbar::placeholder {
+    color: white;
+     /* Set the color for the placeholder text */
+     font-family: 'Raleway', sans-serif;
+  }
+
 #searchicon{
     padding-left: 6px;
+    padding-right: 4px;
+    color: white;
 }
 
-#upload{
+.upload{
     height: 30px;
     width: 120px;
-    background-color: rgb(217, 110, 110);
+    /* background-color: rgb(217, 110, 110); */
+    background-color: rgb(140, 137, 137,0.5);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -72,6 +95,18 @@
     padding-left: 2px;
     outline: none;
     border: none;
+}
+.upload span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 4px;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+}
+#uploadicon{
+    color: white;
 }
 
 .bodyhospi{
@@ -99,14 +134,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight:600;
+    font-weight:500;
     font-size: 20px;
+    font-family: 'Raleway', sans-serif;
+    padding-right: 5px;
+    color: white;
 }
+
 .namebox{
     height: 43px;
     width: 30vw;
-    background-color: rgb(221, 219, 219);
+    /* background-color: rgb(221, 219, 219); */
+    background-color: rgb(140, 137, 137);
+    opacity: 0.5;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
     border-radius: 10px;
+    
 }
 
 .blockshospi{
@@ -118,8 +162,31 @@
 }
 
 .box{
-    background-color: rgb(221, 219, 219);
+    /* background-color: rgb(221, 219, 219); */
+    background-color: rgb(140, 137, 137);
     height: 200px;
     width: 33vw;
     border-radius: 10px;
+    opacity: 0.5;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+}
+
+.notificationhospi{
+    position:absolute;
+    right: 4.5vw;
+    top: 88vh;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: rgb(140, 137, 137,0.5);
+    border-radius: 5px;
+
+}
+#notiicon{
+    color: white;
+    
 }

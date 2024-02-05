@@ -7,12 +7,16 @@ import {Route,Routes} from "react-router-dom"
 import HospitalHomepage from './pages/hospital_homepage';
 import UsersiteHomepage from './pages/usersite_homepage';
 
+
 function App() {
 
   
   return (
-    // <Loginpage/>
+    <>
+      
    <Routes>
+
+   
       <Route path='/' element={<Loginpage/>}/>
 
       <Route path='/homepage' element={<UsersiteHomepage/>}/>
@@ -20,7 +24,8 @@ function App() {
       <Route path='/homepagenew' element={<HospitalHomepage/>}/>
       
    </Routes>
-
+   
+   </>
   );
 }
 

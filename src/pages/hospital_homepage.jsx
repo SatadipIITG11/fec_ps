@@ -1,8 +1,10 @@
 import React from 'react'
 import './hospital_homepage.css'
-import testy from './testy'
+import {testy,testyz} from './testy'
 
 function HospitalHomepage() {
+
+
   return (
     <div id='hospihome'>
        <div className="navbarhospi">
@@ -11,7 +13,11 @@ function HospitalHomepage() {
           <i class="fa-solid fa-magnifying-glass" id='searchicon'></i>
             <input className='searchbar' type="text" placeholder='Search by Id' />
           </div>
-          <button id="upload" onClick={testy}>Upload</button>
+          <div className='upload'>
+            <i class="fa-solid fa-circle-plus" id='uploadicon'></i>
+            <span>Upload</span>
+          </div>
+          
        </div>
     {/*Here i have to apply a js script which can render with respect to the existence of user
      Kam baccha hai eske bad user existence check karna padega */}
@@ -31,7 +37,10 @@ function HospitalHomepage() {
             <div className="box2 box"></div>
             <div className="box3 box"></div>
             <div className="box4 box"></div>
-           </div>
+        </div>
+      </div>
+      <div className="notificationhospi" onClick={testyz}>
+      <i class="fa-solid fa-bars fa-2x" id='notiicon' ></i>
       </div>
     </div>
   )

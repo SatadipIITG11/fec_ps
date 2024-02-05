@@ -1,5 +1,9 @@
-const testy=()=>{
+export const testy=()=>{
     console.log("Function is working")
 }
 
-export default testy
+export const testyz=()=>{
+    console.log("checking twice")
+}
+
+// export default {testy,testyz}

@@ -4,6 +4,7 @@ import './loginpage.css'
 import {ethers} from 'ethers'
 import Web3 from 'web3';
 import { useNavigate } from 'react-router-dom';
+// import bgImage from './video/background-img.webm'
 
 
 
@@ -13,7 +14,7 @@ function Loginpage() {
 
  const navigate=useNavigate();
  const handleclick=(p)=>{
-   if(p==1)
+   if(p===1)
    {
     navigate('/homepage')
    }
@@ -90,14 +91,15 @@ function Loginpage() {
   return (
 
     <div className="LOGIN-PAGE">
+
         <div className='navbar'>
             <div className="logo">HOSPITALLL</div>
         </div>
     <div className="LOGIN">
     
        <div className="tabs">
-         <div className={toggleState===1?"tab-focused":"tab"} onClick={()=>setToggle(1)}>PATIENT</div>
-         <div className={toggleState===2?"tab-focused":"tab"} onClick={()=>setToggle(2)}>HOSPITAL</div>
+         <div className={toggleState===1?"tab-focused":"tab"} onClick={()=>setToggle(1)}>Patient</div>
+         <div className={toggleState===2?"tab-focused":"tab"} onClick={()=>setToggle(2)}>Hospital</div>
 
        </div>
     <div className="container">
