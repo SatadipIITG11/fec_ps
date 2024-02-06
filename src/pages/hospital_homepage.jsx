@@ -1,14 +1,18 @@
 import React from 'react'
 import './hospital_homepage.css'
 import {testy,testyz} from './testy'
+// import main from '../getname'
+// const { ethers } = require("ethers");
+
+
 
 function HospitalHomepage() {
 
-
+  // const { ethers } = require("ethers");
   return (
     <div id='hospihome'>
        <div className="navbarhospi">
-          <div className="logohospi">HOSPITALLL</div>
+          <div className="logohospi">LIFE LEDGER</div>
           <div className="searchdiv">
           <i class="fa-solid fa-magnifying-glass" id='searchicon'></i>
             <input className='searchbar' type="text" placeholder='Search by Id' />
@@ -39,7 +43,7 @@ function HospitalHomepage() {
             <div className="box4 box"></div>
         </div>
       </div>
-      <div className="notificationhospi" onClick={testyz}>
+      <div className="notificationhospi" onClick={testy}>
       <i class="fa-solid fa-bars fa-2x" id='notiicon' ></i>
       </div>
     </div>

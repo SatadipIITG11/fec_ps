@@ -6,7 +6,7 @@ function UsersiteHomepage() {
   return (
     <div id='userhome'>
        <div className="navbaruser">
-          <div className="logouser">HOSPITALLL</div>
+          <div className="logouser">LIFE LEDGER</div>
           
           {/* <div className='upload'>
             <i class="fa-solid fa-circle-plus" id='uploadicon'></i>
