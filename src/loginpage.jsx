@@ -93,7 +93,7 @@ function Loginpage() {
     <div className="LOGIN-PAGE">
 
         <div className='navbar'>
-            <div className="logo">HOSPITALLL</div>
+            <div className="logo">LIFE LEDGER</div>
         </div>
     <div className="LOGIN">
     

@@ -1,0 +1,45 @@
+.timelinediv{
+    position: fixed;
+    height: 84vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin-top: 10vh;
+    /* 
+    margin-left: 20vw;
+    margin-right: 20vw; */
+    /* left: 39.8vw; */
+    background-color: rgb(140, 137, 137,0.4);
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    overflow: scroll;
+}
+
+.close{
+    width: 100%;
+    height: 50px;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+#close{
+    color: white;
+    margin-right: 14px;
+}
+
+#timeline{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.timeline-header{
+    color: white;
+    font-size: 50px;
+    margin-top: 2px;
+}

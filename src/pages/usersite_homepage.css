@@ -18,7 +18,40 @@
     align-items: center;
     padding: 0 30px;
 
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
+}
+.updatediv{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 5px;
+    /* background-color: rgb(140, 137, 137,0.5);
+    border-radius: 50%;
+    margin-right: 20px; */
+}
+
+#update{
+    color: white;
+}
+
+.messagediv{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    /* background-color: rgb(140, 137, 137,0.5);
+    border-radius: 50%; */
+   
+    
+}
+
+#message{
+    color: white;
 }
 
 .logouser{
@@ -35,6 +68,7 @@
     padding-right: 2px;
     color: white;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+    margin-right: 80vw;
 }
 
 
@@ -93,13 +127,52 @@
 
 .Box{
     /* background-color: rgb(221, 219, 219); */
-    background-color: rgb(140, 137, 137);
+    background-color: rgb(140, 137, 137,0.5);
     height: 200px;
     width: 33vw;
     border-radius: 10px;
-    opacity: 0.5;
+    
     backdrop-filter: blur(12px);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+}
+
+.Box1 ul li{
+    font-size: 19px;
+    color: white;
+    list-style-type: none;
+}
+.Box1{
+    display: flex;
+    align-items: center;
+
+}
+
+.Box2 ul li{
+    font-size: 19px;
+    color: white;
+    list-style-type: none;
+}
+.Box2{
+    display: flex;
+    align-items: center;
+
+}
+.Box3{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 4vw;
+}
+
+.Box4{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 4vw;
 }
 
 .notificationuser{
@@ -114,6 +187,7 @@
     cursor: pointer;
     background-color: rgb(140, 137, 137,0.5);
     border-radius: 5px;
+    z-index: -1;
 
 }
 #notiIcon{

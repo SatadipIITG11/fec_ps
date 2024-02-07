@@ -1,4 +1,8 @@
 const ethers = require("ethers");
+
+
+const main = async() => {
+
 const provider = new ethers.providers.JsonRpcProvider( 'https://sepolia.infura.io/v3/13d34d3eca1445f5b7c1f3caefe8e47f' ) ;
 
 const ERC20_ABI =[
@@ -526,14 +530,17 @@ const ERC20_ABI =[
 const address = '0x693933f18c335dfa3a10c8c316d64addafae5725'
 const contract = new ethers.Contract(address, ERC20_ABI, provider)
 
-const main = async() => {
+
     const signer = await contract.getSigner();
     const signerAddress = await signer.getAddress();
     const name = await contract.get_name(signerAddress);
 
-    console.log(name);
+   try{console.log(name);} 
+   catch(err){
+	console.log(err);
+   }
 
 }
 
-main ()
+// main ()
 export default main;

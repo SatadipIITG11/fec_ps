@@ -1,7 +1,7 @@
 import React from 'react'
 import './hospital_homepage.css'
 import {testy,testyz} from './testy'
-// import main from '../getname'
+import main from '../getname'
 // const { ethers } = require("ethers");
 
 
@@ -43,7 +43,7 @@ function HospitalHomepage() {
             <div className="box4 box"></div>
         </div>
       </div>
-      <div className="notificationhospi" onClick={testy}>
+      <div className="notificationhospi" onClick={main}>
       <i class="fa-solid fa-bars fa-2x" id='notiicon' ></i>
       </div>
     </div>
