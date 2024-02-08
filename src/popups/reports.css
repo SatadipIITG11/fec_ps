@@ -1,21 +1,8 @@
-/* #timeline{
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-} */
-
-
-
-
-
-.timelinediv{
+.reportsdiv{
+      
     position: fixed;
     height: 84vh;
-    
+    z-index: 14;
     width: 100%;
      top: 0;
     left: 0;
@@ -48,15 +35,44 @@
     margin-top: 10px;
 }
 
-#timeline{
+#reports{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
-.timeline-header{
+.reports-header{
     color: white;
     font-size: 50px;
     margin-top: 2px;
+    margin-bottom: 25px;
+}
+
+.reports-grid{
+    display: grid;
+    grid-template-columns: auto;
+    grid-row-gap:45px;
+
+}
+.reporttype{
+    display: flex;
+    align-items: center;
+    
+    
+    height: 55px;
+    width: 60vw;
+    border-radius: 10px;
+    background-color: rgb(140, 137, 137,0.);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    cursor: pointer;
+}
+
+.reporttype span{
+    color: white;
+    font-size: 23px;
+    margin-left: 30px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
 }

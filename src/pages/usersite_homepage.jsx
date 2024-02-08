@@ -3,6 +3,7 @@ import './usersite_homepage.css'
 import {testy,testyz} from './testy'
 import { useState } from 'react'
 import Timeline from '../popups/timeline'
+import Reports from '../popups/reports'
 
 function UsersiteHomepage() {
 
@@ -58,13 +59,14 @@ function UsersiteHomepage() {
 
 
             </div>
-            <div className="Box3 Box">
+            <div className="Box3 Box" onClick={()=>setreportsPop(true)}>
               Reports
             </div>
             <div className="Box4 Box" onClick={()=> settimelinePop(true)}>
                    Timeline 
             </div>
             <Timeline trigger={timelinePop} setTrigger={settimelinePop}/>
+            <Reports trigger={reportsPop} setTrigger={setreportsPop}/>
         </div>
       </div>
       <div className="notificationuser" onClick={testyz}>
