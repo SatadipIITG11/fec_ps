@@ -4,9 +4,15 @@ import {testy,testyz} from './testy'
 import { useState } from 'react'
 import Timeline from '../popups/timeline'
 import Reports from '../popups/reports'
+import { useNavigate } from 'react-router-dom'
 
 function UsersiteHomepage() {
 
+   const disconnectFromMetaMask=()=>{
+     
+      navigate('/');
+   }
+   const navigate=useNavigate();
   const [timelinePop,settimelinePop]=useState(false)
   //baki hai reports ki designing....
   const [reportsPop,setreportsPop]=useState(false)
@@ -17,6 +23,9 @@ function UsersiteHomepage() {
           <div className="logouser">LIFE LEDGER</div>
           <div className="updatediv" onClick={testy}><i class="fa-solid fa-pen" id='update'></i></div>
           <div className="messagediv" onClick={testyz}><i class="fa-solid fa-message" id='message'></i></div>
+          <div className="logoutdiv" onClick={disconnectFromMetaMask}>
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          </div>
           
           {/* <div className='upload'>
             <i class="fa-solid fa-circle-plus" id='uploadicon'></i>

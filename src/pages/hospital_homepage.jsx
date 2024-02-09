@@ -2,12 +2,19 @@ import React from 'react'
 import './hospital_homepage.css'
 import {testy,testyz} from './testy'
 import main from '../getname'
+import { useNavigate } from 'react-router-dom'
 // const { ethers } = require("ethers");
 
 
 
 function HospitalHomepage() {
 
+
+  const disconnectFromMetaMask=()=>{
+     
+    navigate('/');
+ }
+ const navigate=useNavigate();
   // const { ethers } = require("ethers");
   return (
     <div id='hospihome'>
@@ -20,6 +27,9 @@ function HospitalHomepage() {
           <div className='upload'>
             <i class="fa-solid fa-circle-plus" id='uploadicon'></i>
             <span>Upload</span>
+          </div>
+          <div className="logoutdiv" onClick={disconnectFromMetaMask}>
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
           </div>
           
        </div>
