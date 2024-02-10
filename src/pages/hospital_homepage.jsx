@@ -4,11 +4,23 @@ import {testy,testyz} from './testy'
 import main from '../getname'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import PdfUpload from './pdfupload'
 // const { ethers } = require("ethers");
 
 
 
 function HospitalHomepage() {
+    
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
+  //!!!!!Yaha dekh category me "category" string rahega!!!!!
+  const [category,setCategory]=useState("");
+  const options = [
+    { id: 1, label: 'Daignostic' },
+    { id: 2, label: 'Medication/prescriptions' },
+    { id: 3, label: 'Procedural (operations,surgeries,etc)' }, 
+    { id: 4, label: 'Others' },
+  ];
 
   const [inputValue, setInputValue] = useState('');
   //guys inputvalue me search string rahega apne hisab se use karlo
@@ -16,10 +28,28 @@ function HospitalHomepage() {
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
+  const [addressValue,setaddressValue]=useState('')
+
+  const handleAddressChange=(event)=> {
+    setaddressValue(event.target.value);
+  };
+ //upload dropdown button
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleOptionClick = (option) => {
+    setSelectedOption(option);
+    setCategory(option.label);
+    console.log(option.label);
+    setIsOpen(false);
+  };
+
   const disconnectFromMetaMask=()=>{
      
     navigate('/');
  }
+ const [openupload,setopenupload]=useState(false)
  const navigate=useNavigate();
   // const { ethers } = require("ethers");
   return (
@@ -30,7 +60,7 @@ function HospitalHomepage() {
            <i class="fa-solid fa-magnifying-glass" id='searchicon'></i>
             <input className='searchbar' type="text" placeholder='Search by Id' onChange={handleInputChange} />
           </div>
-          <div className='upload'>
+          <div className='upload' onClick={()=>setopenupload(true)}>
             <i class="fa-solid fa-circle-plus" id='uploadicon'></i>
             <span>Upload</span>
           </div>
@@ -62,8 +92,36 @@ function HospitalHomepage() {
       <div className="notificationhospi" onClick={main}>
       <i class="fa-solid fa-bars fa-2x" id='notiicon' ></i>
       </div>
+
+    {openupload===true?(<div id="uploadpop">
+          <div className="close-upload" onClick={()=>setopenupload(false)}>
+          <i class="fa-solid fa-xmark"></i>
+          </div>
+         <div className="addressdiv">
+          <input type="text" className='type-address' placeholder='Address' onChange={handleAddressChange} />
+         </div>
+         <button className="dropdown-toggle" onClick={toggleDropdown}>
+           {selectedOption ? selectedOption.label : 'Select an option'}
+         </button>
+        {isOpen && (
+        <div className="dropdown-menu">
+          {options.map(option => (
+             <div
+              key={option.id}
+              className="dropdown-item"
+              onClick={() => handleOptionClick(option)}
+              >
+              {option.label}
+            </div>
+             ))}
+            </div>
+        )}
+         <div className="browse-upload">
+             <PdfUpload/>
+         </div>
+      </div>):""}
       
-    </div>
+  </div>
   )
 }
 
