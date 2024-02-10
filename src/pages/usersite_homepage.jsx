@@ -39,12 +39,13 @@ function UsersiteHomepage() {
   const [timelinePop,settimelinePop]=useState(false)
   //baki hai reports ki designing....
   const [reportsPop,setreportsPop]=useState(false)
+  const [openUpdate,setopenUpdate]=useState(false)
 
   return (
     <div id='userhome'>
        <div className="navbaruser">
           <div className="logouser">LIFE LEDGER</div>
-          <div className="updatediv" onClick={testy}><i class="fa-solid fa-pen" id='update'></i></div>
+          <div className="updatediv" onClick={()=>setopenUpdate(true)}><i class="fa-solid fa-pen" id='update'></i></div>
           <div className="messagediv" onClick={testyz}><i class="fa-solid fa-message" id='message'></i></div>
           <div className="logoutdiv" onClick={disconnectFromMetaMask}>
           <i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -101,9 +102,64 @@ function UsersiteHomepage() {
             <Reports trigger={reportsPop} setTrigger={setreportsPop}/>
         </div>
       </div>
-      <div className="notificationuser" onClick={testyz}>
-      <i class="fa-solid fa-bars fa-2x" id='notiIcon' ></i>
+      <div className="notificationuser" onClick={testyz}
+       class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+        <i class="fa-solid fa-bars fa-2x" id='notiIcon' ></i>
       </div>
+
+      {/* <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button> */}
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">NOTIFICATIONS</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    Hospital Data.....
+  </div>
+ </div>
+   
+   { openUpdate===true?(<div className="to-update">
+    <div className="close-update">
+    <i class="fa-solid fa-xmark" id='cross' onClick={()=>setopenUpdate(false)}></i>
+    </div>
+     <div className="update update-name">
+       <span>Name:</span>
+       <input type="text" />
+     </div>
+     <div className="update update-age">
+     <span>Age:</span>
+     <input type="text" />
+     </div>
+     <div className="update update-gender">
+     <span>Gender:</span>
+     <input type="text" />
+     </div>
+     <div className="update update-contact-info">
+     <span>Contact Info:</span>
+     <input type="text" />
+     </div>
+     <div className="update update-bloodgroup">
+     <span>Blood group:</span>
+     <input type="text" />
+     </div>
+     <div className="update update-allergies">
+     <span>Allergies:</span>
+     <input type="text" />
+     </div>
+     <div className="update update-deficiencies">
+     <span>Deficiencies:</span>
+     <input type="text" />
+     </div>
+     <div className="update update-chronic">
+     <span>Chronic Dieases:</span>
+     <input type="text" />
+     </div>
+     <div className="submit-update">
+      SUBMIT
+     </div>
+   </div>):""}
+
     </div>
   )
 }
