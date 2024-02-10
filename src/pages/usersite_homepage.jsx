@@ -5,14 +5,37 @@ import { useState } from 'react'
 import Timeline from '../popups/timeline'
 import Reports from '../popups/reports'
 import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 
 function UsersiteHomepage() {
+     
+  // useEffect(() => {
+  //   const disconnectFromMetaMask = () => {
+  //     if (window.ethereum && window.ethereum.isMetaMask) {
+  //       window.ethereum.removeAllListeners(); // Remove all listeners
+  //       window.ethereum = null; // Reset the ethereum object
+  //     }
+  //   };
 
+  //   window.addEventListener('beforeunload', disconnectFromMetaMask);
+
+  //   return () => {
+  //     window.removeEventListener('beforeunload', disconnectFromMetaMask);
+  //   };
+  // }, []);
+  
    const disconnectFromMetaMask=()=>{
      
       navigate('/');
    }
    const navigate=useNavigate();
+  // const disconnectFromMetaMask = () => {
+  //   if (window.ethereum && window.ethereum.isMetaMask) {
+  //     window.ethereum.removeAllListeners(); // Remove all listeners
+  //     window.ethereum = null; // Reset the ethereum object
+  //     // window.location.reload(); // Reload the page
+  //   }
+  // };
   const [timelinePop,settimelinePop]=useState(false)
   //baki hai reports ki designing....
   const [reportsPop,setreportsPop]=useState(false)

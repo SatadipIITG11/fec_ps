@@ -3,13 +3,19 @@ import './hospital_homepage.css'
 import {testy,testyz} from './testy'
 import main from '../getname'
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 // const { ethers } = require("ethers");
 
 
 
 function HospitalHomepage() {
 
+  const [inputValue, setInputValue] = useState('');
+  //guys inputvalue me search string rahega apne hisab se use karlo
 
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
   const disconnectFromMetaMask=()=>{
      
     navigate('/');
@@ -21,8 +27,8 @@ function HospitalHomepage() {
        <div className="navbarhospi">
           <div className="logohospi">LIFE LEDGER</div>
           <div className="searchdiv">
-          <i class="fa-solid fa-magnifying-glass" id='searchicon'></i>
-            <input className='searchbar' type="text" placeholder='Search by Id' />
+           <i class="fa-solid fa-magnifying-glass" id='searchicon'></i>
+            <input className='searchbar' type="text" placeholder='Search by Id' onChange={handleInputChange} />
           </div>
           <div className='upload'>
             <i class="fa-solid fa-circle-plus" id='uploadicon'></i>
@@ -56,6 +62,7 @@ function HospitalHomepage() {
       <div className="notificationhospi" onClick={main}>
       <i class="fa-solid fa-bars fa-2x" id='notiicon' ></i>
       </div>
+      
     </div>
   )
 }
