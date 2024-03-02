@@ -41,6 +41,34 @@ function UsersiteHomepage() {
   const [reportsPop,setreportsPop]=useState(false)
   const [openUpdate,setopenUpdate]=useState(false)
 
+
+  //update biodata section
+
+  let name,age,gender,contact,blood,allergy,deficy,chronic
+  const [Name,setname]=useState("")
+  const [Age,setage]=useState("")
+  const [Gender,setgender]=useState("")
+  const [Contact,setcontact]=useState("")
+  const [Blood,setblood]=useState("")
+  const [Allergy,setallergy]=useState("")
+  const [Deficy,setdeficy]=useState("")
+  const [Chronic,setchronic]=useState("")
+  
+  const updateBio=()=>{
+    setname(name)
+    setage(age)
+    setgender(gender)
+    setcontact(contact)
+    setblood(blood)
+    setallergy(allergy)
+    setdeficy(deficy)
+    setchronic(chronic)
+    
+    setopenUpdate(false)
+
+  }
+
+
   return (
     <div id='userhome'>
        <div className="navbaruser">
@@ -73,20 +101,20 @@ function UsersiteHomepage() {
            <div className="blocksuser">
             <div className="Box1 Box">
               <ul>
-                <li>Name: Satadip Debnath</li>
-                <li>Age:</li>
-                <li>Gender:</li>
-                <li>Contact Info:</li>
+                <li>Name: {Name}</li>
+                <li>Age: {Age}</li>
+                <li>Gender: {Gender}</li>
+                <li>Contact Info: {Contact}</li>
               </ul>
 
 
             </div>
             <div className="Box2 Box">
             <ul>
-                <li>Blood group:</li>
-                <li>Allergies:</li>
-                <li>Deficiencies:</li>
-                <li>Chronic Diseases:</li>
+                <li>Blood group: {Blood}</li>
+                <li>Allergies: {Allergy}</li>
+                <li>Deficiencies: {Deficy}</li>
+                <li>Chronic Diseases: {Chronic}</li>
               </ul>
                
 
@@ -102,7 +130,7 @@ function UsersiteHomepage() {
             <Reports trigger={reportsPop} setTrigger={setreportsPop}/>
         </div>
       </div>
-      <div className="notificationuser" onClick={testyz}
+      <div className="notificationuser"  onClick={testyz}
        class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
         <i class="fa-solid fa-bars fa-2x" id='notiIcon' ></i>
       </div>
@@ -125,37 +153,37 @@ function UsersiteHomepage() {
     </div>
      <div className="update update-name">
        <span>Name:</span>
-       <input type="text" />
+       <input type="text" onChange={(e)=>{name=e.target.value}}/>
      </div>
      <div className="update update-age">
      <span>Age:</span>
-     <input type="text" />
+     <input type="text" onChange={(e)=>{age=e.target.value}} />
      </div>
      <div className="update update-gender">
      <span>Gender:</span>
-     <input type="text" />
+     <input type="text" onChange={(e)=>{gender=e.target.value}} />
      </div>
      <div className="update update-contact-info">
      <span>Contact Info:</span>
-     <input type="text" />
+     <input type="text" onChange={(e)=>{contact=e.target.value}} />
      </div>
      <div className="update update-bloodgroup">
      <span>Blood group:</span>
-     <input type="text" />
+     <input type="text" onChange={(e)=>{blood=e.target.value}} />
      </div>
      <div className="update update-allergies">
      <span>Allergies:</span>
-     <input type="text" />
+     <input type="text" onChange={(e)=>{allergy=e.target.value}}/>
      </div>
      <div className="update update-deficiencies">
      <span>Deficiencies:</span>
-     <input type="text" />
+     <input type="text" onChange={(e)=>{deficy=e.target.value}}/>
      </div>
      <div className="update update-chronic">
      <span>Chronic Dieases:</span>
-     <input type="text" />
+     <input type="text" onChange={(e)=>{chronic=e.target.value}}/>
      </div>
-     <div className="submit-update">
+     <div className="submit-update" onClick={updateBio}>
       SUBMIT
      </div>
    </div>):""}

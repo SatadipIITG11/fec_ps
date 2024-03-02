@@ -270,3 +270,9 @@
     margin-left: 10px;
     margin-top: 4px;
 }
+
+.update input{
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
