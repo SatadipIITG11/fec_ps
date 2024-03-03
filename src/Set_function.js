@@ -1,6 +1,6 @@
 const { ethers } = require("ethers");
-// metamaskID, name = 'no_val', age = -1, gender = 'no_val', contactnumber = -1, blood_type = 'no_val', allergy = 'no_val', deficiency = 'no_val', chronicdisease = 'no_val'
-export async function Set_User_Data() {
+
+export async function Set_User_Data(metamaskID, name = 'no_val', age = -1, gender = 'no_val', contactnumber = -1, blood_type = 'no_val', allergy = 'no_val', deficiency = 'no_val', chronicdisease = 'no_val') {
     // console.log(101)
     const provider = new ethers.BrowserProvider(window.ethereum);
     // console.log(90)
@@ -474,15 +474,15 @@ export async function Set_User_Data() {
         // console.log(8)
         const contract = new ethers.Contract(address, ERC20_ABI, signer)
         console.log(9)
-        const metamaskID = '0xaEB837233665fc43309dABF4abD53338E60a61bE'
-        const name = "Varun"
-        const age = 19
-        const gender = "Male"
-        const contactnumber = 6969
-        const blood_type = "O Positive"
-        const allergy = "Choco"
-        const deficiency = "Bitches" 
-        const chronicdisease = "Shirts"
+        // const metamaskID = '0xaEB837233665fc43309dABF4abD53338E60a61bE'
+        // const name = "Varun"
+        // const age = 19
+        // const gender = "Male"
+        // const contactnumber = 6969
+        // const blood_type = "O Positive"
+        // const allergy = "Choco"
+        // const deficiency = "Bitches" 
+        // const chronicdisease = "Shirts"
         console.log(10)
         await contract.set_general_info(metamaskID, name, age, gender, contactnumber)
         console.log(11)
