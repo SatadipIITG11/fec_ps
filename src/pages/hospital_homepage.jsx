@@ -3,9 +3,9 @@ import './hospital_homepage.css'
 import {testy,testyz} from './testy'
 import main from '../getname'
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import PdfUpload from './pdfupload'
-// const { ethers } = require("ethers");
+import { ethers } from 'ethers';
 
 
 

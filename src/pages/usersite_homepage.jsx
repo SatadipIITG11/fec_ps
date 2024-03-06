@@ -9,7 +9,7 @@ import { ethers } from 'ethers';
 
 import { func1 } from '../Get_functions'
 import { func_get_reports } from '../getreports'
-import { InsertReport, Set_User_Data } from "../Set_function"
+import { Set_User_Data } from "../Set_function"
 
 function UsersiteHomepage() {
      
@@ -92,14 +92,6 @@ function UsersiteHomepage() {
     setallergy(name2[5])
     setdeficy(name2[6])
     setchronic(name2[7])
-    // setname(name)
-    // setage(age)
-    // setgender(gender)
-    // setcontact(contact)
-    // setblood(blood)
-    // setallergy(allergy)
-    // setdeficy(deficy)
-    // setchronic(chronic)
   }
 
   useEffect(() => {
@@ -114,13 +106,13 @@ function UsersiteHomepage() {
     // console.log(78)
     Set_User_Data(walletAddress, Name, Age, Gender, Contact, Blood, Allergy, Deficy, Chronic)
   }
-  const Set_Report = async () => {
-    const provider = new ethers.BrowserProvider(window.ethereum);
-    const signer = await provider.getSigner();
-    const walletAddress = await signer.getAddress();
-    // console.log(78)
-    InsertReport()
-  }
+  // const Set_Report = async () => {
+  //   const provider = new ethers.BrowserProvider(window.ethereum);
+  //   const signer = await provider.getSigner();
+  //   const walletAddress = await signer.getAddress();
+  //   // console.log(78)
+  //   InsertReport()
+  // }
 
 
   return (

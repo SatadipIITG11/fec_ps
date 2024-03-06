@@ -969,14 +969,6 @@ export async function InsertReport() {
         const contract = new ethers.Contract(address, ERC20_ABI, signer)
         console.log(9)
         const metamaskID = '0xaEB837233665fc43309dABF4abD53338E60a61bE'
-        // const name = "Varun"
-        // const age = 19
-        // const gender = "Male"
-        // const contactnumber = 6969
-        // const blood_type = "O Positive"
-        // const allergy = "Choco"
-        // const deficiency = "Bitches"
-        // const chronicdisease = "Shirts"
         const cID = "cyer"
         const timeStamp = "br3iuf"
         const category = "iy3"
