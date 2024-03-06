@@ -6,7 +6,9 @@ import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import PdfUpload from './pdfupload'
 import { ethers } from 'ethers';
-
+import { func1 } from '../Get_functions'
+import { InsertReport } from "../Set_function"
+import { Set_User_Data } from "../Set_function"
 
 
 function HospitalHomepage() {
@@ -51,6 +53,44 @@ function HospitalHomepage() {
  }
  const [openupload,setopenupload]=useState(false)
  const navigate=useNavigate();
+
+  const [Name, setname] = useState("")
+  const [Age, setage] = useState("")
+  const [Gender, setgender] = useState("")
+  const [Contact, setcontact] = useState("")
+  const [Blood, setblood] = useState("")
+  const [Allergy, setallergy] = useState("")
+  const [Deficy, setdeficy] = useState("")
+  const [Chronic, setchronic] = useState("")
+
+  const fetch_data = async (User_Address) => {
+    // const provider = new ethers.BrowserProvider(window.ethereum);
+    // const signer = await provider.getSigner();
+    let walletAddress = User_Address;
+    let name2 = await func1(walletAddress)
+    // func_get_reports(walletAddress)
+    // SetAge(walletAddress)
+    console.log(name2);
+    setname(name2[0])
+    // console.log(name2[1])
+    setage(name2[1])
+    setgender(name2[2])
+    setcontact(name2[3])
+    setblood(name2[4])
+    setallergy(name2[5])
+    setdeficy(name2[6])
+    setchronic(name2[7])
+  }
+
+  const Set_Data = async (User_Address, Blood, Allergy, Deficy, Chronic) => {
+    // const provider = new ethers.BrowserProvider(window.ethereum);
+    // const signer = await provider.getSigner();
+    // let walletAddress = await signer.getAddress();
+    let walletAddress = User_Address;
+    // console.log(78)
+    Set_User_Data(walletAddress, Blood, Allergy, Deficy, Chronic)
+  }
+
   // const { ethers } = require("ethers");
   return (
     <div id='hospihome'>

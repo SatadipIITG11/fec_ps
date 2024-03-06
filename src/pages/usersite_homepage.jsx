@@ -9,7 +9,7 @@ import { ethers } from 'ethers';
 
 import { func1 } from '../Get_functions'
 import { func_get_reports } from '../getreports'
-import { Set_User_Data } from "../Set_function"
+import { Set_My_Data } from "../Set_function"
 
 function UsersiteHomepage() {
      
@@ -69,7 +69,7 @@ function UsersiteHomepage() {
     // setchronic(chronic)
     setopenUpdate(false)
     console.log("wow1");
-    Set_Data(name, age, gender, contact, blood, allergy, deficy, chronic);
+    Set_Data(name, age, gender, contact);
     // fetch_data();
     console.log("wow2");
   }
@@ -98,13 +98,13 @@ function UsersiteHomepage() {
     fetch_data();
   }, []);
 
-  const Set_Data = async (Name, Age, Gender, Contact, Blood, Allergy, Deficy, Chronic) => {
+  const Set_Data = async (Name, Age, Gender, Contact) => {
     const provider = new ethers.BrowserProvider(window.ethereum);
     const signer = await provider.getSigner();
     let walletAddress = await signer.getAddress();
     walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE"
     // console.log(78)
-    Set_User_Data(walletAddress, Name, Age, Gender, Contact, Blood, Allergy, Deficy, Chronic)
+    Set_My_Data(walletAddress, Name, Age, Gender, Contact)
   }
   // const Set_Report = async () => {
   //   const provider = new ethers.BrowserProvider(window.ethereum);
