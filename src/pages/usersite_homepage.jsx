@@ -67,9 +67,11 @@ function UsersiteHomepage() {
     // setallergy(allergy)
     // setdeficy(deficy)
     // setchronic(chronic)
-    
-    // setopenUpdate(false)
-
+    setopenUpdate(false)
+    console.log("wow1");
+    Set_Data(name, age, gender, contact, blood, allergy, deficy, chronic);
+    // fetch_data();
+    console.log("wow2");
   }
 
   const fetch_data = async () => {
@@ -103,6 +105,22 @@ function UsersiteHomepage() {
   useEffect(() => {
     fetch_data();
   }, []);
+
+  const Set_Data = async (Name, Age, Gender, Contact, Blood, Allergy, Deficy, Chronic) => {
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const signer = await provider.getSigner();
+    let walletAddress = await signer.getAddress();
+    walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE"
+    // console.log(78)
+    Set_User_Data(walletAddress, Name, Age, Gender, Contact, Blood, Allergy, Deficy, Chronic)
+  }
+  const Set_Report = async () => {
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const signer = await provider.getSigner();
+    const walletAddress = await signer.getAddress();
+    // console.log(78)
+    InsertReport()
+  }
 
 
   return (
