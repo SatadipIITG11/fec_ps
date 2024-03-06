@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react'
 import Timeline from '../popups/timeline'
 import Reports from '../popups/reports'
 import { useNavigate } from 'react-router-dom'
-import { useEffect } from 'react'
 
 import { func1 } from '../Get_functions'
 import { func_get_reports } from '../getreports'
