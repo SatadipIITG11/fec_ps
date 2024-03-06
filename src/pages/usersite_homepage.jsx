@@ -5,10 +5,11 @@ import { useState, useEffect } from 'react'
 import Timeline from '../popups/timeline'
 import Reports from '../popups/reports'
 import { useNavigate } from 'react-router-dom'
+import { ethers } from 'ethers';
 
 import { func1 } from '../Get_functions'
 import { func_get_reports } from '../getreports'
-import { InsertReport, Set_User_Data } from "../Set_function"
+import { Set_My_Data } from "../Set_function"
 
 function UsersiteHomepage() {
      
@@ -58,18 +59,60 @@ function UsersiteHomepage() {
   const [Chronic,setchronic]=useState("")
   
   const updateBio=()=>{
-    setname(name)
-    setage(age)
-    setgender(gender)
-    setcontact(contact)
-    setblood(blood)
-    setallergy(allergy)
-    setdeficy(deficy)
-    setchronic(chronic)
-    
+    // setname(name)
+    // setage(age)
+    // setgender(gender)
+    // setcontact(contact)
+    // setblood(blood)
+    // setallergy(allergy)
+    // setdeficy(deficy)
+    // setchronic(chronic)
     setopenUpdate(false)
-
+    console.log("wow1");
+    Set_Data(name, age, gender, contact);
+    // fetch_data();
+    console.log("wow2");
   }
+
+  const fetch_data = async () => {
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const signer = await provider.getSigner();
+    let walletAddress = await signer.getAddress();
+    walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE"
+    let name2 = await func1(walletAddress)
+    // func_get_reports(walletAddress)
+    // SetAge(walletAddress)
+    console.log(name2);
+    setname(name2[0])
+    // console.log(name2[1])
+    setage(name2[1])
+    setgender(name2[2])
+    setcontact(name2[3])
+    setblood(name2[4])
+    setallergy(name2[5])
+    setdeficy(name2[6])
+    setchronic(name2[7])
+  }
+
+  useEffect(() => {
+    fetch_data();
+  }, []);
+
+  const Set_Data = async (Name, Age, Gender, Contact) => {
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const signer = await provider.getSigner();
+    let walletAddress = await signer.getAddress();
+    walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE"
+    // console.log(78)
+    Set_My_Data(walletAddress, Name, Age, Gender, Contact)
+  }
+  // const Set_Report = async () => {
+  //   const provider = new ethers.BrowserProvider(window.ethereum);
+  //   const signer = await provider.getSigner();
+  //   const walletAddress = await signer.getAddress();
+  //   // console.log(78)
+  //   InsertReport()
+  // }
 
 
   return (
