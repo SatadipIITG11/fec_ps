@@ -5,6 +5,8 @@ import main from '../getname'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import PdfUpload from './pdfupload'
+import Timeline from '../popups/timeline'
+import Reports from '../popups/reports'
 // const { ethers } = require("ethers");
 
 
@@ -52,13 +54,34 @@ function HospitalHomepage() {
  const [openupload,setopenupload]=useState(false)
  const navigate=useNavigate();
   // const { ethers } = require("ethers");
+ //latest code
+  
+
+  const [timelinePop,settimelinePop]=useState(false)
+  //baki hai reports ki designing....
+  const [reportsPop,setreportsPop]=useState(false)
+  const [user_existence,setuser_existence]=useState(false)
+
+  const handleEnter=(event)=>{
+    
+    if(event.key==='Enter')
+    {
+      //for checking purpose only
+      //here I have to check existence of user and set user_existence
+      
+      setuser_existence(true)
+      console.log("wowoowooowow")
+    }
+
+  }
+  
   return (
     <div id='hospihome'>
        <div className="navbarhospi">
           <div className="logohospi">LIFE LEDGER</div>
           <div className="searchdiv">
            <i class="fa-solid fa-magnifying-glass" id='searchicon'></i>
-            <input className='searchbar' type="text" placeholder='Search by Id' onChange={handleInputChange} />
+            <input className='searchbar' type="text" placeholder='Search by Id' onChange={handleInputChange} onKeyDown={handleEnter} />
           </div>
           <div className='upload' onClick={()=>setopenupload(true)}>
             <i class="fa-solid fa-circle-plus" id='uploadicon'></i>
@@ -71,6 +94,10 @@ function HospitalHomepage() {
        </div>
     {/*Here i have to apply a js script which can render with respect to the existence of user
      Kam baccha hai eske bad user existence check karna padega */}
+      {/* on search rendering, User Exsistence define kar
+       */}
+       
+
       <div className="bodyhospi">
         <div className="details">
           <div className="name">
@@ -82,12 +109,57 @@ function HospitalHomepage() {
             <div className="namebox"></div>
           </div>
         </div>
-           <div className="blockshospi">
+           
+           {user_existence===true?
+           (
+             <div className="blocksuser">
+               <div className="Box1 Box">
+                <ul>
+                <li>Name: </li>
+                <li>Age: </li>
+                <li>Gender: </li>
+                <li>Contact Info: </li>
+                </ul>
+
+
+            </div>
+            <div className="Box2 Box">
+            <ul>
+                <li>Blood group: </li>
+                <li>Allergies: </li>
+                <li>Deficiencies: </li>
+                <li>Chronic Diseases: </li>
+              </ul>
+               
+
+
+            </div>
+            <div className="Box3 Box" onClick={()=>setreportsPop(true)}>
+              Reports
+            </div>
+            <div className="Box4 Box" onClick={()=> settimelinePop(true)}>
+                   Timeline 
+            </div>
+            <Timeline trigger={timelinePop} setTrigger={settimelinePop}/>
+            <Reports trigger={reportsPop} setTrigger={setreportsPop}/>
+           </div>
+           )
+           :
+           (
+            <div className="blockshospi">
             <div className="box1 box"></div>
             <div className="box2 box"></div>
             <div className="box3 box"></div>
             <div className="box4 box"></div>
-        </div>
+            </div>
+
+           )}
+           {/* <div className="blockshospi">
+            <div className="box1 box"></div>
+            <div className="box2 box"></div>
+            <div className="box3 box"></div>
+            <div className="box4 box"></div>
+          </div> */}
       </div>
       <div className="notificationhospi" onClick={main}>
       <i class="fa-solid fa-bars fa-2x" id='notiicon' ></i>
