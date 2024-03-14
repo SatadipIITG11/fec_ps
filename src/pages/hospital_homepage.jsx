@@ -5,17 +5,15 @@ import main from '../getname'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import PdfUpload from './pdfupload'
-<<<<<<< HEAD
 import Timeline from '../popups/timeline'
-import Reports from '../popups/reports'
+import Reports from '../popups/reports' 
+
 // const { ethers } = require("ethers");
 
-=======
 import { ethers } from 'ethers';
 import { func1 } from '../Get_functions'
 import { InsertReport } from "../Set_function"
 import { Set_User_Data } from "../Set_function"
->>>>>>> 71a0cdd999ef102c60fd6a3e59e5eea1be1fca47
 
 
 function HospitalHomepage() {
@@ -112,7 +110,7 @@ function HospitalHomepage() {
     if(event.key==='Enter')
     {
       //for checking purpose only
-      //here I have to check existence of user and set user_existence
+      //here I have to check existence of user and set user_existence after hospital user enters the search div
       
       setuser_existence(true)
       console.log("wowoowooowow")
