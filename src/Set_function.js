@@ -465,7 +465,7 @@ export async function Set_My_Data(metamaskID, name = 'no_val', age = -1, gender 
     const address = '0xC40793a2Ac65e9F4DCA05f4e623DF758705b5361';
     // console.log(5)
     // const signerAddress = await signer.getAddress();
-    try{
+    try {
         await provider.send("eth_requestAccounts", []);
         // console.log(6)
         const signer = await provider.getSigner();
@@ -1468,7 +1468,7 @@ export async function InsertReport() {
         const timeStamp = "br3iuf"
         const category = "iy3"
         console.log(10)
-        await contract.insertReport(metamaskID, cID, timeStamp, category )
+        await contract.insertReport(metamaskID, cID, timeStamp, category)
         console.log(11)
         // await contract.set_emergency_info(metamaskID, blood_type, allergy, deficiency, chronicdisease)
         console.log(89)

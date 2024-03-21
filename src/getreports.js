@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React from 'react';
 
 const ethers = require("ethers");
 
@@ -10,7 +10,7 @@ const ethers = require("ethers");
 // const contract = new ethers.Contract(address, ERC20_ABI, provider)
 
 
-export async function func_get_reports (metamaskID) {
+export async function func_get_reports(metamaskID) {
 	// console.log(1)
 	if (window.ethereum) {
 		// console.log(2)
@@ -584,13 +584,13 @@ export async function func_get_reports (metamaskID) {
 			console.log(reports)
 
 			return 0;
-		
+
 			// return name;
 			// return name;
 		} catch (err) {
 			console.log(err);
 		}
-	} 
+	}
 	else {
 		console.log("MetaMask or similar provider not found.");
 	}

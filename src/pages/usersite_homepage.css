@@ -1,13 +1,13 @@
-#userhome{
+#userhome {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100vh;
     width: 100vw;
-    overflow:scroll;
+    overflow: scroll;
 }
 
-.navbaruser{
+.navbaruser {
     width: 100vw;
     height: 80px;
     box-sizing: border-box;
@@ -20,7 +20,8 @@
 
     /* justify-content: flex-start; */
 }
-.updatediv{
+
+.updatediv {
     height: 40px;
     width: 40px;
     display: flex;
@@ -33,11 +34,11 @@
     margin-right: 20px; */
 }
 
-#update{
+#update {
     color: white;
 }
 
-.messagediv{
+.messagediv {
     height: 40px;
     width: 40px;
     display: flex;
@@ -47,19 +48,19 @@
     padding-left: 40px;
     /* background-color: rgb(140, 137, 137,0.5);
     border-radius: 50%; */
-   
-    
+
+
 }
 
-#message{
+#message {
     color: white;
 }
 
-.logouser{
+.logouser {
     height: 50px;
     width: 150px;
     /* background-color: rgb(217, 110, 110); */
-    background-color: rgb(140, 137, 137,0.5);
+    background-color: rgb(140, 137, 137, 0.5);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -67,13 +68,13 @@
     font-weight: 600;
     font-size: 15px;
     cursor: pointer;
-    
+
     color: white;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
     margin-right: 75vw;
 }
 
-.logoutdiv{
+.logoutdiv {
     color: white;
     padding-left: 40px;
     cursor: pointer;
@@ -81,39 +82,43 @@
 
 
 
-.bodyuser{
-     width: 100vw;
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
+.bodyuser {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
 }
-.Details{
+
+.Details {
     display: flex;
     margin-top: 30px;
-   justify-content: space-evenly;
+    justify-content: space-evenly;
     width: 80vw;
 
 }
-.Name{
+
+.Name {
     display: flex;
 }
-#Id{
+
+#Id {
     display: flex;
 }
-.Nametext{
+
+.Nametext {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight:500;
+    font-weight: 500;
     font-size: 20px;
     font-family: 'Raleway', sans-serif;
     padding-right: 5px;
     color: white;
 }
 
-.Namebox{
+.Namebox {
     height: 43px;
     width: 30vw;
     /* background-color: rgb(221, 219, 219); */
@@ -122,50 +127,53 @@
     backdrop-filter: blur(12px);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
     border-radius: 10px;
-    
+
 }
 
-.blocksuser{
+.blocksuser {
     margin-top: 30px;
     display: grid;
-    grid-row-gap:45px;
-    grid-column-gap:45px ;
+    grid-row-gap: 45px;
+    grid-column-gap: 45px;
     grid-template-columns: auto auto;
 }
 
-.Box{
+.Box {
     /* background-color: rgb(221, 219, 219); */
-    background-color: rgb(140, 137, 137,0.5);
+    background-color: rgb(140, 137, 137, 0.5);
     height: 200px;
     width: 33vw;
     border-radius: 10px;
-    
+
     backdrop-filter: blur(12px);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
 }
 
-.Box1 ul li{
+.Box1 ul li {
     font-size: 19px;
     color: white;
     list-style-type: none;
 }
-.Box1{
+
+.Box1 {
     display: flex;
     align-items: center;
 
 }
 
-.Box2 ul li{
+.Box2 ul li {
     font-size: 19px;
     color: white;
     list-style-type: none;
 }
-.Box2{
+
+.Box2 {
     display: flex;
     align-items: center;
 
 }
-.Box3{
+
+.Box3 {
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -173,11 +181,12 @@
     color: white;
     font-size: 4vw;
 }
-.Box3:hover{
+
+.Box3:hover {
     background-color: rgb(15, 19, 34);
 }
 
-.Box4{
+.Box4 {
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -185,12 +194,13 @@
     color: white;
     font-size: 4vw;
 }
-.Box4:hover{
+
+.Box4:hover {
     background-color: rgb(15, 19, 34);
 }
 
-.notificationuser{
-    position:absolute;
+.notificationuser {
+    position: absolute;
     right: 4.5vw;
     top: 88vh;
     height: 40px;
@@ -199,27 +209,28 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    background-color: rgb(140, 137, 137,0.5);
+    background-color: rgb(140, 137, 137, 0.5);
     border-radius: 5px;
     z-index: -1;
 
 }
-#notiIcon{
+
+#notiIcon {
     color: white;
-    
+
 }
 
-.btn{
+.btn {
     position: absolute;
     right: 4.5vw;
     top: 88vh;
-    background-color: rgb(140, 137, 137,0.5);
+    background-color: rgb(140, 137, 137, 0.5);
     border: none;
 
 }
 
-.to-update{
-    position:absolute;
+.to-update {
+    position: absolute;
     display: flex;
     box-sizing: border-box;
     margin: 17px 0;
@@ -227,7 +238,7 @@
     align-items: center;
     height: 400px;
     width: 400px;
-    background-color: rgb(140, 137, 137,0.5);
+    background-color: rgb(140, 137, 137, 0.5);
     border-radius: 10px;
     backdrop-filter: blur(12px);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
@@ -235,17 +246,17 @@
 
 }
 
-.update{
+.update {
     display: flex;
     align-items: center;
     justify-content: space-between;
     color: white;
-    margin: 4px 0px; 
+    margin: 4px 0px;
     width: 300px;
 }
 
-.submit-update{
-    display:flex;
+.submit-update {
+    display: flex;
     justify-content: center;
     align-items: center;
     background-color: blue;
@@ -258,20 +269,21 @@
 
 }
 
-.close-update{
+.close-update {
     color: white;
     display: flex;
-   width: 100%;
-   box-sizing: content-box;
-   
+    width: 100%;
+    box-sizing: content-box;
+
 
 }
-#cross{
+
+#cross {
     margin-left: 10px;
     margin-top: 4px;
 }
 
-.update input{
+.update input {
     border-radius: 5px;
     outline: none;
     border: none;
