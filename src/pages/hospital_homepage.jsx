@@ -1,33 +1,31 @@
 import React from 'react'
 import './hospital_homepage.css'
-import {testy,testyz} from './testy'
+import { testy, testyz } from './testy'
 import main from '../getname'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import PdfUpload from './pdfupload'
-<<<<<<< HEAD
+
 import Timeline from '../popups/timeline'
 import Reports from '../popups/reports'
 // const { ethers } = require("ethers");
 
-=======
 import { ethers } from 'ethers';
 import { func1 } from '../Get_functions'
 import { InsertReport } from "../Set_function"
 import { Set_User_Data } from "../Set_function"
->>>>>>> 71a0cdd999ef102c60fd6a3e59e5eea1be1fca47
 
 
 function HospitalHomepage() {
-    
+
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   //!!!!!Yaha dekh category me "category" string rahega!!!!!
-  const [category,setCategory]=useState("");
+  const [category, setCategory] = useState("");
   const options = [
     { id: 1, label: 'Daignostic' },
     { id: 2, label: 'Medication/prescriptions' },
-    { id: 3, label: 'Procedural (operations,surgeries,etc)' }, 
+    { id: 3, label: 'Procedural (operations,surgeries,etc)' },
     { id: 4, label: 'Others' },
   ];
 
@@ -37,12 +35,12 @@ function HospitalHomepage() {
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
-  const [addressValue,setaddressValue]=useState('')
+  const [addressValue, setaddressValue] = useState('')
 
-  const handleAddressChange=(event)=> {
+  const handleAddressChange = (event) => {
     setaddressValue(event.target.value);
   };
- //upload dropdown button
+  //upload dropdown button
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
@@ -54,12 +52,12 @@ function HospitalHomepage() {
     setIsOpen(false);
   };
 
-  const disconnectFromMetaMask=()=>{
-     
+  const disconnectFromMetaMask = () => {
+
     navigate('/');
- }
- const [openupload,setopenupload]=useState(false)
- const navigate=useNavigate();
+  }
+  const [openupload, setopenupload] = useState(false)
+  const navigate = useNavigate();
 
   const [Name, setname] = useState("")
   const [Age, setage] = useState("")
@@ -99,107 +97,106 @@ function HospitalHomepage() {
   }
 
   // const { ethers } = require("ethers");
- //latest code
-  
+  //latest code
 
-  const [timelinePop,settimelinePop]=useState(false)
+
+  const [timelinePop, settimelinePop] = useState(false)
   //baki hai reports ki designing....
-  const [reportsPop,setreportsPop]=useState(false)
-  const [user_existence,setuser_existence]=useState(false)
+  const [reportsPop, setreportsPop] = useState(false)
+  const [user_existence, setuser_existence] = useState(false)
 
-  const handleEnter=(event)=>{
-    
-    if(event.key==='Enter')
-    {
+  const handleEnter = (event) => {
+
+    if (event.key === 'Enter') {
       //for checking purpose only
       //here I have to check existence of user and set user_existence
-      
+
       setuser_existence(true)
       console.log("wowoowooowow")
     }
 
   }
-  
+
   return (
     <div id='hospihome'>
-       <div className="navbarhospi">
-          <div className="logohospi">LIFE LEDGER</div>
-          <div className="searchdiv">
-           <i class="fa-solid fa-magnifying-glass" id='searchicon'></i>
-            <input className='searchbar' type="text" placeholder='Search by Id' onChange={handleInputChange} onKeyDown={handleEnter} />
-          </div>
-          <div className='upload' onClick={()=>setopenupload(true)}>
-            <i class="fa-solid fa-circle-plus" id='uploadicon'></i>
-            <span>Upload</span>
-          </div>
-          <div className="logoutdiv" onClick={disconnectFromMetaMask}>
+      <div className="navbarhospi">
+        <div className="logohospi">LIFE LEDGER</div>
+        <div className="searchdiv">
+          <i class="fa-solid fa-magnifying-glass" id='searchicon'></i>
+          <input className='searchbar' type="text" placeholder='Search by Id' onChange={handleInputChange} onKeyDown={handleEnter} />
+        </div>
+        <div className='upload' onClick={() => setopenupload(true)}>
+          <i class="fa-solid fa-circle-plus" id='uploadicon'></i>
+          <span>Upload</span>
+        </div>
+        <div className="logoutdiv" onClick={disconnectFromMetaMask}>
           <i class="fa-solid fa-arrow-right-from-bracket"></i>
-          </div>
-          
-       </div>
-    {/*Here i have to apply a js script which can render with respect to the existence of user
+        </div>
+
+      </div>
+      {/*Here i have to apply a js script which can render with respect to the existence of user
      Kam baccha hai eske bad user existence check karna padega */}
       {/* on search rendering, User Exsistence define kar
        */}
-       
+
 
       <div className="bodyhospi">
         <div className="details">
           <div className="name">
-             <div className="nametext">Name:</div>
-             <div className="namebox"></div>
+            <div className="nametext">Name:</div>
+            <div className="namebox"></div>
           </div>
           <div id="id">
             <div className="nametext">Id:</div>
             <div className="namebox"></div>
           </div>
         </div>
-           
-           {user_existence===true?
-           (
-             <div className="blocksuser">
-               <div className="Box1 Box">
+
+        {user_existence === true ?
+          (
+            <div className="blocksuser">
+              <div className="Box1 Box">
                 <ul>
-                <li>Name: </li>
-                <li>Age: </li>
-                <li>Gender: </li>
-                <li>Contact Info: </li>
+                  <li>Name: </li>
+                  <li>Age: </li>
+                  <li>Gender: </li>
+                  <li>Contact Info: </li>
                 </ul>
 
 
-            </div>
-            <div className="Box2 Box">
-            <ul>
-                <li>Blood group: </li>
-                <li>Allergies: </li>
-                <li>Deficiencies: </li>
-                <li>Chronic Diseases: </li>
-              </ul>
-               
+              </div>
+              <div className="Box2 Box">
+                <ul>
+                  <li>Blood group: </li>
+                  <li>Allergies: </li>
+                  <li>Deficiencies: </li>
+                  <li>Chronic Diseases: </li>
+                </ul>
 
 
+
+              </div>
+              <div className="Box3 Box" onClick={() => setreportsPop(true)}>
+                Reports
+              </div>
+              <div className="Box4 Box" onClick={() => settimelinePop(true)}>
+                Timeline
+              </div>
+              <Timeline trigger={timelinePop} setTrigger={settimelinePop} />
+              <Reports trigger={reportsPop} setTrigger={setreportsPop} />
             </div>
-            <div className="Box3 Box" onClick={()=>setreportsPop(true)}>
-              Reports
-            </div>
-            <div className="Box4 Box" onClick={()=> settimelinePop(true)}>
-                   Timeline 
-            </div>
-            <Timeline trigger={timelinePop} setTrigger={settimelinePop}/>
-            <Reports trigger={reportsPop} setTrigger={setreportsPop}/>
-           </div>
-           )
-           :
-           (
+          )
+          :
+          (
             <div className="blockshospi">
-            <div className="box1 box"></div>
-            <div className="box2 box"></div>
-            <div className="box3 box"></div>
-            <div className="box4 box"></div>
+              <div className="box1 box"></div>
+              <div className="box2 box"></div>
+              <div className="box3 box"></div>
+              <div className="box4 box"></div>
             </div>
 
-           )}
-           {/* <div className="blockshospi">
+          )}
+        {/* <div className="blockshospi">
             <div className="box1 box"></div>
             <div className="box2 box"></div>
             <div className="box3 box"></div>
@@ -207,38 +204,38 @@ function HospitalHomepage() {
           </div> */}
       </div>
       <div className="notificationhospi" onClick={main}>
-      <i class="fa-solid fa-bars fa-2x" id='notiicon' ></i>
+        <i class="fa-solid fa-bars fa-2x" id='notiicon' ></i>
       </div>
 
-    {openupload===true?(<div id="uploadpop">
-          <div className="close-upload" onClick={()=>setopenupload(false)}>
+      {openupload === true ? (<div id="uploadpop">
+        <div className="close-upload" onClick={() => setopenupload(false)}>
           <i class="fa-solid fa-xmark"></i>
-          </div>
-         <div className="addressdiv">
+        </div>
+        <div className="addressdiv">
           <input type="text" className='type-address' placeholder='Address' onChange={handleAddressChange} />
-         </div>
-         <button className="dropdown-toggle" onClick={toggleDropdown}>
-           {selectedOption ? selectedOption.label : 'Select an option'}
-         </button>
+        </div>
+        <button className="dropdown-toggle" onClick={toggleDropdown}>
+          {selectedOption ? selectedOption.label : 'Select an option'}
+        </button>
         {isOpen && (
-        <div className="dropdown-menu">
-          {options.map(option => (
-             <div
-              key={option.id}
-              className="dropdown-item"
-              onClick={() => handleOptionClick(option)}
+          <div className="dropdown-menu">
+            {options.map(option => (
+              <div
+                key={option.id}
+                className="dropdown-item"
+                onClick={() => handleOptionClick(option)}
               >
-              {option.label}
-            </div>
-             ))}
-            </div>
+                {option.label}
+              </div>
+            ))}
+          </div>
         )}
-         <div className="browse-upload">
-             <PdfUpload/>
-         </div>
-      </div>):""}
-      
-  </div>
+        <div className="browse-upload">
+          <PdfUpload />
+        </div>
+      </div>) : ""}
+
+    </div>
   )
 }
 

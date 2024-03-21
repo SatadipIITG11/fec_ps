@@ -12,7 +12,7 @@ function PdfUpload() {
     try {
       const formData = new FormData();
       formData.append('pdfFile', selectedFile);
-      
+
       // Send the PDF file to the backend server
       await axios.post('http://example.com/upload', formData, {
         headers: {
@@ -22,11 +22,11 @@ function PdfUpload() {
 
       // Reset the selected file after successful upload
       setSelectedFile(null);
-      
+
       alert('PDF file uploaded successfully!');
     } catch (error) {
       console.error('Error uploading PDF file:', error);
-    //   alert('Error uploading PDF file. Please try again.');
+      //   alert('Error uploading PDF file. Please try again.');
     }
   };
 

@@ -1,8 +1,8 @@
-export const testy=()=>{
+export const testy = () => {
     console.log("Function is working")
 }
 
-export const testyz=()=>{
+export const testyz = () => {
     console.log("checking twice")
 }
 
