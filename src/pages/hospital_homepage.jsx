@@ -67,6 +67,7 @@ function HospitalHomepage() {
   const [Allergy, setallergy] = useState("")
   const [Deficy, setdeficy] = useState("")
   const [Chronic, setchronic] = useState("")
+  const [Meta_ID, setID] = useState("")
 
   const fetch_data = async (User_Address) => {
     // const provider = new ethers.BrowserProvider(window.ethereum);
@@ -85,6 +86,7 @@ function HospitalHomepage() {
     setallergy(name2[5])
     setdeficy(name2[6])
     setchronic(name2[7])
+    setID(walletAddress)
   }
 
   const Set_Data = async (User_Address, Blood, Allergy, Deficy, Chronic) => {
@@ -145,11 +147,11 @@ function HospitalHomepage() {
         <div className="details">
           <div className="name">
             <div className="nametext">Name:</div>
-            <div className="namebox"></div>
+            <div className="namebox"> {Name} </div>
           </div>
           <div id="id">
             <div className="nametext">Id:</div>
-            <div className="namebox"></div>
+            <div className="namebox"> {Meta_ID} </div>
           </div>
         </div>
 

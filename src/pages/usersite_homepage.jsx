@@ -57,6 +57,7 @@ function UsersiteHomepage() {
   const [Allergy, setallergy] = useState("")
   const [Deficy, setdeficy] = useState("")
   const [Chronic, setchronic] = useState("")
+  const [Meta_ID, setID] = useState("")
 
   const updateBio = () => {
     // setname(name)
@@ -92,6 +93,7 @@ function UsersiteHomepage() {
     setallergy(name2[5])
     setdeficy(name2[6])
     setchronic(name2[7])
+    setID(walletAddress)
   }
 
   useEffect(() => {
@@ -140,8 +142,8 @@ function UsersiteHomepage() {
             <div className="Namebox"> {Name} </div>
           </div>
           <div id="Id">
-            <div className="Nametext">Id:</div>
-            <div className="Namebox"></div>
+            <div className="Nametext">Id: </div>
+            <div className="Namebox"> {Meta_ID} </div>
           </div>
         </div>
         <div className="blocksuser">
