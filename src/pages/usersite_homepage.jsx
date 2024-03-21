@@ -136,8 +136,8 @@ function UsersiteHomepage() {
       <div className="bodyuser">
         <div className="Details">
           <div className="Name">
-            <div className="Nametext">Name:</div>
-            <div className="Namebox"></div>
+            <div className="Nametext">Name: </div>
+            <div className="Namebox"> {Name} </div>
           </div>
           <div id="Id">
             <div className="Nametext">Id:</div>

@@ -5,10 +5,9 @@ import main from '../getname'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import PdfUpload from './pdfupload'
-  
-import Timeline from '../popups/timeline'
-import Reports from '../popups/reports' 
 
+import Timeline from '../popups/timeline'
+import Reports from '../popups/reports'
 // const { ethers } = require("ethers");
 
 import { ethers } from 'ethers';
@@ -72,7 +71,7 @@ function HospitalHomepage() {
   const fetch_data = async (User_Address) => {
     // const provider = new ethers.BrowserProvider(window.ethereum);
     // const signer = await provider.getSigner();
-    let walletAddress = User_Address;
+    let walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE";
     let name2 = await func1(walletAddress)
     // func_get_reports(walletAddress)
     // SetAge(walletAddress)
@@ -110,8 +109,9 @@ function HospitalHomepage() {
 
     if (event.key === 'Enter') {
       //for checking purpose only
-      //here I have to check existence of user and set user_existence after hospital user enters the search div
-      
+      //here I have to check existence of user and set user_existence
+      fetch_data(event.target.value)
+      // console.log(event.target.value)
       setuser_existence(true)
       console.log("wowoowooowow")
     }
@@ -158,20 +158,20 @@ function HospitalHomepage() {
             <div className="blocksuser">
               <div className="Box1 Box">
                 <ul>
-                  <li>Name: </li>
-                  <li>Age: </li>
-                  <li>Gender: </li>
-                  <li>Contact Info: </li>
+                  <li>Name: {Name}</li>
+                  <li>Age: {Age}</li>
+                  <li>Gender: {Gender}</li>
+                  <li>Contact Info: {Contact}</li>
                 </ul>
 
 
               </div>
               <div className="Box2 Box">
                 <ul>
-                  <li>Blood group: </li>
-                  <li>Allergies: </li>
-                  <li>Deficiencies: </li>
-                  <li>Chronic Diseases: </li>
+                  <li>Blood group: {Blood}</li>
+                  <li>Allergies: {Allergy}</li>
+                  <li>Deficiencies: {Deficy}</li>
+                  <li>Chronic Diseases: {Chronic}</li>
                 </ul>
 
 
