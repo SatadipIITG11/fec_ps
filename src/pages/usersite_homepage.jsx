@@ -48,7 +48,7 @@ function UsersiteHomepage() {
 
   //update biodata section
 
-  let name, age, gender, contact, blood, allergy, deficy, chronic
+  let name, age, gender, contact, blood, allergy, deficy, chronic;
   const [Name, setname] = useState("")
   const [Age, setage] = useState("")
   const [Gender, setgender] = useState("")
@@ -215,7 +215,7 @@ function UsersiteHomepage() {
           <span>Contact Info:</span>
           <input type="text" onChange={(e) => { contact = e.target.value }} />
         </div>
-        <div className="update update-bloodgroup">
+        {/* <div className="update update-bloodgroup">
           <span>Blood group:</span>
           <input type="text" onChange={(e) => { blood = e.target.value }} />
         </div>
@@ -230,7 +230,7 @@ function UsersiteHomepage() {
         <div className="update update-chronic">
           <span>Chronic Dieases:</span>
           <input type="text" onChange={(e) => { chronic = e.target.value }} />
-        </div>
+        </div> */}
         <div className="submit-update" onClick={updateBio}>
           SUBMIT
         </div>
