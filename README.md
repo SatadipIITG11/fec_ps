@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# LifeLedger
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+We propose a unified health ledger which helps store their medical history and all sensitive medical data on a decentralized peer to peer network(IPFS) and can be accessed only through metadata stored on blockchain with the permission of the patient. We  introduce a website for our product. 
 
-## Available Scripts
+## Use of blockchain
+Data breaches: Data stored on a blockchain is immutable, meaning once recorded, it cannot be altered or deleted. This feature prevents unauthorized tampering with patient record Permissioned Access: Blockchain networks can implement permissioned access controls, where only authorized parties are granted access to sensitive patient information. 
+Consolidation: Blockchain-based health ledgers facilitate secure and efficient sharing of health data between hospital chains while ensuring patient privacy and consent.
+During emergency situations, doctors can quickly access a patient's comprehensive medical history, including past diagnoses, treatments, allergies, and medications. The unified health ledger ensures that patient records are up-to-date, accurate, and complete
+Immutability ensures that data , pnce uploaded cannot be manipulated by any unauthorized individual or entity.
 
-In the project directory, you can run:
+# Future Updates
+* Will add medical chatbot
+* Use Aadhar card for linkage
+* GPS integration to allow info access to nearby hospitals
 
-### `npm start`
+# Tech Stack
+Blockchain: Solidity
+Front-End: HTML,CSS,ReactJS
+Back-End: IPFS, Firebase
+Framework: Flask
+Others: Ether.js
+CryptoWallet: Metamask
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
+## Patient side:   
+*Patient will login via metamask id.
+*Once logged in,the patient can view and modify his general info.Medical reports can be viewed in chronological order on the timeline tab.
+*The patient can also grant updation access to hospitals.  
 
-### `npm test`
+## Hospital side:
+*Hospital will also login via metamask id.
+*The hospital can search the patient using the search bar.
+*Emergency info and general info will be visible.
+*Medical reports however will require user permission for updation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Installation
+* npm install react
+* npm install
+* npm start
