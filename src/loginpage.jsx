@@ -110,6 +110,11 @@ function Loginpage() {
         <button type="button" className="metamask" id='connectWallet' value="Connect Wallet" onClick={connectWalletHandler}>  
          Continue with Metamask
        </button>
+       
+       <p className="dontregis">
+          Don't have an Account?
+            <a className='register' href='#'>Register</a>
+        </p> 
 
        
 

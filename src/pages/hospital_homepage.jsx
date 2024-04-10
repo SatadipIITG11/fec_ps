@@ -144,11 +144,11 @@ function HospitalHomepage() {
       <div className="bodyhospi">
         <div className="details">
           <div className="name">
-            <div className="nametext">Name:</div>
-            <div className="namebox"></div>
+            <div className="nametext">Name: </div>
+            <div className="namebox">{Name}</div>
           </div>
           <div id="id">
-            <div className="nametext">Id:</div>
+            <div className="nametext">Id: </div>
             <div className="namebox"></div>
           </div>
         </div>

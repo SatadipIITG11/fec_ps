@@ -57,7 +57,7 @@
     /* background-color: rgb(31, 31, 52); */
     align-items: center;
     width:100%;
-    height: 200px;
+    height: 210px;
     gap: 10px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius:20px ;
@@ -68,6 +68,14 @@
 
     box-shadow: 0 0 15px rgba(255, 250, 250, 0.07);
 
+}
+
+.dontregis{
+    color: white;
+}
+
+.register{
+    padding: 4px;
 }
 
 .tabs{
