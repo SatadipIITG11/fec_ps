@@ -48,7 +48,7 @@ function UsersiteHomepage() {
 
   //update biodata section
 
-  let name, age, gender, contact, blood, allergy, deficy, chronic
+  let name, age, gender, contact, blood, allergy, deficy, chronic;
   const [Name, setname] = useState("")
   const [Age, setage] = useState("")
   const [Gender, setgender] = useState("")
@@ -57,6 +57,7 @@ function UsersiteHomepage() {
   const [Allergy, setallergy] = useState("")
   const [Deficy, setdeficy] = useState("")
   const [Chronic, setchronic] = useState("")
+  const [Meta_ID, setID] = useState("")
 
   const updateBio = () => {
     // setname(name)
@@ -92,6 +93,7 @@ function UsersiteHomepage() {
     setallergy(name2[5])
     setdeficy(name2[6])
     setchronic(name2[7])
+    setID(walletAddress)
   }
 
   useEffect(() => {
@@ -137,11 +139,11 @@ function UsersiteHomepage() {
         <div className="Details">
           <div className="Name">
             <div className="Nametext">Name: </div>
-            <div className="Namebox">SHASHHSHS </div>
+            <div className="Namebox"> {Name} </div>
           </div>
           <div id="Id">
-            <div className="Nametext">Id:</div>
-            <div className="Namebox"></div>
+            <div className="Nametext">Id: </div>
+            <div className="Namebox"> {Meta_ID} </div>
           </div>
         </div>
         <div className="blocksuser">
@@ -213,7 +215,7 @@ function UsersiteHomepage() {
           <span>Contact Info:</span>
           <input type="text" onChange={(e) => { contact = e.target.value }} />
         </div>
-        <div className="update update-bloodgroup">
+        {/* <div className="update update-bloodgroup">
           <span>Blood group:</span>
           <input type="text" onChange={(e) => { blood = e.target.value }} />
         </div>
@@ -228,7 +230,7 @@ function UsersiteHomepage() {
         <div className="update update-chronic">
           <span>Chronic Dieases:</span>
           <input type="text" onChange={(e) => { chronic = e.target.value }} />
-        </div>
+        </div> */}
         <div className="submit-update" onClick={updateBio}>
           SUBMIT
         </div>

@@ -5,17 +5,16 @@ import main from '../getname'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import PdfUpload from './pdfupload'
-  
-import Timeline from '../popups/timeline'
-import Reports from '../popups/reports' 
 
+import Timeline from '../popups/timeline'
+import Reports from '../popups/reports'
 // const { ethers } = require("ethers");
 
 import { ethers } from 'ethers';
 import { func1 } from '../Get_functions'
 import { InsertReport } from "../Set_function"
 import { Set_User_Data } from "../Set_function"
-
+let name,age,gender,contact,blood,allergy,deficy,chronic;
 
 function HospitalHomepage() {
 
@@ -57,7 +56,8 @@ function HospitalHomepage() {
 
     navigate('/');
   }
-  const [openupload, setopenupload] = useState(false)
+  const [openupload, setopenupload] = useState(false);
+  const [openUpdate,setopenUpdate]=useState(false);
   const navigate = useNavigate();
 
   const [Name, setname] = useState("")
@@ -68,11 +68,12 @@ function HospitalHomepage() {
   const [Allergy, setallergy] = useState("")
   const [Deficy, setdeficy] = useState("")
   const [Chronic, setchronic] = useState("")
+  const [Meta_ID, setID] = useState("")
 
   const fetch_data = async (User_Address) => {
     // const provider = new ethers.BrowserProvider(window.ethereum);
     // const signer = await provider.getSigner();
-    let walletAddress = User_Address;
+    let walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE";
     let name2 = await func1(walletAddress)
     // func_get_reports(walletAddress)
     // SetAge(walletAddress)
@@ -86,6 +87,22 @@ function HospitalHomepage() {
     setallergy(name2[5])
     setdeficy(name2[6])
     setchronic(name2[7])
+    setID(walletAddress)
+  }
+  const updateBio=()=>{
+    // setname(name)
+    // setage(age)
+    // setgender(gender)
+    // setcontact(contact)
+    setblood(blood)
+    setallergy(allergy)
+    setdeficy(deficy)
+    setchronic(chronic)
+    setopenUpdate(false)
+    console.log("wow1");
+    Set_Data(blood, allergy,deficy, chronic);
+    // fetch_data();
+    console.log("wow2");
   }
 
   const Set_Data = async (User_Address, Blood, Allergy, Deficy, Chronic) => {
@@ -110,8 +127,9 @@ function HospitalHomepage() {
 
     if (event.key === 'Enter') {
       //for checking purpose only
-      //here I have to check existence of user and set user_existence after hospital user enters the search div
-      
+      //here I have to check existence of user and set user_existence
+      fetch_data(event.target.value)
+      // console.log(event.target.value)
       setuser_existence(true)
       console.log("wowoowooowow")
     }
@@ -130,6 +148,9 @@ function HospitalHomepage() {
           <i class="fa-solid fa-circle-plus" id='uploadicon'></i>
           <span>Upload</span>
         </div>
+        <div className='edit'>
+        <div className="updatediv" onClick={()=>setopenUpdate(true)}><i class="fa-solid fa-pen" id='update'></i></div>
+        </div>
         <div className="logoutdiv" onClick={disconnectFromMetaMask}>
           <i class="fa-solid fa-arrow-right-from-bracket"></i>
         </div>
@@ -144,12 +165,12 @@ function HospitalHomepage() {
       <div className="bodyhospi">
         <div className="details">
           <div className="name">
-            <div className="nametext">Name: </div>
-            <div className="namebox">{Name}</div>
+            <div className="nametext">Name:</div>
+            <div className="namebox"> {Name} </div>
           </div>
           <div id="id">
-            <div className="nametext">Id: </div>
-            <div className="namebox"></div>
+            <div className="nametext">Id:</div>
+            <div className="namebox"> {Meta_ID} </div>
           </div>
         </div>
 
@@ -158,20 +179,20 @@ function HospitalHomepage() {
             <div className="blocksuser">
               <div className="Box1 Box">
                 <ul>
-                  <li>Name: </li>
-                  <li>Age: </li>
-                  <li>Gender: </li>
-                  <li>Contact Info: </li>
+                  <li>Name: {Name}</li>
+                  <li>Age: {Age}</li>
+                  <li>Gender: {Gender}</li>
+                  <li>Contact Info: {Contact}</li>
                 </ul>
 
 
               </div>
               <div className="Box2 Box">
                 <ul>
-                  <li>Blood group: </li>
-                  <li>Allergies: </li>
-                  <li>Deficiencies: </li>
-                  <li>Chronic Diseases: </li>
+                  <li>Blood group: {Blood}</li>
+                  <li>Allergies: {Allergy}</li>
+                  <li>Deficiencies: {Deficy}</li>
+                  <li>Chronic Diseases: {Chronic}</li>
                 </ul>
 
 
@@ -235,8 +256,50 @@ function HospitalHomepage() {
           <PdfUpload />
         </div>
       </div>) : ""}
+      { openUpdate===true?(<div className="to-update">
+    <div className="close-update">
+    <i class="fa-solid fa-xmark" id='cross' onClick={()=>setopenUpdate(false)}></i>
+    </div>
+     {/* <div className="update update-name">
+       <span>Name:</span>
+       <input type="text" onChange={(e)=>{name=e.target.value}}/>
+     </div>
+     <div className="update update-age">
+     <span>Age:</span>
+     <input type="text" onChange={(e)=>{age=e.target.value}} />
+     </div>
+     <div className="update update-gender">
+     <span>Gender:</span>
+     <input type="text" onChange={(e)=>{gender=e.target.value}} />
+     </div>
+     <div className="update update-contact-info">
+     <span>Contact Info:</span>
+     <input type="text" onChange={(e)=>{contact=e.target.value}} />
+     </div> */}
+     <div className="update update-bloodgroup">
+     <span>Blood group:</span>
+     <input type="text" onChange={(e)=>{blood=e.target.value}} />
+     </div>
+     <div className="update update-allergies">
+     <span>Allergies:</span>
+     <input type="text" onChange={(e)=>{allergy=e.target.value}}/>
+     </div>
+     <div className="update update-deficiencies">
+     <span>Deficiencies:</span>
+
+     <input type="text" onChange={(e)=>{deficy=e.target.value}}/>
+     </div>
+     <div className="update update-chronic">
+     <span>Chronic Dieases:</span>
+     <input type="text" onChange={(e)=>{chronic=e.target.value}}/>
+     </div>
+     <div className="submit-update" onClick={updateBio}>
+      SUBMIT
+     </div>
+   </div>):""}
 
     </div>
+    
   )
 }
 
