@@ -14,7 +14,7 @@ import { ethers } from 'ethers';
 import { func1 } from '../Get_functions'
 import { InsertReport } from "../Set_function"
 import { Set_User_Data } from "../Set_function"
-let name,age,gender,contact,blood,allergy,deficy,chronic;
+let name, age, gender, contact, blood, allergy, deficy, chronic;
 
 function HospitalHomepage() {
 
@@ -57,7 +57,7 @@ function HospitalHomepage() {
     navigate('/');
   }
   const [openupload, setopenupload] = useState(false);
-  const [openUpdate,setopenUpdate]=useState(false);
+  const [openUpdate, setopenUpdate] = useState(false);
   const navigate = useNavigate();
 
   const [Name, setname] = useState("")
@@ -89,27 +89,27 @@ function HospitalHomepage() {
     setchronic(name2[7])
     setID(walletAddress)
   }
-  const updateBio=()=>{
+  const updateBio = () => {
     // setname(name)
     // setage(age)
     // setgender(gender)
     // setcontact(contact)
-    setblood(blood)
-    setallergy(allergy)
-    setdeficy(deficy)
-    setchronic(chronic)
+    // setblood(blood)
+    // setallergy(allergy)
+    // setdeficy(deficy)
+    // setchronic(chronic)
     setopenUpdate(false)
     console.log("wow1");
-    Set_Data(blood, allergy,deficy, chronic);
+    Set_Data(blood, allergy, deficy, chronic); // User addresss store karna hai yahan
     // fetch_data();
     console.log("wow2");
   }
 
-  const Set_Data = async (User_Address, Blood, Allergy, Deficy, Chronic) => {
+  const Set_Data = async (Blood, Allergy, Deficy, Chronic) => {
     // const provider = new ethers.BrowserProvider(window.ethereum);
     // const signer = await provider.getSigner();
     // let walletAddress = await signer.getAddress();
-    let walletAddress = User_Address;
+    let walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE";
     // console.log(78)
     Set_User_Data(walletAddress, Blood, Allergy, Deficy, Chronic)
   }
@@ -149,7 +149,7 @@ function HospitalHomepage() {
           <span>Upload</span>
         </div>
         <div className='edit'>
-        <div className="updatediv" onClick={()=>setopenUpdate(true)}><i class="fa-solid fa-pen" id='update'></i></div>
+          <div className="updatediv" onClick={() => setopenUpdate(true)}><i class="fa-solid fa-pen" id='update'></i></div>
         </div>
         <div className="logoutdiv" onClick={disconnectFromMetaMask}>
           <i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -256,11 +256,11 @@ function HospitalHomepage() {
           <PdfUpload />
         </div>
       </div>) : ""}
-      { openUpdate===true?(<div className="to-update">
-    <div className="close-update">
-    <i class="fa-solid fa-xmark" id='cross' onClick={()=>setopenUpdate(false)}></i>
-    </div>
-     {/* <div className="update update-name">
+      {openUpdate === true ? (<div className="to-update">
+        <div className="close-update">
+          <i class="fa-solid fa-xmark" id='cross' onClick={() => setopenUpdate(false)}></i>
+        </div>
+        {/* <div className="update update-name">
        <span>Name:</span>
        <input type="text" onChange={(e)=>{name=e.target.value}}/>
      </div>
@@ -276,30 +276,30 @@ function HospitalHomepage() {
      <span>Contact Info:</span>
      <input type="text" onChange={(e)=>{contact=e.target.value}} />
      </div> */}
-     <div className="update update-bloodgroup">
-     <span>Blood group:</span>
-     <input type="text" onChange={(e)=>{blood=e.target.value}} />
-     </div>
-     <div className="update update-allergies">
-     <span>Allergies:</span>
-     <input type="text" onChange={(e)=>{allergy=e.target.value}}/>
-     </div>
-     <div className="update update-deficiencies">
-     <span>Deficiencies:</span>
+        <div className="update update-bloodgroup">
+          <span>Blood group:</span>
+          <input type="text" onChange={(e) => { blood = e.target.value }} />
+        </div>
+        <div className="update update-allergies">
+          <span>Allergies:</span>
+          <input type="text" onChange={(e) => { allergy = e.target.value }} />
+        </div>
+        <div className="update update-deficiencies">
+          <span>Deficiencies:</span>
 
-     <input type="text" onChange={(e)=>{deficy=e.target.value}}/>
-     </div>
-     <div className="update update-chronic">
-     <span>Chronic Dieases:</span>
-     <input type="text" onChange={(e)=>{chronic=e.target.value}}/>
-     </div>
-     <div className="submit-update" onClick={updateBio}>
-      SUBMIT
-     </div>
-   </div>):""}
+          <input type="text" onChange={(e) => { deficy = e.target.value }} />
+        </div>
+        <div className="update update-chronic">
+          <span>Chronic Dieases:</span>
+          <input type="text" onChange={(e) => { chronic = e.target.value }} />
+        </div>
+        <div className="submit-update" onClick={updateBio}>
+          SUBMIT
+        </div>
+      </div>) : ""}
 
     </div>
-    
+
   )
 }
 
