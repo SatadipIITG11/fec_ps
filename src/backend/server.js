@@ -140,17 +140,24 @@ app.post("/", (req,res) => {
             // res.status(500).json({error :'could not'})
             console.log("error")
         })
-    
-
-
-
-
-
-
-
     }
-
-    
+   
     // res.json(obj );
 })
 
+app.get("/get_registered_users", (req,res) => {
+    let registered_users = [];
+    db.collection('registered_users')
+        .find()
+        .forEach(user => registered_users.push(user._id))
+        .then( () =>{
+            res.status(200).json(registered_users);
+            
+        })
+        .catch((e)=>{
+            res.status(500).json("error:",e);
+        }
+            
+        )
+
+})

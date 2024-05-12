@@ -18,7 +18,42 @@ let name, age, gender, contact, blood, allergy, deficy, chronic;
 
 
 
+
 function HospitalHomepage() {
+
+  
+  const [registeredUsers,setRegisteredUsers] = useState([]);
+// useEffect ( ()=>{console.log(registeredUsers) } ,  registeredUsers );
+
+useEffect ( ()=> 
+{
+
+fetch ('http://localhost:3000/get_registered_users'
+//  , {
+//   method : 'GET' ,
+//   headers : {
+//     'Content-Type':'application/json'
+//   },
+//   body: JSON.stringify(postData)
+// }
+)
+// .then(()=>{
+//   console.log("doing")
+// })
+.then(response => response.json())
+.then((data)=>{
+    // console.log('success:',data )
+    setRegisteredUsers(data );
+    console.log(registeredUsers);
+}).then(()=>{
+  // console.log(registeredUsers);
+})
+.catch((e)=>{
+  console.log("error:",e)
+})
+
+} , [])
+
 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
