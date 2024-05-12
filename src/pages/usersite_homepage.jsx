@@ -84,18 +84,18 @@ function UsersiteHomepage() {
     // func_get_reports(walletAddress)
     // SetAge(walletAddress)
     console.log(name2);
-    setname(name2[0])
+    setname(name2[0][0])
     // console.log(name2[1])
-    setage(name2[1])
-    setgender(name2[2])
-    setcontact(name2[3])
-    setblood(name2[4])
-    setallergy(name2[5])
-    setdeficy(name2[6])
-    setchronic(name2[7])
+    setage(Number(name2[0][1]))
+    setgender(name2[0][2])
+    setcontact(Number(name2[0][3]))
+    setblood(name2[1][0])
+    setallergy(name2[1][1])
+    setdeficy(name2[1][2])
+    setchronic(name2[1][3])
     setID(walletAddress)
 
-    
+
   }
 
   useEffect(() => {

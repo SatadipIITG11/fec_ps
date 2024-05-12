@@ -21,38 +21,37 @@ let name, age, gender, contact, blood, allergy, deficy, chronic;
 
 function HospitalHomepage() {
 
-  
-  const [registeredUsers,setRegisteredUsers] = useState([]);
-// useEffect ( ()=>{console.log(registeredUsers) } ,  registeredUsers );
 
-useEffect ( ()=> 
-{
+  const [registeredUsers, setRegisteredUsers] = useState([]);
+  // useEffect ( ()=>{console.log(registeredUsers) } ,  registeredUsers );
 
-fetch ('http://localhost:3000/get_registered_users'
-//  , {
-//   method : 'GET' ,
-//   headers : {
-//     'Content-Type':'application/json'
-//   },
-//   body: JSON.stringify(postData)
-// }
-)
-// .then(()=>{
-//   console.log("doing")
-// })
-.then(response => response.json())
-.then((data)=>{
-    // console.log('success:',data )
-    setRegisteredUsers(data );
-    console.log(registeredUsers);
-}).then(()=>{
-  // console.log(registeredUsers);
-})
-.catch((e)=>{
-  console.log("error:",e)
-})
+  useEffect(() => {
 
-} , [])
+    fetch('http://localhost:3000/get_registered_users'
+      //  , {
+      //   method : 'GET' ,
+      //   headers : {
+      //     'Content-Type':'application/json'
+      //   },
+      //   body: JSON.stringify(postData)
+      // }
+    )
+      // .then(()=>{
+      //   console.log("doing")
+      // })
+      .then(response => response.json())
+      .then((data) => {
+        // console.log('success:',data )
+        setRegisteredUsers(data);
+        console.log(registeredUsers);
+      }).then(() => {
+        // console.log(registeredUsers);
+      })
+      .catch((e) => {
+        console.log("error:", e)
+      })
+
+  }, [])
 
 
   const [isOpen, setIsOpen] = useState(false);
@@ -108,22 +107,20 @@ fetch ('http://localhost:3000/get_registered_users'
   const [Meta_ID, setID] = useState("")
 
   const fetch_data = async (User_Address) => {
-    // const provider = new ethers.BrowserProvider(window.ethereum);
-    // const signer = await provider.getSigner();
-    let walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE";
+    let walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE"
     let name2 = await func1(walletAddress)
     // func_get_reports(walletAddress)
     // SetAge(walletAddress)
     console.log(name2);
-    setname(name2[0])
+    setname(name2[0][0])
     // console.log(name2[1])
-    setage(name2[1])
-    setgender(name2[2])
-    setcontact(name2[3])
-    setblood(name2[4])
-    setallergy(name2[5])
-    setdeficy(name2[6])
-    setchronic(name2[7])
+    setage(Number(name2[0][1]))
+    setgender(name2[0][2])
+    setcontact(Number(name2[0][3]))
+    setblood(name2[1][0])
+    setallergy(name2[1][1])
+    setdeficy(name2[1][2])
+    setchronic(name2[1][3])
     setID(walletAddress)
   }
   const updateBio = () => {

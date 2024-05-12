@@ -25,194 +25,6 @@ export async function func1(metamaskID) {
 						"internalType": "address",
 						"name": "patient",
 						"type": "address"
-					}
-				],
-				"name": "getReports",
-				"outputs": [
-					{
-						"components": [
-							{
-								"internalType": "string",
-								"name": "cID",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "timeStamp",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "category",
-								"type": "string"
-							}
-						],
-						"internalType": "struct demo.report[4]",
-						"name": "",
-						"type": "tuple[4]"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "patient",
-						"type": "address"
-					}
-				],
-				"name": "get_Allergies",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "patient",
-						"type": "address"
-					}
-				],
-				"name": "get_ChronicDiseases",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "patient",
-						"type": "address"
-					}
-				],
-				"name": "get_Deficiencies",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "patient",
-						"type": "address"
-					}
-				],
-				"name": "get_age",
-				"outputs": [
-					{
-						"internalType": "int256",
-						"name": "",
-						"type": "int256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "patient",
-						"type": "address"
-					}
-				],
-				"name": "get_blood_group",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "patient",
-						"type": "address"
-					}
-				],
-				"name": "get_contactnumber",
-				"outputs": [
-					{
-						"internalType": "int256",
-						"name": "",
-						"type": "int256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "patient",
-						"type": "address"
-					}
-				],
-				"name": "get_gender",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "patient",
-						"type": "address"
-					}
-				],
-				"name": "get_name",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "patient",
-						"type": "address"
 					},
 					{
 						"internalType": "string",
@@ -233,60 +45,6 @@ export async function func1(metamaskID) {
 				"name": "insertReport",
 				"outputs": [],
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "map",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "patientName",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "gender",
-						"type": "string"
-					},
-					{
-						"internalType": "int256",
-						"name": "age",
-						"type": "int256"
-					},
-					{
-						"internalType": "int256",
-						"name": "contactNumber",
-						"type": "int256"
-					},
-					{
-						"internalType": "string",
-						"name": "bloodType",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "allergies",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "deficiencies",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "chronicDiseases",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -431,6 +189,157 @@ export async function func1(metamaskID) {
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "patient",
+						"type": "address"
+					}
+				],
+				"name": "get_emergency_data",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "patient",
+						"type": "address"
+					}
+				],
+				"name": "get_general_data",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "patient",
+						"type": "address"
+					}
+				],
+				"name": "getReports",
+				"outputs": [
+					{
+						"internalType": "string[]",
+						"name": "",
+						"type": "string[]"
+					},
+					{
+						"internalType": "string[]",
+						"name": "",
+						"type": "string[]"
+					},
+					{
+						"internalType": "string[]",
+						"name": "",
+						"type": "string[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "map",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "patientName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "gender",
+						"type": "string"
+					},
+					{
+						"internalType": "int256",
+						"name": "age",
+						"type": "int256"
+					},
+					{
+						"internalType": "int256",
+						"name": "contactNumber",
+						"type": "int256"
+					},
+					{
+						"internalType": "string",
+						"name": "bloodType",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "allergies",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "deficiencies",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "chronicDiseases",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "",
 						"type": "address"
 					},
@@ -476,26 +385,28 @@ export async function func1(metamaskID) {
 				"type": "function"
 			}
 		] // Your ERC20 ABI definition
-		const address = '0xC40793a2Ac65e9F4DCA05f4e623DF758705b5361';
+		const address = '0x8c3365d9d69190e8BE089F78A0e98a0D0EE8A2a3';
 		// console.log(address)
 		const contract = new ethers.Contract(address, ERC20_ABI, provider);
 
 		try {
 			// const signer = await provider.getSigner();
 			const signerAddress = metamaskID
-			const name2 = await contract.get_name(signerAddress);
-			let gender = await contract.get_gender(signerAddress);
-			let age = await contract.get_age(signerAddress);
-			let contactnumber = await contract.get_contactnumber(signerAddress);
-			let blood_group = await contract.get_blood_group(signerAddress);
-			let Allergies = await contract.get_Allergies(signerAddress);
-			let Deficiencies = await contract.get_Deficiencies(signerAddress);
-			let ChronicDiseases = await contract.get_ChronicDiseases(signerAddress);
-			age = Number(age)
-			contactnumber = Number(contactnumber)
+			// const name2 = await contract.get_name(signerAddress);
+			// let gender = await contract.get_gender(signerAddress);
+			// let age = await contract.get_age(signerAddress);
+			// let contactnumber = await contract.get_contactnumber(signerAddress);
+			// let blood_group = await contract.get_blood_group(signerAddress);
+			// let Allergies = await contract.get_Allergies(signerAddress);
+			// let Deficiencies = await contract.get_Deficiencies(signerAddress);
+			// let ChronicDiseases = await contract.get_ChronicDiseases(signerAddress);
+			// age = Number(age)
+			// contactnumber = Number(contactnumber)
 			// console.log(name);
 			// console.log(Number(age));
-			const y = [name2, age, gender, contactnumber, blood_group, Allergies, Deficiencies, ChronicDiseases];
+			let gen_info = await contract.get_general_data(signerAddress);
+			let em_info = await contract.get_emergency_data(signerAddress);
+			const y = [gen_info, em_info];
 			// console.log(y)
 			return y;
 		} catch (err) {
@@ -522,194 +433,6 @@ export async function func2(metamaskID) {
 						"internalType": "address",
 						"name": "patient",
 						"type": "address"
-					}
-				],
-				"name": "getReports",
-				"outputs": [
-					{
-						"components": [
-							{
-								"internalType": "string",
-								"name": "cID",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "timeStamp",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "category",
-								"type": "string"
-							}
-						],
-						"internalType": "struct demo.report[4]",
-						"name": "",
-						"type": "tuple[4]"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "patient",
-						"type": "address"
-					}
-				],
-				"name": "get_Allergies",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "patient",
-						"type": "address"
-					}
-				],
-				"name": "get_ChronicDiseases",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "patient",
-						"type": "address"
-					}
-				],
-				"name": "get_Deficiencies",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "patient",
-						"type": "address"
-					}
-				],
-				"name": "get_age",
-				"outputs": [
-					{
-						"internalType": "int256",
-						"name": "",
-						"type": "int256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "patient",
-						"type": "address"
-					}
-				],
-				"name": "get_blood_group",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "patient",
-						"type": "address"
-					}
-				],
-				"name": "get_contactnumber",
-				"outputs": [
-					{
-						"internalType": "int256",
-						"name": "",
-						"type": "int256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "patient",
-						"type": "address"
-					}
-				],
-				"name": "get_gender",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "patient",
-						"type": "address"
-					}
-				],
-				"name": "get_name",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "patient",
-						"type": "address"
 					},
 					{
 						"internalType": "string",
@@ -730,60 +453,6 @@ export async function func2(metamaskID) {
 				"name": "insertReport",
 				"outputs": [],
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "map",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "patientName",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "gender",
-						"type": "string"
-					},
-					{
-						"internalType": "int256",
-						"name": "age",
-						"type": "int256"
-					},
-					{
-						"internalType": "int256",
-						"name": "contactNumber",
-						"type": "int256"
-					},
-					{
-						"internalType": "string",
-						"name": "bloodType",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "allergies",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "deficiencies",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "chronicDiseases",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -928,6 +597,157 @@ export async function func2(metamaskID) {
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "patient",
+						"type": "address"
+					}
+				],
+				"name": "get_emergency_data",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "patient",
+						"type": "address"
+					}
+				],
+				"name": "get_general_data",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "patient",
+						"type": "address"
+					}
+				],
+				"name": "getReports",
+				"outputs": [
+					{
+						"internalType": "string[]",
+						"name": "",
+						"type": "string[]"
+					},
+					{
+						"internalType": "string[]",
+						"name": "",
+						"type": "string[]"
+					},
+					{
+						"internalType": "string[]",
+						"name": "",
+						"type": "string[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "map",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "patientName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "gender",
+						"type": "string"
+					},
+					{
+						"internalType": "int256",
+						"name": "age",
+						"type": "int256"
+					},
+					{
+						"internalType": "int256",
+						"name": "contactNumber",
+						"type": "int256"
+					},
+					{
+						"internalType": "string",
+						"name": "bloodType",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "allergies",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "deficiencies",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "chronicDiseases",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "",
 						"type": "address"
 					},
@@ -972,8 +792,8 @@ export async function func2(metamaskID) {
 				"stateMutability": "view",
 				"type": "function"
 			}
-		] // Your ERC20 ABI definition
-		const address = '0xC40793a2Ac65e9F4DCA05f4e623DF758705b5361';
+		]// Your ERC20 ABI definition
+		const address = '0x8c3365d9d69190e8BE089F78A0e98a0D0EE8A2a3';
 		// console.log(address)
 		const contract = new ethers.Contract(address, ERC20_ABI, provider);
 

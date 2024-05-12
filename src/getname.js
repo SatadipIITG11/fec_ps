@@ -15,72 +15,18 @@ const main = async () => {
 				},
 				{
 					"internalType": "string",
-					"name": "allergy",
-					"type": "string"
-				}
-			],
-			"name": "add_allergy",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "patient",
-					"type": "address"
-				},
-				{
-					"internalType": "string",
-					"name": "chronicdisease",
-					"type": "string"
-				}
-			],
-			"name": "add_chronicdisease",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "patient",
-					"type": "address"
-				},
-				{
-					"internalType": "string",
-					"name": "deficiency",
-					"type": "string"
-				}
-			],
-			"name": "add_deficiency",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "patient",
-					"type": "address"
-				},
-				{
-					"internalType": "string",
 					"name": "CID",
 					"type": "string"
 				},
 				{
-					"internalType": "bytes32",
+					"internalType": "string",
 					"name": "timeStamp",
-					"type": "bytes32"
+					"type": "string"
 				},
 				{
-					"internalType": "bytes32",
+					"internalType": "string",
 					"name": "category",
-					"type": "bytes32"
+					"type": "string"
 				}
 			],
 			"name": "insertReport",
@@ -168,66 +114,27 @@ const main = async () => {
 					"type": "address"
 				},
 				{
-					"internalType": "uint8",
-					"name": "_age",
-					"type": "uint8"
-				}
-			],
-			"name": "set_age",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "patient",
-					"type": "address"
-				},
-				{
-					"internalType": "bytes32",
+					"internalType": "string",
 					"name": "_Blood_Type",
-					"type": "bytes32"
-				}
-			],
-			"name": "set_blood_type",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "patient",
-					"type": "address"
+					"type": "string"
 				},
 				{
-					"internalType": "uint40",
-					"name": "_number",
-					"type": "uint40"
-				}
-			],
-			"name": "set_contactnumber",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "patient",
-					"type": "address"
+					"internalType": "string",
+					"name": "allergy",
+					"type": "string"
 				},
 				{
-					"internalType": "bytes32",
-					"name": "_gender",
-					"type": "bytes32"
+					"internalType": "string",
+					"name": "deficiency",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "chronicdisease",
+					"type": "string"
 				}
 			],
-			"name": "set_gender",
+			"name": "set_emergency_info",
 			"outputs": [],
 			"stateMutability": "nonpayable",
 			"type": "function"
@@ -243,9 +150,24 @@ const main = async () => {
 					"internalType": "string",
 					"name": "_patient_Name",
 					"type": "string"
+				},
+				{
+					"internalType": "int256",
+					"name": "_age",
+					"type": "int256"
+				},
+				{
+					"internalType": "string",
+					"name": "_gender",
+					"type": "string"
+				},
+				{
+					"internalType": "int256",
+					"name": "_number",
+					"type": "int256"
 				}
 			],
-			"name": "set_name",
+			"name": "set_general_info",
 			"outputs": [],
 			"stateMutability": "nonpayable",
 			"type": "function"
@@ -258,145 +180,61 @@ const main = async () => {
 					"type": "address"
 				}
 			],
-			"name": "get_age",
-			"outputs": [
-				{
-					"internalType": "uint8",
-					"name": "",
-					"type": "uint8"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "patient",
-					"type": "address"
-				}
-			],
-			"name": "get_Allergies",
-			"outputs": [
-				{
-					"internalType": "string[]",
-					"name": "",
-					"type": "string[]"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "patient",
-					"type": "address"
-				}
-			],
-			"name": "get_blood_group",
-			"outputs": [
-				{
-					"internalType": "bytes32",
-					"name": "",
-					"type": "bytes32"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "patient",
-					"type": "address"
-				}
-			],
-			"name": "get_ChronicDiseases",
-			"outputs": [
-				{
-					"internalType": "string[]",
-					"name": "",
-					"type": "string[]"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "patient",
-					"type": "address"
-				}
-			],
-			"name": "get_contactnumber",
-			"outputs": [
-				{
-					"internalType": "uint40",
-					"name": "",
-					"type": "uint40"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "patient",
-					"type": "address"
-				}
-			],
-			"name": "get_Deficiencies",
-			"outputs": [
-				{
-					"internalType": "string[]",
-					"name": "",
-					"type": "string[]"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "patient",
-					"type": "address"
-				}
-			],
-			"name": "get_gender",
-			"outputs": [
-				{
-					"internalType": "bytes32",
-					"name": "",
-					"type": "bytes32"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "patient",
-					"type": "address"
-				}
-			],
-			"name": "get_name",
+			"name": "get_emergency_data",
 			"outputs": [
 				{
 					"internalType": "string",
 					"name": "",
 					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "patient",
+					"type": "address"
+				}
+			],
+			"name": "get_general_data",
+			"outputs": [
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				},
+				{
+					"internalType": "int256",
+					"name": "",
+					"type": "int256"
+				},
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				},
+				{
+					"internalType": "int256",
+					"name": "",
+					"type": "int256"
 				}
 			],
 			"stateMutability": "view",
@@ -413,26 +251,19 @@ const main = async () => {
 			"name": "getReports",
 			"outputs": [
 				{
-					"components": [
-						{
-							"internalType": "string",
-							"name": "cID",
-							"type": "string"
-						},
-						{
-							"internalType": "bytes32",
-							"name": "timeStamp",
-							"type": "bytes32"
-						},
-						{
-							"internalType": "bytes32",
-							"name": "category",
-							"type": "bytes32"
-						}
-					],
-					"internalType": "struct demo.report[]",
+					"internalType": "string[]",
 					"name": "",
-					"type": "tuple[]"
+					"type": "string[]"
+				},
+				{
+					"internalType": "string[]",
+					"name": "",
+					"type": "string[]"
+				},
+				{
+					"internalType": "string[]",
+					"name": "",
+					"type": "string[]"
 				}
 			],
 			"stateMutability": "view",
@@ -454,24 +285,39 @@ const main = async () => {
 					"type": "string"
 				},
 				{
-					"internalType": "bytes32",
+					"internalType": "string",
 					"name": "gender",
-					"type": "bytes32"
+					"type": "string"
 				},
 				{
-					"internalType": "uint8",
+					"internalType": "int256",
 					"name": "age",
-					"type": "uint8"
+					"type": "int256"
 				},
 				{
-					"internalType": "uint40",
+					"internalType": "int256",
 					"name": "contactNumber",
-					"type": "uint40"
+					"type": "int256"
 				},
 				{
-					"internalType": "bytes32",
+					"internalType": "string",
 					"name": "bloodType",
-					"type": "bytes32"
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "allergies",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "deficiencies",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "chronicDiseases",
+					"type": "string"
 				}
 			],
 			"stateMutability": "view",
@@ -527,7 +373,7 @@ const main = async () => {
 		}
 	];
 
-	const address = '0x693933f18c335dfa3a10c8c316d64addafae5725'
+	const address = '0x8c3365d9d69190e8BE089F78A0e98a0D0EE8A2a3'
 	const contract = new ethers.Contract(address, ERC20_ABI, provider)
 
 

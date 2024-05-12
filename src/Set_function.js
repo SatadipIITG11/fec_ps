@@ -11,194 +11,6 @@ export async function Set_My_Data(metamaskID, name = 'no_val', age = -1, gender 
                     "internalType": "address",
                     "name": "patient",
                     "type": "address"
-                }
-            ],
-            "name": "getReports",
-            "outputs": [
-                {
-                    "components": [
-                        {
-                            "internalType": "string",
-                            "name": "cID",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "timeStamp",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "category",
-                            "type": "string"
-                        }
-                    ],
-                    "internalType": "struct demo.report[4]",
-                    "name": "",
-                    "type": "tuple[4]"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_Allergies",
-            "outputs": [
-                {
-                    "internalType": "string",
-                    "name": "",
-                    "type": "string"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_ChronicDiseases",
-            "outputs": [
-                {
-                    "internalType": "string",
-                    "name": "",
-                    "type": "string"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_Deficiencies",
-            "outputs": [
-                {
-                    "internalType": "string",
-                    "name": "",
-                    "type": "string"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_age",
-            "outputs": [
-                {
-                    "internalType": "int256",
-                    "name": "",
-                    "type": "int256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_blood_group",
-            "outputs": [
-                {
-                    "internalType": "string",
-                    "name": "",
-                    "type": "string"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_contactnumber",
-            "outputs": [
-                {
-                    "internalType": "int256",
-                    "name": "",
-                    "type": "int256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_gender",
-            "outputs": [
-                {
-                    "internalType": "string",
-                    "name": "",
-                    "type": "string"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_name",
-            "outputs": [
-                {
-                    "internalType": "string",
-                    "name": "",
-                    "type": "string"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
                 },
                 {
                     "internalType": "string",
@@ -219,60 +31,6 @@ export async function Set_My_Data(metamaskID, name = 'no_val', age = -1, gender 
             "name": "insertReport",
             "outputs": [],
             "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "name": "map",
-            "outputs": [
-                {
-                    "internalType": "string",
-                    "name": "patientName",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "gender",
-                    "type": "string"
-                },
-                {
-                    "internalType": "int256",
-                    "name": "age",
-                    "type": "int256"
-                },
-                {
-                    "internalType": "int256",
-                    "name": "contactNumber",
-                    "type": "int256"
-                },
-                {
-                    "internalType": "string",
-                    "name": "bloodType",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "allergies",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "deficiencies",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "chronicDiseases",
-                    "type": "string"
-                }
-            ],
-            "stateMutability": "view",
             "type": "function"
         },
         {
@@ -417,6 +175,157 @@ export async function Set_My_Data(metamaskID, name = 'no_val', age = -1, gender 
             "inputs": [
                 {
                     "internalType": "address",
+                    "name": "patient",
+                    "type": "address"
+                }
+            ],
+            "name": "get_emergency_data",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "patient",
+                    "type": "address"
+                }
+            ],
+            "name": "get_general_data",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "int256",
+                    "name": "",
+                    "type": "int256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "int256",
+                    "name": "",
+                    "type": "int256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "patient",
+                    "type": "address"
+                }
+            ],
+            "name": "getReports",
+            "outputs": [
+                {
+                    "internalType": "string[]",
+                    "name": "",
+                    "type": "string[]"
+                },
+                {
+                    "internalType": "string[]",
+                    "name": "",
+                    "type": "string[]"
+                },
+                {
+                    "internalType": "string[]",
+                    "name": "",
+                    "type": "string[]"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "name": "map",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "patientName",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "gender",
+                    "type": "string"
+                },
+                {
+                    "internalType": "int256",
+                    "name": "age",
+                    "type": "int256"
+                },
+                {
+                    "internalType": "int256",
+                    "name": "contactNumber",
+                    "type": "int256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "bloodType",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "allergies",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "deficiencies",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "chronicDiseases",
+                    "type": "string"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
                     "name": "",
                     "type": "address"
                 },
@@ -462,7 +371,7 @@ export async function Set_My_Data(metamaskID, name = 'no_val', age = -1, gender 
             "type": "function"
         }
     ]// Your ERC20 ABI definition
-    const address = '0xC40793a2Ac65e9F4DCA05f4e623DF758705b5361';
+    const address = '0x8c3365d9d69190e8BE089F78A0e98a0D0EE8A2a3';
     // console.log(5)
     // const signerAddress = await signer.getAddress();
     try {
@@ -505,194 +414,6 @@ export async function Set_User_Data(metamaskID, blood_type = 'no_val', allergy =
                     "internalType": "address",
                     "name": "patient",
                     "type": "address"
-                }
-            ],
-            "name": "getReports",
-            "outputs": [
-                {
-                    "components": [
-                        {
-                            "internalType": "string",
-                            "name": "cID",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "timeStamp",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "category",
-                            "type": "string"
-                        }
-                    ],
-                    "internalType": "struct demo.report[4]",
-                    "name": "",
-                    "type": "tuple[4]"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_Allergies",
-            "outputs": [
-                {
-                    "internalType": "string",
-                    "name": "",
-                    "type": "string"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_ChronicDiseases",
-            "outputs": [
-                {
-                    "internalType": "string",
-                    "name": "",
-                    "type": "string"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_Deficiencies",
-            "outputs": [
-                {
-                    "internalType": "string",
-                    "name": "",
-                    "type": "string"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_age",
-            "outputs": [
-                {
-                    "internalType": "int256",
-                    "name": "",
-                    "type": "int256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_blood_group",
-            "outputs": [
-                {
-                    "internalType": "string",
-                    "name": "",
-                    "type": "string"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_contactnumber",
-            "outputs": [
-                {
-                    "internalType": "int256",
-                    "name": "",
-                    "type": "int256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_gender",
-            "outputs": [
-                {
-                    "internalType": "string",
-                    "name": "",
-                    "type": "string"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_name",
-            "outputs": [
-                {
-                    "internalType": "string",
-                    "name": "",
-                    "type": "string"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
                 },
                 {
                     "internalType": "string",
@@ -713,60 +434,6 @@ export async function Set_User_Data(metamaskID, blood_type = 'no_val', allergy =
             "name": "insertReport",
             "outputs": [],
             "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "name": "map",
-            "outputs": [
-                {
-                    "internalType": "string",
-                    "name": "patientName",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "gender",
-                    "type": "string"
-                },
-                {
-                    "internalType": "int256",
-                    "name": "age",
-                    "type": "int256"
-                },
-                {
-                    "internalType": "int256",
-                    "name": "contactNumber",
-                    "type": "int256"
-                },
-                {
-                    "internalType": "string",
-                    "name": "bloodType",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "allergies",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "deficiencies",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "chronicDiseases",
-                    "type": "string"
-                }
-            ],
-            "stateMutability": "view",
             "type": "function"
         },
         {
@@ -911,6 +578,157 @@ export async function Set_User_Data(metamaskID, blood_type = 'no_val', allergy =
             "inputs": [
                 {
                     "internalType": "address",
+                    "name": "patient",
+                    "type": "address"
+                }
+            ],
+            "name": "get_emergency_data",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "patient",
+                    "type": "address"
+                }
+            ],
+            "name": "get_general_data",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "int256",
+                    "name": "",
+                    "type": "int256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "int256",
+                    "name": "",
+                    "type": "int256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "patient",
+                    "type": "address"
+                }
+            ],
+            "name": "getReports",
+            "outputs": [
+                {
+                    "internalType": "string[]",
+                    "name": "",
+                    "type": "string[]"
+                },
+                {
+                    "internalType": "string[]",
+                    "name": "",
+                    "type": "string[]"
+                },
+                {
+                    "internalType": "string[]",
+                    "name": "",
+                    "type": "string[]"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "name": "map",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "patientName",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "gender",
+                    "type": "string"
+                },
+                {
+                    "internalType": "int256",
+                    "name": "age",
+                    "type": "int256"
+                },
+                {
+                    "internalType": "int256",
+                    "name": "contactNumber",
+                    "type": "int256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "bloodType",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "allergies",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "deficiencies",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "chronicDiseases",
+                    "type": "string"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
                     "name": "",
                     "type": "address"
                 },
@@ -956,7 +774,7 @@ export async function Set_User_Data(metamaskID, blood_type = 'no_val', allergy =
             "type": "function"
         }
     ]// Your ERC20 ABI definition
-    const address = '0xC40793a2Ac65e9F4DCA05f4e623DF758705b5361';
+    const address = '0x8c3365d9d69190e8BE089F78A0e98a0D0EE8A2a3';
     // console.log(5)
     // const signerAddress = await signer.getAddress();
     try {
@@ -1000,194 +818,6 @@ export async function InsertReport() {
                     "internalType": "address",
                     "name": "patient",
                     "type": "address"
-                }
-            ],
-            "name": "getReports",
-            "outputs": [
-                {
-                    "components": [
-                        {
-                            "internalType": "string",
-                            "name": "cID",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "timeStamp",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "category",
-                            "type": "string"
-                        }
-                    ],
-                    "internalType": "struct demo.report[4]",
-                    "name": "",
-                    "type": "tuple[4]"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_Allergies",
-            "outputs": [
-                {
-                    "internalType": "string",
-                    "name": "",
-                    "type": "string"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_ChronicDiseases",
-            "outputs": [
-                {
-                    "internalType": "string",
-                    "name": "",
-                    "type": "string"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_Deficiencies",
-            "outputs": [
-                {
-                    "internalType": "string",
-                    "name": "",
-                    "type": "string"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_age",
-            "outputs": [
-                {
-                    "internalType": "int256",
-                    "name": "",
-                    "type": "int256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_blood_group",
-            "outputs": [
-                {
-                    "internalType": "string",
-                    "name": "",
-                    "type": "string"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_contactnumber",
-            "outputs": [
-                {
-                    "internalType": "int256",
-                    "name": "",
-                    "type": "int256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_gender",
-            "outputs": [
-                {
-                    "internalType": "string",
-                    "name": "",
-                    "type": "string"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
-                }
-            ],
-            "name": "get_name",
-            "outputs": [
-                {
-                    "internalType": "string",
-                    "name": "",
-                    "type": "string"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "patient",
-                    "type": "address"
                 },
                 {
                     "internalType": "string",
@@ -1208,60 +838,6 @@ export async function InsertReport() {
             "name": "insertReport",
             "outputs": [],
             "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "name": "map",
-            "outputs": [
-                {
-                    "internalType": "string",
-                    "name": "patientName",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "gender",
-                    "type": "string"
-                },
-                {
-                    "internalType": "int256",
-                    "name": "age",
-                    "type": "int256"
-                },
-                {
-                    "internalType": "int256",
-                    "name": "contactNumber",
-                    "type": "int256"
-                },
-                {
-                    "internalType": "string",
-                    "name": "bloodType",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "allergies",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "deficiencies",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "chronicDiseases",
-                    "type": "string"
-                }
-            ],
-            "stateMutability": "view",
             "type": "function"
         },
         {
@@ -1400,6 +976,157 @@ export async function InsertReport() {
             "name": "set_general_info",
             "outputs": [],
             "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "patient",
+                    "type": "address"
+                }
+            ],
+            "name": "get_emergency_data",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "patient",
+                    "type": "address"
+                }
+            ],
+            "name": "get_general_data",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "int256",
+                    "name": "",
+                    "type": "int256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "int256",
+                    "name": "",
+                    "type": "int256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "patient",
+                    "type": "address"
+                }
+            ],
+            "name": "getReports",
+            "outputs": [
+                {
+                    "internalType": "string[]",
+                    "name": "",
+                    "type": "string[]"
+                },
+                {
+                    "internalType": "string[]",
+                    "name": "",
+                    "type": "string[]"
+                },
+                {
+                    "internalType": "string[]",
+                    "name": "",
+                    "type": "string[]"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "name": "map",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "patientName",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "gender",
+                    "type": "string"
+                },
+                {
+                    "internalType": "int256",
+                    "name": "age",
+                    "type": "int256"
+                },
+                {
+                    "internalType": "int256",
+                    "name": "contactNumber",
+                    "type": "int256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "bloodType",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "allergies",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "deficiencies",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "chronicDiseases",
+                    "type": "string"
+                }
+            ],
+            "stateMutability": "view",
             "type": "function"
         },
         {
@@ -1451,7 +1178,7 @@ export async function InsertReport() {
             "type": "function"
         }
     ]
-    const address = '0xC40793a2Ac65e9F4DCA05f4e623DF758705b5361';
+    const address = '0x8c3365d9d69190e8BE089F78A0e98a0D0EE8A2a3';
     // console.log(5)
     // const signerAddress = await signer.getAddress();
     try {
