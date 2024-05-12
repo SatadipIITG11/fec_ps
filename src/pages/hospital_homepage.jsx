@@ -16,6 +16,8 @@ import { InsertReport } from "../Set_function"
 import { Set_User_Data } from "../Set_function"
 let name, age, gender, contact, blood, allergy, deficy, chronic;
 
+
+
 function HospitalHomepage() {
 
   const [isOpen, setIsOpen] = useState(false);

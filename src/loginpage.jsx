@@ -42,8 +42,33 @@ function Loginpage() {
     //   console.log(error.message);
     
     // });
+
+
+    // let flag = 1
+
     try{
       console.log(accounts[0]);
+      let postData = {
+        "id" : accounts[0].toString(),
+        "who" : toggleState
+      };
+      fetch ('http://localhost:3000/' , {
+        method : 'POST' ,
+        headers : {
+          'Content-Type':'application/json'
+        },
+        body: JSON.stringify(postData)
+      })
+      // .then(()=>{
+      //   console.log("doing")
+      // })
+      .then(response => response.json())
+      .then((data)=>{
+          console.log('success:',data )
+      })
+      .catch((e)=>{
+        console.log("error:",e)
+      })
 
       handleclick(toggleState);
       //routing karna padega navigate and check the toggle state for this bcz of 2 tabs
@@ -111,9 +136,9 @@ function Loginpage() {
          Continue with Metamask
        </button>
        
-       <p className="dontregis">
+       <p className="dontregis "   >
           Don't have an Account?
-            <a className='register' href='#'>Register</a>
+            <a className='register' href='/registrationpage'>Register</a>
         </p> 
 
        

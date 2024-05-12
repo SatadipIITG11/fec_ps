@@ -6,7 +6,7 @@ import {Route,Routes} from "react-router-dom"
 //for checking only
 import HospitalHomepage from './pages/hospital_homepage';
 import UsersiteHomepage from './pages/usersite_homepage';
-
+import RegistrationPage from './pages/registrationpage';
 
 function App() {
 
@@ -22,6 +22,7 @@ function App() {
       <Route path='/userpage' element={<UsersiteHomepage/>}/>
 
       <Route path='/hospitalpage' element={<HospitalHomepage/>}/>
+      <Route path='/registrationpage' element={<RegistrationPage/>}/>
       
    </Routes>
    

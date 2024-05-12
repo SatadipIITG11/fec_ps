@@ -94,6 +94,8 @@ function UsersiteHomepage() {
     setdeficy(name2[6])
     setchronic(name2[7])
     setID(walletAddress)
+
+    
   }
 
   useEffect(() => {
