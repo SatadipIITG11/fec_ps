@@ -14,6 +14,7 @@ import { ethers } from 'ethers';
 import { func1 } from '../Get_functions'
 import { InsertReport } from "../Set_function"
 import { Set_User_Data } from "../Set_function"
+import Searchlist from '../search_list/searchlist'
 let name, age, gender, contact, blood, allergy, deficy, chronic;
 
 
@@ -23,6 +24,7 @@ function HospitalHomepage() {
 
 
   const [registeredUsers, setRegisteredUsers] = useState([]);
+  const [issearchlistopen,setSearchlistopen]=useState(true);
   // useEffect ( ()=>{console.log(registeredUsers) } ,  registeredUsers );
 
   useEffect(() => {
@@ -70,6 +72,9 @@ function HospitalHomepage() {
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
+    setSearchlistopen(true);
+
+
   };
   const [addressValue, setaddressValue] = useState('')
 
@@ -174,9 +179,12 @@ function HospitalHomepage() {
     <div id='hospihome'>
       <div className="navbarhospi">
         <div className="logohospi">LIFE LEDGER</div>
-        <div className="searchdiv">
-          <i class="fa-solid fa-magnifying-glass" id='searchicon'></i>
-          <input className='searchbar' type="text" placeholder='Search by Id' onChange={handleInputChange} onKeyDown={handleEnter} />
+        <div className="Searchdiv">
+          <div className='searchdiv'><i class="fa-solid fa-magnifying-glass" id='searchicon'></i>
+          <input className='searchbar' id='searchbar' type="text" placeholder='Search by Id' onChange={handleInputChange} onKeyDown={handleEnter} /></div>
+
+          
+
         </div>
         <div className='upload' onClick={() => setopenupload(true)}>
           <i class="fa-solid fa-circle-plus" id='uploadicon'></i>
@@ -331,6 +339,16 @@ function HospitalHomepage() {
           SUBMIT
         </div>
       </div>) : ""}
+
+      {issearchlistopen===true?<Searchlist Inputtext={inputValue} setInputtext={setInputValue} Registeredusers={registeredUsers} setOpenlist={setSearchlistopen}/>:""}
+
+      
+      {/* <Searchlist Inputtext={inputValue} setInputtext={setInputValue} Registeredusers={registeredUsers}/> */}
+
+
+
+
+
 
     </div>
 

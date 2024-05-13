@@ -65,12 +65,21 @@ function Loginpage() {
       .then(response => response.json())
       .then((data)=>{
           console.log('success:',data )
+          
+          if(data===true)
+          {
+            handleclick(toggleState);
+          }
+          //else navigate to registration page
+          else{
+            alert("You are not registered! Please go to registration page Okay!")
+          }
       })
       .catch((e)=>{
         console.log("error:",e)
       })
 
-      handleclick(toggleState);
+      // handleclick(toggleState);
       //routing karna padega navigate and check the toggle state for this bcz of 2 tabs
 
 
