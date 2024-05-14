@@ -407,7 +407,8 @@ export async function func1(metamaskID) {
 			let gen_info = await contract.get_general_data(signerAddress);
 			let em_info = await contract.get_emergency_data(signerAddress);
 			const y = [gen_info, em_info];
-			// console.log(y)
+			console.log(1)
+			console.log(y)
 			return y;
 		} catch (err) {
 			console.log(err);

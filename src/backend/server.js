@@ -161,3 +161,23 @@ app.get("/get_registered_users", (req,res) => {
         )
 
 })
+// /get_notification
+
+app.post("/get_notification", (req,res) => {
+    
+    let a = req.body.id.toString();
+    console.log(a.toLowerCase());
+    let b = a.toLowerCase();
+    db.collection('pending_approvals')
+        .findOne({user_id: b }  )
+        .then( (data) =>{
+            res.status(200).json(data.hospital_list);
+            console.log(data)
+        })
+        .catch((e)=>{
+            res.status(500).json("error:",e);
+        })
+
+
+
+})    
