@@ -1,4 +1,4 @@
-.LOGIN-PAGE{
+.LOGIN-PAGE {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,7 +6,7 @@
     width: 100vw;
 }
 
-.navbar{
+.navbar {
     width: 100vw;
     height: 80px;
     box-sizing: border-box;
@@ -15,11 +15,12 @@
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     display: flex;
-   justify-content: start;
-   align-items: center;
-   padding: 0 30px;
+    justify-content: start;
+    align-items: center;
+    padding: 0 30px;
 }
-.logo{
+
+.logo {
     height: 30px;
     width: 120px;
     /* background-color: rgb(217, 110, 110); */
@@ -34,13 +35,13 @@
     font-weight: 600;
     font-size: 20px;
     cursor: pointer;
-    
-    
+
+
 }
 
 
 
-.LOGIN{
+.LOGIN {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,69 +50,70 @@
     width: 600px;
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
     /* background-color: rgb(125, 122, 122); */
     /* background-color: rgb(31, 31, 52); */
     align-items: center;
-    width:100%;
+    width: 100%;
     height: 200px;
     gap: 10px;
     border-bottom-left-radius: 20px;
-    border-bottom-right-radius:20px ;
+    border-bottom-right-radius: 20px;
     backdrop-filter: blur(10px);
     /* opacity: 0.7; */
     /* border: 0.00000000000001px solid white; */
-    
+
 
     box-shadow: 0 0 15px rgba(255, 250, 250, 0.07);
 
 }
 
-.dontregis{
+.dontregis {
     color: white;
 }
 
-.register{
+.register {
     padding: 4px;
 }
 
-.tabs{
+.tabs {
     display: flex;
 
 }
-.tab{
+
+.tab {
     height: 60px;
     width: 300px;
     /* background-color: rgb(177, 62, 62); */
-    background-color: rgb(80, 80, 80,0.5);
-   display: flex;
-   color: white;
-   align-items: center;
-   justify-content: center;
-   border-top-right-radius: 20px;
-   border-top-left-radius:20px ;
-   cursor: pointer;
-   font-family: 'Raleway', sans-serif;
-   
-   
+    background-color: rgb(80, 80, 80, 0.5);
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+
+
 }
 
-.tab-focused{
+.tab-focused {
     height: 60px;
     width: 300px;
     /* background-color: #4c00b4; */
     display: flex;
-   align-items: center;
-   justify-content: center;
-   font-size: 23px;
-   color: white;
-   /* background-color: rgb(217, 110, 110); */
-   background-color: rgb(125, 122, 122,0.5);
-   border-top-right-radius: 20px;
-   border-top-left-radius:20px ;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    color: white;
+    /* background-color: rgb(217, 110, 110); */
+    background-color: rgb(125, 122, 122, 0.5);
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
     font-weight: 500;
     cursor: pointer;
     /* opacity: 0.7; */
@@ -121,7 +123,7 @@
 }
 
 
-.metamask{
+.metamask {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -138,19 +140,19 @@
     font-weight: 500;
     cursor: pointer;
     margin: 0 10px;
-    background-color: rgb(125, 122, 122,0.55);
+    background-color: rgb(125, 122, 122, 0.55);
     /* background-color: rgb(80, 80, 80); */
     color: white;
     box-shadow: 0 0 0.4px rgba(0, 0, 0, 0.7);
     /* box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2) inset; */
 
-    
-    
+
+
 
 }
 
-.header{
-    font-size:40px;
+.header {
+    font-size: 40px;
     font-weight: bold;
     padding-bottom: 15px;
     padding-top: 15px;

@@ -9,19 +9,19 @@ const initialize = () => {
             // prompt the user to install it
             console.log("MetaMask is not installed :(");
             connectButton.value = "Click here to install metamask";
-            
+
             connectButton.onClick = installMetaMask;
         } else {
             console.log("MetaMask is installed Hurray!!!!!");
-            
+
             connectButton.onClick = connectMetaMask;
-        } 
+        }
     }
 
     const connectMetaMask = async () => {
         connectButton.disabled = true;
         try {
-            const accounts = await ethereum.request({ method: "eth_requestAccounts" } );
+            const accounts = await ethereum.request({ method: "eth_requestAccounts" });
             connectButton.value = "Connected";
             console.log("accounts: ", accounts[0]);
             connectButton.disabled = false;

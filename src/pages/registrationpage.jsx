@@ -1,6 +1,6 @@
-import React, { useState , useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './registrationpage.css'; // Importing the CSS file
-import {ethers} from 'ethers'
+import { ethers } from 'ethers'
 import Web3 from 'web3';
 // import { response } from 'express';
 
@@ -9,61 +9,61 @@ import Web3 from 'web3';
 const RegistrationPage = () => {
   const [Toggle, setToggle] = useState(0);
   const [formData, setFormData] = useState({
-    Metamask_id:'',
+    Metamask_id: '',
     Name: '',
     Age: '',
     Gender: '',
-    ContactInfo:''
+    ContactInfo: ''
   });
 
   useEffect(() => {
-    console.log('State updated' , formData);
-  }, [Toggle]); 
+    console.log('State updated', formData);
+  }, [Toggle]);
 
 
-// const connectWalletHandler = async () => {
-//   window.web3 = new Web3(window.ethereum)
-//   if (window.ethereum && window.ethereum.isMetaMask) {
-//     console.log('MetaMask Here!');
-//    const accounts=await window.ethereum.request({ method: 'eth_requestAccounts'})
-//     try{
-//       setToggle(1);
-//       console.log(accounts[0]);
-//       setFormData({
-//         ...formData,
-//         Metamask_id: accounts[0] 
-//       });
-      
+  // const connectWalletHandler = async () => {
+  //   window.web3 = new Web3(window.ethereum)
+  //   if (window.ethereum && window.ethereum.isMetaMask) {
+  //     console.log('MetaMask Here!');
+  //    const accounts=await window.ethereum.request({ method: 'eth_requestAccounts'})
+  //     try{
+  //       setToggle(1);
+  //       console.log(accounts[0]);
+  //       setFormData({
+  //         ...formData,
+  //         Metamask_id: accounts[0] 
+  //       });
 
-//       // handleclick(toggleState);
 
-//     }catch(e){
-//       console.log(e);
-//     }
-//   } else {
-//     console.log('Need to install MetaMask');
-//   }
-// }
-const connectWalletHandler = () => {
-  window.web3 = new Web3(window.ethereum);
-  if (window.ethereum && window.ethereum.isMetaMask) {
-    console.log('MetaMask Here!');
-    window.ethereum.request({ method: 'eth_requestAccounts' })
-      .then(accounts => {
-        setToggle(1);
-        console.log(accounts[0]);
-        setFormData({
-          ...formData,
-          Metamask_id: accounts[0] 
+  //       // handleclick(toggleState);
+
+  //     }catch(e){
+  //       console.log(e);
+  //     }
+  //   } else {
+  //     console.log('Need to install MetaMask');
+  //   }
+  // }
+  const connectWalletHandler = () => {
+    window.web3 = new Web3(window.ethereum);
+    if (window.ethereum && window.ethereum.isMetaMask) {
+      console.log('MetaMask Here!');
+      window.ethereum.request({ method: 'eth_requestAccounts' })
+        .then(accounts => {
+          setToggle(1);
+          console.log(accounts[0]);
+          setFormData({
+            ...formData,
+            Metamask_id: accounts[0]
+          });
+        })
+        .catch(error => {
+          console.log(error);
         });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  } else {
-    console.log('Need to install MetaMask');
-  }
-};
+    } else {
+      console.log('Need to install MetaMask');
+    }
+  };
 
 
 
@@ -83,18 +83,18 @@ const connectWalletHandler = () => {
     e.preventDefault();
     connectWalletHandler();
     const validationErrors = {};
-    
-    
+
+
     // Simple validation
     if (!formData.Name.trim()) {
       validationErrors.Name = 'Name is required';
     }
     if (!formData.Age.trim()) {
       validationErrors.Age = 'Age is required';
-    } 
+    }
     if (!formData.Gender.trim()) {
       validationErrors.Gender = 'Gender is required';
-    } 
+    }
     if (!formData.ContactInfo.trim()) {
       validationErrors.ContactInfo = 'ContactInfo is required';
     }

@@ -1,9 +1,7 @@
 const { ethers } = require("ethers");
 
-export async function Set_My_Data(metamaskID, name = 'no_val', age = -1, gender = 'no_val', contactnumber = -1) {
-    // console.log(101)
+export async function Set_My_Data(metamaskID, name, age, gender, contactnumber) {
     const provider = new ethers.BrowserProvider(window.ethereum);
-    // console.log(90)
     const ERC20_ABI = [
         {
             "inputs": [
@@ -372,30 +370,13 @@ export async function Set_My_Data(metamaskID, name = 'no_val', age = -1, gender 
         }
     ]// Your ERC20 ABI definition
     const address = '0x8c3365d9d69190e8BE089F78A0e98a0D0EE8A2a3';
-    // console.log(5)
-    // const signerAddress = await signer.getAddress();
     try {
         await provider.send("eth_requestAccounts", []);
-        // console.log(6)
         const signer = await provider.getSigner();
-        // console.log(7)
-        const signerAddress = await signer.getAddress();
-        // console.log(8)
         const contract = new ethers.Contract(address, ERC20_ABI, signer)
-        console.log(9)
-        // const metamaskID = '0xaEB837233665fc43309dABF4abD53338E60a61bE'
-        // const name = "Varun"
-        // const age = 19
-        // const gender = "Male"
-        // const contactnumber = 6969
-        // const blood_type = "O Positive"
-        // const allergy = "Choco"
-        // const deficiency = "Bitches" 
-        // const chronicdisease = "Shirts"
         console.log(10)
         await contract.set_general_info(metamaskID, name, age, gender, contactnumber)
         console.log(11)
-        // await contract.set_emergency_info(metamaskID, blood_type, allergy, deficiency, chronicdisease)
         console.log(12)
     }
     catch (err) {
@@ -403,10 +384,8 @@ export async function Set_My_Data(metamaskID, name = 'no_val', age = -1, gender 
     }
 }
 
-export async function Set_User_Data(metamaskID, blood_type = 'no_val', allergy = 'no_val', deficiency = 'no_val', chronicdisease = 'no_val') {
-    // console.log(101)
+export async function Set_User_Data(metamaskID, blood_type, allergy, deficiency, chronicdisease) {
     const provider = new ethers.BrowserProvider(window.ethereum);
-    // console.log(90)
     const ERC20_ABI = [
         {
             "inputs": [
@@ -775,42 +754,20 @@ export async function Set_User_Data(metamaskID, blood_type = 'no_val', allergy =
         }
     ]// Your ERC20 ABI definition
     const address = '0x8c3365d9d69190e8BE089F78A0e98a0D0EE8A2a3';
-    // console.log(5)
-    // const signerAddress = await signer.getAddress();
     try {
         await provider.send("eth_requestAccounts", []);
-        // console.log(6)
         const signer = await provider.getSigner();
-        // console.log(7)
-        const signerAddress = await signer.getAddress();
-        // console.log(8)
         const contract = new ethers.Contract(address, ERC20_ABI, signer)
-        console.log(9)
-        // const metamaskID = '0xaEB837233665fc43309dABF4abD53338E60a61bE'
-        // const name = "Varun"
-        // const age = 19
-        // const gender = "Male"
-        // const contactnumber = 6969
-        // const blood_type = "O Positive"
-        // const allergy = "Choco"
-        // const deficiency = "Bitches" 
-        // const chronicdisease = "Shirts"
-        console.log(10)
-        // await contract.set_general_info(metamaskID, name, age, gender, contactnumber)
-        console.log(11)
         await contract.set_emergency_info(metamaskID, blood_type, allergy, deficiency, chronicdisease)
-        console.log(12)
     }
     catch (err) {
         console.log(err);
     }
 }
 
-// metamaskID, cID, timeStamp, category
-export async function InsertReport() {
-    // console.log(101)
+
+export async function InsertReport(metamaskID, cID, timeStamp, category) {
     const provider = new ethers.BrowserProvider(window.ethereum);
-    // console.log(90)
     const ERC20_ABI = [
         {
             "inputs": [
@@ -1179,32 +1136,13 @@ export async function InsertReport() {
         }
     ]
     const address = '0x8c3365d9d69190e8BE089F78A0e98a0D0EE8A2a3';
-    // console.log(5)
-    // const signerAddress = await signer.getAddress();
     try {
         await provider.send("eth_requestAccounts", []);
-        // console.log(6)
         const signer = await provider.getSigner();
-        // console.log(7)
-        const signerAddress = await signer.getAddress();
-        // console.log(8)
         const contract = new ethers.Contract(address, ERC20_ABI, signer)
-        console.log(9)
-        const metamaskID = '0xaEB837233665fc43309dABF4abD53338E60a61bE'
-        const cID = "cyer"
-        const timeStamp = "br3iuf"
-        const category = "iy3"
-        console.log(10)
         await contract.insertReport(metamaskID, cID, timeStamp, category)
-        console.log(11)
-        // await contract.set_emergency_info(metamaskID, blood_type, allergy, deficiency, chronicdisease)
-        console.log(89)
     }
     catch (err) {
         console.log(err);
     }
 }
-
-// module.exports = {
-//     SetAge
-// }

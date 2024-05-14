@@ -18,12 +18,12 @@ const Timelinegrid = ({ events }) => {
 };
 
 const Curve = ({ position }) => {
-    const alignment = position % 2 === 0 ? 'curve-right' : 'curve-left';
-    return (
-      <svg className={`curve ${alignment}`} width="200" height="100" viewBox="0 0 200 100">
-        <path d="M0,50 Q100,-30 200,50" stroke="white" strokeWidth="3" fill="none" />
-      </svg>
-    );
-  };
+  const alignment = position % 2 === 0 ? 'curve-right' : 'curve-left';
+  return (
+    <svg className={`curve ${alignment}`} width="200" height="100" viewBox="0 0 200 100">
+      <path d="M0,50 Q100,-30 200,50" stroke="white" strokeWidth="3" fill="none" />
+    </svg>
+  );
+};
 
 export default Timelinegrid;

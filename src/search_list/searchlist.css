@@ -1,22 +1,23 @@
-.search-list{
+.search-list {
     max-height: 300px;
     overflow-y: scroll;
     width: 60vw;
     /* background-color: rgb(174, 68, 68); */
-    background-color: rgb(140, 137, 137,0.5);
+    background-color: rgb(140, 137, 137, 0.5);
     backdrop-filter: blur(12px);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
     color: white;
-    position: absolute; 
+    position: absolute;
     top: 70px;
     right: 365px;
-    z-index: 5; 
+    z-index: 5;
 }
-.registered-user{
+
+.registered-user {
     padding: 0 10px;
 }
 
-.registered-user:hover{
+.registered-user:hover {
     color: rgb(15, 19, 34);
     cursor: pointer;
 }

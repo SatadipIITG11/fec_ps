@@ -7,8 +7,7 @@ import Reports from '../popups/reports'
 import { useNavigate } from 'react-router-dom'
 import { ethers } from 'ethers';
 
-import { func1 } from '../Get_functions'
-import { func_get_reports } from '../getreports'
+import { func1, func2 } from '../Get_functions'
 import { Set_My_Data } from "../Set_function"
 
 function UsersiteHomepage() {
@@ -130,22 +129,22 @@ function UsersiteHomepage() {
     let postData = {
       id: walletAddress
     }
-    fetch ('http://localhost:3000/get_notification' , {
-      method : 'POST' ,
-      headers : {
-        'Content-Type':'application/json'
+    fetch('http://localhost:3000/get_notification', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(postData)
     })
-    // .then(()=>{
-    //   console.log("doing")
-    // })
-    .then(response => response.json())
-    .then((data)=>{
-        console.log("notif:",data) 
+      // .then(()=>{
+      //   console.log("doing")
+      // })
+      .then(response => response.json())
+      .then((data) => {
+        console.log("notif:", data)
         setNotif(data)
-    })   
-    
+      })
+
   }
 
   return (
