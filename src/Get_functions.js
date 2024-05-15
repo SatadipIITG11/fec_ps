@@ -379,8 +379,6 @@ export async function func1(metamaskID) {
 			let gen_info = await contract.get_general_data(signerAddress);
 			let em_info = await contract.get_emergency_data(signerAddress);
 			const y = [gen_info, em_info];
-			console.log(1)
-			console.log(y)
 			return y;
 		} catch (err) {
 			console.log(err);
@@ -391,7 +389,7 @@ export async function func1(metamaskID) {
 	}
 }
 
-export async function IsAllowed(patient, hospital) {
+export async function CheckPermission(patient, hospital) {
 	if (window.ethereum) {
 		await window.ethereum.enable(); // Request user permission to connect
 		const provider = new ethers.BrowserProvider(window.ethereum);
