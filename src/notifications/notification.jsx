@@ -6,7 +6,7 @@ function Notification(props) {
   return (
     <div class="card">
   <div class="card-body">
-    <h5 class="card-title">{props.hospitalName}</h5>
+    <h5 class="card-title">{props.hospitalAddress}</h5>
     <p class="card-text">Wants to view your records</p>
     <button type="button" className='access'>Access</button>
     <button type="button" className='deny'>Deny</button>
