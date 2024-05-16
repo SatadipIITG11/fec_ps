@@ -1,40 +1,38 @@
 .event {
-    position: relative;
-    width: 40%;
-    margin: 20px auto;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border-radius: 10px;
-  }
-  
-  .event.left {
-    align-self: flex-start;
-  }
-  
-  .event.right {
-    align-self: flex-end;
-  }
-  
-  .event::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #ffffff;
-    transform: translate(-50%, -50%);
-  }
-  
-  .event.left::after {
-    right: 100%;
-  }
-  
-  .event.right::after {
-    left: 100%;
-  }
-  
-  /* Add more styles for the event appearance */
-  
-  
+  position: relative;
+  width: 40%;
+  margin: 20px auto;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-radius: 10px;
+}
+
+.event.left {
+  align-self: flex-start;
+}
+
+.event.right {
+  align-self: flex-end;
+}
+
+.event::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  transform: translate(-50%, -50%);
+}
+
+.event.left::after {
+  right: 100%;
+}
+
+.event.right::after {
+  left: 100%;
+}
+
+/* Add more styles for the event appearance */

@@ -7,8 +7,7 @@ import Reports from '../popups/reports'
 import { useNavigate } from 'react-router-dom'
 import { ethers } from 'ethers';
 
-import { func1 } from '../Get_functions'
-import { func_get_reports } from '../getreports'
+import { func1, func2 } from '../Get_functions'
 import { Set_My_Data } from "../Set_function"
 import Notification from '../notifications/notification'
 
@@ -86,6 +85,7 @@ function UsersiteHomepage() {
     let name2 = await func1(walletAddress)
     // func_get_reports(walletAddress)
     // SetAge(walletAddress)
+    console.log(1);
     console.log(name2);
     setname(name2[0][0])
     // console.log(name2[1])
@@ -104,6 +104,10 @@ function UsersiteHomepage() {
   useEffect(() => {
     fetch_data();
   }, []);
+  useEffect(() => {
+    getNotification();
+  }, []);
+
 
   const Set_Data = async (Name, Age, Gender, Contact) => {
     const provider = new ethers.BrowserProvider(window.ethereum);
@@ -120,7 +124,31 @@ function UsersiteHomepage() {
   //   // console.log(78)
   //   InsertReport()
   // }
+  const [Notif, setNotif] = useState([])
+  const getNotification = async () => {
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const signer = await provider.getSigner();
+    let walletAddress = await signer.getAddress();
+    let postData = {
+      id: walletAddress
+    }
+    fetch('http://localhost:3000/get_notification', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(postData)
+    })
+      // .then(()=>{
+      //   console.log("doing")
+      // })
+      .then(response => response.json())
+      .then((data) => {
+        console.log("notif:", data)
+        if(data) setNotif(data);
+      })
 
+  }
 
   return (
     <div id='userhome'>

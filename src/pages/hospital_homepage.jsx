@@ -1,7 +1,6 @@
 import React from 'react'
 import './hospital_homepage.css'
 import { testy, testyz } from './testy'
-import main from '../getname'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import PdfUpload from './pdfupload'
@@ -11,7 +10,7 @@ import Reports from '../popups/reports'
 // const { ethers } = require("ethers");
 
 import { ethers } from 'ethers';
-import { func1 } from '../Get_functions'
+import { func1, func2 } from '../Get_functions'
 import { InsertReport } from "../Set_function"
 import { Set_User_Data } from "../Set_function"
 import Searchlist from '../search_list/searchlist'
@@ -24,7 +23,7 @@ function HospitalHomepage() {
 
 
   const [registeredUsers, setRegisteredUsers] = useState([]);
-  const [issearchlistopen,setSearchlistopen]=useState(true);
+  const [issearchlistopen, setSearchlistopen] = useState(true);
   // useEffect ( ()=>{console.log(registeredUsers) } ,  registeredUsers );
 
   useEffect(() => {
@@ -181,9 +180,9 @@ function HospitalHomepage() {
         <div className="logohospi">LIFE LEDGER</div>
         <div className="Searchdiv">
           <div className='searchdiv'><i class="fa-solid fa-magnifying-glass" id='searchicon'></i>
-          <input className='searchbar' id='searchbar' type="text" placeholder='Search by Id' onChange={handleInputChange} onKeyDown={handleEnter} /></div>
+            <input className='searchbar' id='searchbar' type="text" placeholder='Search by Id' onChange={handleInputChange} onKeyDown={handleEnter} /></div>
 
-          
+
 
         </div>
         <div className='upload' onClick={() => setopenupload(true)}>
@@ -267,7 +266,7 @@ function HospitalHomepage() {
             <div className="box4 box"></div>
           </div> */}
       </div>
-      <div className="notificationhospi" onClick={main}>
+      <div className="notificationhospi" onClick={testy}>
         <i class="fa-solid fa-bars fa-2x" id='notiicon' ></i>
       </div>
 
@@ -340,9 +339,9 @@ function HospitalHomepage() {
         </div>
       </div>) : ""}
 
-      {issearchlistopen===true?<Searchlist Inputtext={inputValue} setInputtext={setInputValue} Registeredusers={registeredUsers} setOpenlist={setSearchlistopen}/>:""}
+      {issearchlistopen === true ? <Searchlist Inputtext={inputValue} setInputtext={setInputValue} Registeredusers={registeredUsers} setOpenlist={setSearchlistopen} /> : ""}
 
-      
+
       {/* <Searchlist Inputtext={inputValue} setInputtext={setInputValue} Registeredusers={registeredUsers}/> */}
 
 

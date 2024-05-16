@@ -5,14 +5,14 @@ import Eachreport from './eachreport';
 
 function Reports(props) {
 
-   const [eachreportPop,seteachreportPop]=useState(false)
+    const [eachreportPop, seteachreportPop] = useState(false)
 
-    return props.trigger===true ? (
-       
+    return props.trigger === true ? (
+
         <div className='reportsdiv'>
             <div className="close" >
-                <div id="close" onClick={()=> props.setTrigger(false)}>
-                <i class="fa-solid fa-xmark fa-2x"></i>
+                <div id="close" onClick={() => props.setTrigger(false)}>
+                    <i class="fa-solid fa-xmark fa-2x"></i>
                 </div>
             </div>
             <div id="reports">
@@ -20,26 +20,26 @@ function Reports(props) {
                     Reports
                 </div>
                 <div className="reports-grid">
-                   <div className="reporttype reporttype1" onClick={()=>seteachreportPop(true)}>
-                    <span>1. Daignostic</span>  
-                   </div>
-                   <div className="reporttype reporttype2" onClick={()=>seteachreportPop(true)}>
-                   <span>2. Medication-Prescriptions</span>  
-                   </div>
-                   <div className="reporttype reporttype3" onClick={()=>seteachreportPop(true)}>
-                   <span>3. Procedural</span>  
-                   </div>
-                   <div className="reporttype reporttype4" onClick={()=>seteachreportPop(true)}>
-                   <span>4. Other Reports</span>  
-                   </div>
-                   
+                    <div className="reporttype reporttype1" onClick={() => seteachreportPop(true)}>
+                        <span>1. Daignostic</span>
+                    </div>
+                    <div className="reporttype reporttype2" onClick={() => seteachreportPop(true)}>
+                        <span>2. Medication-Prescriptions</span>
+                    </div>
+                    <div className="reporttype reporttype3" onClick={() => seteachreportPop(true)}>
+                        <span>3. Procedural</span>
+                    </div>
+                    <div className="reporttype reporttype4" onClick={() => seteachreportPop(true)}>
+                        <span>4. Other Reports</span>
+                    </div>
+
                 </div>
-                 {/* Waha ek aur prop pass karna hai jo list of pdf bhejega of diff reports */}
-                 <Eachreport Trigger={eachreportPop} SetTrigger={seteachreportPop} />
+                {/* Waha ek aur prop pass karna hai jo list of pdf bhejega of diff reports */}
+                <Eachreport Trigger={eachreportPop} SetTrigger={seteachreportPop} />
             </div>
         </div>
-        
-      ):"";
+
+    ) : "";
 }
 
 export default Reports

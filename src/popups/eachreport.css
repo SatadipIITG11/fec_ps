@@ -1,13 +1,13 @@
-.PDF{
+.PDF {
     position: fixed;
     z-index: 20;
     height: 70vh;
     width: 100%;
-   
-     top: 0;
+
+    top: 0;
     left: 0;
-    margin-top: 9vh; 
-    background-color: rgb(140, 137, 137,0.6);
+    margin-top: 9vh;
+    background-color: rgb(140, 137, 137, 0.6);
     backdrop-filter: blur(3px);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }

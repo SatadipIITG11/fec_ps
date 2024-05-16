@@ -12,13 +12,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-body, html {
+
+body,
+html {
   overflow: hidden;
-  margin: 0; /* Remove default margin to ensure full-width display */
-  padding: 0; /* Remove default padding to ensure full-width display */
+  margin: 0;
+  /* Remove default margin to ensure full-width display */
+  padding: 0;
+  /* Remove default padding to ensure full-width display */
 }
 
-#root{
+#root {
   display: flex;
   justify-content: center;
   /* margin-top: 20vh; */
@@ -26,14 +30,14 @@ body, html {
   width: 100vw;
 }
 
-body video{
+body video {
   position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100%;
-    object-fit: cover;
-    
-    
+  z-index: -1;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+
+
 }

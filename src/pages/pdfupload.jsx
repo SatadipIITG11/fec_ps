@@ -1,48 +1,39 @@
-import React, { useState } from 'react';
-import axios from 'axios';//yeh honi chahiye dependency
-//yeh pdf upload file esme backend bhi dali hai change karlo guys apne hisab se...
-function PdfUpload() {
-  const [selectedFile, setSelectedFile] = useState(null);
+// import React, { useState } from 'react';
+// import PinataUploader from './pinatauploader';
 
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-    console.log(event.target.files[0]);
-  };
+// function PdfUpload() {
+//   const [selectedFile, setSelectedFile] = useState(null);
 
-  const handleUpload = async () => {
-    try {
-      const formData = new FormData();
-      formData.append('pdfFile', selectedFile);
+//   const handleFileChange = (event) => {
+//     setSelectedFile(event.target.files[0]);
+//     console.log(event.target.files[0]);
+//   };
 
-      // Send the PDF file to the backend server
-      await axios.post('http://example.com/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
+//   const handleUpload = async () => {
+//     try {
+//       const result = await PinataUploader(selectedFile);
 
-      // Reset the selected file after successful upload
-      setSelectedFile(null);
+//       // Reset the selected file after successful upload
+//       setSelectedFile(null);
 
-      alert('PDF file uploaded successfully!');
-    } catch (error) {
-      console.error('Error uploading PDF file:', error);
-      //   alert('Error uploading PDF file. Please try again.');
-    }
-  };
+//       alert(`PDF file uploaded successfully! IPFS hash: ${result.ipfsHash}, Timestamp: ${result.timestamp}`);
+//     } catch (error) {
+//       console.error('Error uploading PDF file:', error);
+//     }
+//   };
 
-  return (
-    <div>
-      <input
-        type="file"
-        accept="application/pdf"
-        onChange={handleFileChange}
-      />
-      <button onClick={handleUpload} disabled={!selectedFile}>
-        Upload PDF
-      </button>
-    </div>
-  );
-}
+//   return (
+//     <div>
+//       <input
+//         type="file"
+//         accept="application/pdf"
+//         onChange={handleFileChange}
+//       />
+//       <button onClick={handleUpload} disabled={!selectedFile}>
+//         Upload PDF
+//       </button>
+//     </div>
+//   );
+// }
 
-export default PdfUpload;
+// export default PdfUpload;
