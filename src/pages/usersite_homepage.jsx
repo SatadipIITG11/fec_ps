@@ -10,6 +10,7 @@ import { ethers } from 'ethers';
 import { func1 } from '../Get_functions'
 import { func_get_reports } from '../getreports'
 import { Set_My_Data } from "../Set_function"
+import Notification from '../notifications/notification'
 
 function UsersiteHomepage() {
 
@@ -44,7 +45,9 @@ function UsersiteHomepage() {
   //baki hai reports ki designing....
   const [reportsPop, setreportsPop] = useState(false)
   const [openUpdate, setopenUpdate] = useState(false)
-
+  
+  //dummy state notification ka badme change kardena
+  const [NOTI,SETNOTI]=useState(["APOLLO","LALPATH","EYECARE","EYECARE","EYECARE","EYECARE","EYECARE","EYECARE","EYECARE"])
 
   //update biodata section
 
@@ -193,7 +196,10 @@ function UsersiteHomepage() {
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-          Hospital Data.....
+          {//Yaha notification state pass kardena as a prop
+            NOTI.map((value)=><Notification hospitalName={value}/>)
+          }
+          
         </div>
       </div>
 
