@@ -168,10 +168,13 @@ app.post("/get_notification", (req, res) => {
     let a = req.body.id.toString();
     console.log(a.toLowerCase());
     let b = a.toLowerCase();
+    // let dummy = "0x12CB2FfF48C573eB77A592714Bd49004e090574F";
+    // let dum2 = dummy.toLowerCase();
     db.collection('pending_approvals')
         .findOne({ user_id: b })
         .then((data) => {
-            res.status(200).json(data.hospital_list);
+            if(!data)  res.status(200).json("");
+            else res.status(200).json(data.hospital_list);
             console.log(data)
         })
         .catch((e) => {

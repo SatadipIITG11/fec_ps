@@ -142,7 +142,7 @@ function UsersiteHomepage() {
       .then(response => response.json())
       .then((data) => {
         console.log("notif:", data)
-        setNotif(data)
+        if(data) setNotif(data);
       })
 
   }
