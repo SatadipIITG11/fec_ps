@@ -12,7 +12,7 @@ function Searchlist(props) {
   })
   const handleclick = (event) => {
 
-    props.setInputtext(event.target.textContent)
+    props.setInputtext(event.target.textContent) 
     console.log(event.target.textContent)
 
     // ig search existence on this basis

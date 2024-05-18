@@ -150,6 +150,38 @@ function UsersiteHomepage() {
 
   }
 
+  //!!TESTING STATES!!
+   
+  const [opentest1, setopentest1] = useState(false)
+  const [opentest2, setopentest2] = useState(false)
+  const [opentest3, setopentest3] = useState(false)
+  const [opentest4, setopentest4] = useState(false)
+
+  const updatetest1 = () => {
+    
+    setopentest1(false)
+    
+    
+    
+  }
+  const updatetest2 = () => {
+    
+    setopentest2(false)
+   
+    
+   
+  }
+  const updatetest3 = () => {
+    
+    setopentest3(false)
+    
+  }
+  const updatetest4 = () => {
+    
+    setopentest4(false)
+    
+  }
+
   return (
     <div id='userhome'>
       <div className="navbaruser">
@@ -271,6 +303,86 @@ function UsersiteHomepage() {
           SUBMIT
         </div>
       </div>) : ""}
+
+      {/* !!ONLY FOR TESTING PURPOSE WE WILL REMOVE IT LATER!!
+      START!!! */}
+      <button className='TEST' onClick={()=>setopentest1(true)}>test1</button>
+      <button className='TEST' onClick={()=>setopentest2(true)}>test2</button>
+      <button className='TEST' onClick={()=>setopentest3(true)}>test3</button>
+      <button className='TEST' onClick={()=>setopentest4(true)}>test4</button>
+
+{opentest1 === true ? (<div className="test">
+        <div className="close-update">
+          <i class="fa-solid fa-xmark" id='cross' onClick={() => setopentest1(false)}></i>
+        </div>
+        <div className="update update-name">
+          <span>Name:</span>
+          <input type="text" onChange={(e) => { name = e.target.value }} />
+        </div>
+        <div className="update update-age">
+          <span>Age:</span>
+          <input type="text" onChange={(e) => { age = e.target.value }} />
+        </div>
+        
+        <div className="submit-update" onClick={updatetest1}>
+          SUBMIT
+        </div>
+      </div>) : ""}
+
+      {opentest2 === true ? (<div className="test">
+        <div className="close-update">
+          <i class="fa-solid fa-xmark" id='cross' onClick={() => setopentest2(false)}></i>
+        </div>
+        <div className="update update-name">
+          <span>Name:</span>
+          <input type="text" onChange={(e) => { name = e.target.value }} />
+        </div>
+        <div className="update update-age">
+          <span>Age:</span>
+          <input type="text" onChange={(e) => { age = e.target.value }} />
+        </div>
+        
+        <div className="submit-update" onClick={updatetest2}>
+          SUBMIT
+        </div>
+      </div>) : ""}
+
+      {opentest3 === true ? (<div className="test">
+        <div className="close-update">
+          <i class="fa-solid fa-xmark" id='cross' onClick={() => setopentest3(false)}></i>
+        </div>
+        <div className="update update-name">
+          <span>Name:</span>
+          <input type="text" onChange={(e) => { name = e.target.value }} />
+        </div>
+        <div className="update update-age">
+          <span>Age:</span>
+          <input type="text" onChange={(e) => { age = e.target.value }} />
+        </div>
+        
+        <div className="submit-update" onClick={updatetest3}>
+          SUBMIT
+        </div>
+      </div>) : ""}
+
+      {opentest4 === true ? (<div className="test">
+        <div className="close-update">
+          <i class="fa-solid fa-xmark" id='cross' onClick={() => setopentest4(false)}></i>
+        </div>
+        <div className="update update-name">
+          <span>Name:</span>
+          <input type="text" onChange={(e) => { name = e.target.value }} />
+        </div>
+        <div className="update update-age">
+          <span>Age:</span>
+          <input type="text" onChange={(e) => { age = e.target.value }} />
+        </div>
+        
+        <div className="submit-update" onClick={updatetest4}>
+          SUBMIT
+        </div>
+      </div>) : ""}
+      {/* !!TESTNG CODE ENDS HERE!! */}
 
     </div>
   )
