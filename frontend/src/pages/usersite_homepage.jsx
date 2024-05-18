@@ -44,9 +44,9 @@ function UsersiteHomepage() {
   //baki hai reports ki designing....
   const [reportsPop, setreportsPop] = useState(false)
   const [openUpdate, setopenUpdate] = useState(false)
-  
+
   //dummy state notification ka badme change kardena
-  const [NOTI,SETNOTI]=useState(["APOLLO","LALPATH","EYECARE","EYECARE","EYECARE","EYECARE","EYECARE","EYECARE","EYECARE"])
+  const [NOTI, SETNOTI] = useState(["APOLLO", "LALPATH", "EYECARE", "EYECARE", "EYECARE", "EYECARE", "EYECARE", "EYECARE", "EYECARE"])
 
   //update biodata section
 
@@ -81,7 +81,7 @@ function UsersiteHomepage() {
     const provider = new ethers.BrowserProvider(window.ethereum);
     const signer = await provider.getSigner();
     let walletAddress = await signer.getAddress();
-    walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE"
+    // walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE"
     let name2 = await func1(walletAddress)
     // func_get_reports(walletAddress)
     // SetAge(walletAddress)
@@ -113,7 +113,7 @@ function UsersiteHomepage() {
     const provider = new ethers.BrowserProvider(window.ethereum);
     const signer = await provider.getSigner();
     let walletAddress = await signer.getAddress();
-    walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE"
+    // walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE"
     // console.log(78)
     Set_My_Data(walletAddress, Name, Age, Gender, Contact)
   }
@@ -145,7 +145,7 @@ function UsersiteHomepage() {
       .then(response => response.json())
       .then((data) => {
         console.log("notif:", data)
-        if(data) setNotif(data);
+        if (data) setNotif(data);
       })
 
   }
@@ -225,9 +225,9 @@ function UsersiteHomepage() {
         </div>
         <div class="offcanvas-body">
           {//Yaha notification state pass kardena as a prop
-            Notif.map((value)=><Notification hospitalAddress={value}/>)
+            Notif.map((value) => <Notification hospitalAddress={value} />)
           }
-          
+
         </div>
       </div>
 

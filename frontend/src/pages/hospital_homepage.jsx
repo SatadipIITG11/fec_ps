@@ -16,9 +16,6 @@ import { Set_User_Data } from "../Set_function"
 import Searchlist from '../search_list/searchlist'
 let name, age, gender, contact, blood, allergy, deficy, chronic;
 
-
-
-
 function HospitalHomepage() {
 
 
@@ -111,7 +108,8 @@ function HospitalHomepage() {
   const [Meta_ID, setID] = useState("")
 
   const fetch_data = async (User_Address) => {
-    let walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE"
+    let walletAddress = User_Address
+    // let walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE"
     let name2 = await func1(walletAddress)
     // func_get_reports(walletAddress)
     // SetAge(walletAddress)
@@ -167,9 +165,8 @@ function HospitalHomepage() {
       //for checking purpose only
       //here I have to check existence of user and set user_existence
       fetch_data(event.target.value)
-      // console.log(event.target.value)
       setuser_existence(true)
-      console.log("wowoowooowow")
+      // console.log("wowoowooowow")
     }
 
   }
