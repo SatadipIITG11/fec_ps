@@ -7,7 +7,7 @@ const { ObjectId } = require('mongodb')
 // const objectId = new ObjectId("5ca4bbc7a2dd94ee5816238c");
 
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:3001'); // Set the allowed origin
+    res.header('Access-Control-Allow-Origin', '*'); // Set the allowed origin
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Set the allowed HTTP methods
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Set the allowed headers
     next();
