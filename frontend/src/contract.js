@@ -7,6 +7,55 @@ export const contractABI = [
                 "type": "address"
             },
             {
+                "internalType": "address",
+                "name": "hospital",
+                "type": "address"
+            }
+        ],
+        "name": "addAllowedAddress",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "hospital",
+                "type": "address"
+            }
+        ],
+        "name": "deregisterHospital",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "patient",
+                "type": "address"
+            }
+        ],
+        "name": "deregisterPatient",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "patient",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "caller",
+                "type": "address"
+            },
+            {
                 "internalType": "string",
                 "name": "CID",
                 "type": "string"
@@ -31,16 +80,24 @@ export const contractABI = [
         "inputs": [
             {
                 "internalType": "address",
-                "name": "patient",
-                "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "permitted",
+                "name": "hospital",
                 "type": "address"
             }
         ],
-        "name": "permitUpload",
+        "name": "registerHospital",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "patient",
+                "type": "address"
+            }
+        ],
+        "name": "registerPatient",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -54,11 +111,11 @@ export const contractABI = [
             },
             {
                 "internalType": "address",
-                "name": "permitted",
+                "name": "hospital",
                 "type": "address"
             }
         ],
-        "name": "permitView",
+        "name": "removeAllowedAddress",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -72,38 +129,7 @@ export const contractABI = [
             },
             {
                 "internalType": "address",
-                "name": "toRevoke",
-                "type": "address"
-            }
-        ],
-        "name": "revokeUploadPermission",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "patient",
-                "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "toRevoke",
-                "type": "address"
-            }
-        ],
-        "name": "revokeViewPermission",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "patient",
+                "name": "caller",
                 "type": "address"
             },
             {
@@ -140,6 +166,11 @@ export const contractABI = [
                 "type": "address"
             },
             {
+                "internalType": "address",
+                "name": "caller",
+                "type": "address"
+            },
+            {
                 "internalType": "string",
                 "name": "_patient_Name",
                 "type": "string"
@@ -170,6 +201,11 @@ export const contractABI = [
             {
                 "internalType": "address",
                 "name": "patient",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "caller",
                 "type": "address"
             }
         ],
@@ -205,6 +241,11 @@ export const contractABI = [
                 "internalType": "address",
                 "name": "patient",
                 "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "caller",
+                "type": "address"
             }
         ],
         "name": "get_general_data",
@@ -239,6 +280,11 @@ export const contractABI = [
                 "internalType": "address",
                 "name": "patient",
                 "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "caller",
+                "type": "address"
             }
         ],
         "name": "getReports",
@@ -257,6 +303,68 @@ export const contractABI = [
                 "internalType": "string[]",
                 "name": "",
                 "type": "string[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "patient",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "hospital",
+                "type": "address"
+            }
+        ],
+        "name": "isAllowed",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "hospital",
+                "type": "address"
+            }
+        ],
+        "name": "isRegisteredHospital",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "patient",
+                "type": "address"
+            }
+        ],
+        "name": "isRegisteredPatient",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
             }
         ],
         "stateMutability": "view",
@@ -329,7 +437,7 @@ export const contractABI = [
                 "type": "address"
             }
         ],
-        "name": "uploadPermitted",
+        "name": "permitted",
         "outputs": [
             {
                 "internalType": "bool",
@@ -346,14 +454,9 @@ export const contractABI = [
                 "internalType": "address",
                 "name": "",
                 "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
             }
         ],
-        "name": "viewPermitted",
+        "name": "registeredHospitals",
         "outputs": [
             {
                 "internalType": "bool",
@@ -363,7 +466,45 @@ export const contractABI = [
         ],
         "stateMutability": "view",
         "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "registeredPatients",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_addr",
+                "type": "address"
+            }
+        ],
+        "name": "toString",
+        "outputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "pure",
+        "type": "function"
     }
 ];
 
-export const contractAddress = '0x8c3365d9d69190e8BE089F78A0e98a0D0EE8A2a3';
+export const contractAddress = '0x36D4978e840E15D0dcf86D2c66819cb8afcb4fEA';
