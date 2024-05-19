@@ -12,6 +12,41 @@ import { Set_My_Data } from "../Set_function"
 import Notification from '../notifications/notification'
 
 function UsersiteHomepage() {
+  
+  
+  const  deleteNotif = async (event) => {
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const signer = await provider.getSigner();
+    let walletAddress = await signer.getAddress();
+    let postData = {
+      user_id : walletAddress ,
+      hospital_id : event.target.value 
+  }
+
+    fetch('http://localhost:3000/delete_notification', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(postData)
+    }).then( (data) => {
+        console.log(data);
+        getNotification();
+    })
+  }
+
+  function Notification(props) {
+    return (
+      <div className="card">
+    <div className="card-body">
+      <h5 className="card-title">{props.hospitalAddress}</h5>
+      <p className="card-text">Wants to view your records</p>
+      <button type="button" className='access' value= {props.hospitalAddress} onClick = {deleteNotif}>Access</button>
+      <button type="button" className='deny' value= {props.hospitalAddress} onClick = {deleteNotif} >Deny</button>
+    </div>
+  </div>
+    )
+  }
 
   // useEffect(() => {
   //   const disconnectFromMetaMask = () => {

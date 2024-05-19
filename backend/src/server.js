@@ -184,3 +184,67 @@ app.post("/get_notification", (req, res) => {
 
 
 })    
+ 
+app.post("/delete_notification", (req, res) => {
+
+    let a = req.body.user_id.toString();
+    console.log(a.toLowerCase());
+    let b = a.toLowerCase();
+    let c = req.body.hospital_id.toString();
+    let d = c.toLowerCase();
+    // let dummy = "0x12CB2FfF48C573eB77A592714Bd49004e090574F";
+    // let dum2 = dummy.toLowerCase();
+    db.collection('pending_approvals')
+    .updateMany(
+        { user_id: b },
+        { $pull : {hospital_list:d} }
+        )
+    .then( () =>{
+        console.log("del " ,req.body );
+        res.status(200).json("success");
+    }
+    )    
+    .catch((e) => {
+            res.status(500).json("error:", e);
+    }) 
+    //db.stores.updateMany(
+    // { },
+    // { $pull: { fruits: { $in: [ "apples", "oranges" ] }, vegetables: "carrots" } }
+// )
+
+
+})  
+
+app.post("/add_notification", (req, res) => {
+
+    let a = req.body.user_id.toString();
+    console.log(a.toLowerCase());
+    let b = a.toLowerCase();
+    let c = req.body.hospital_id.toString();
+    let d = c.toLowerCase();
+    // let dummy = "0x12CB2FfF48C573eB77A592714Bd49004e090574F";
+    // let dum2 = dummy.toLowerCase();
+    db.collection('pending_approvals')
+    .updateMany(
+        { user_id: b },
+        {$push:{hospital_list:d}}
+        )
+    .catch((e) => {
+            res.status(500).json("error:", e);
+    })        
+        // .findOne({ user_id: b })
+        // .then((data) => {
+        //     if(!data)  res.status(200).json("");
+        //     else res.status(200).json(data.hospital_list);
+        //     console.log(data)
+        // })
+        // .catch((e) => {
+        //     res.status(500).json("error:", e);
+    
+
+    //db.employees.updateMany(
+    //{_id:3},
+    //{$push:{"skills":"Sports"}})
+
+
+}) 

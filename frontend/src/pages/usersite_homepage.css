@@ -218,6 +218,21 @@
     z-index: -1;
 
 }
+.access{
+    background-color:aqua;
+    margin-right: 20px;
+    border-radius: 5px;
+    outline: none;
+    
+ }
+ .deny{
+     background-color: red;
+     border-radius: 5px;
+     outline: none;
+ }
+ .card{
+     margin-bottom: 5px;
+ }
 
 #notiIcon {
     color: white;
@@ -291,21 +306,4 @@
     border-radius: 5px;
     outline: none;
     border: none;
-}
-
-.test{
-    position: absolute;
-    display: flex;
-    box-sizing: border-box;
-    margin: 17px 0;
-    flex-direction: column;
-    align-items: center;
-    height: 400px;
-    width: 400px;
-    background-color: rgb(140, 137, 137, 0.5);
-    border-radius: 10px;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
-    top: 150px;
-
 }
