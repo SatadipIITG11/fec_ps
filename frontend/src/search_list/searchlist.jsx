@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import './searchlist.css'
+import { func1, func2,CheckPermission } from '../Get_functions'
 import { ethers } from 'ethers'
 
 function Searchlist(props) {
@@ -21,7 +22,7 @@ function Searchlist(props) {
 
     props.setInputtext(event.target.textContent)
     console.log(event.target.textContent)
-
+    console.log("PERM",CheckPermission(event.target.textContent))
     // ig search existence on this basis
     let inputElement = document.getElementById("searchbar")
     inputElement.value = event.target.textContent

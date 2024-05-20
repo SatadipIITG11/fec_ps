@@ -7,12 +7,31 @@ import Reports from '../popups/reports'
 import { useNavigate } from 'react-router-dom'
 import { ethers } from 'ethers';
 
-import { func1, func2 } from '../Get_functions'
-import { Set_My_Data } from "../Set_function"
+import { func1, func2,CheckPermission } from '../Get_functions'
+// import { Set_My_Data, } from '../Set_functions'
+import { Set_My_Data,Set_User_Data,InsertReport,GivePermission } from "../Set_function"
 import Notification from '../notifications/notification'
 
 function UsersiteHomepage() {
-  
+
+  // const try_promise = async () =>{
+  //   const provider = new ethers.BrowserProvider(window.ethereum);
+  //   const signer = await provider.getSigner();
+  //   let walletAddress = await signer.getAddress();
+  //   CheckPermission(walletAddress);
+
+
+  // }.then( ()=>{
+
+  // })
+  const getReports = async () =>{
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const signer = await provider.getSigner();
+    let walletAddress = await signer.getAddress();
+    console.log("func2",func2(walletAddress));
+    //isse jaise present karna hain karde
+    
+  }
   
   const  deleteNotif = async (event) => {
     const provider = new ethers.BrowserProvider(window.ethereum);
@@ -22,7 +41,7 @@ function UsersiteHomepage() {
       user_id : walletAddress ,
       hospital_id : event.target.value 
   }
-
+    
     fetch('http://localhost:3000/delete_notification', {
       method: 'POST',
       headers: {
@@ -30,10 +49,20 @@ function UsersiteHomepage() {
       },
       body: JSON.stringify(postData)
     }).then( (data) => {
-        console.log(data);
+        // console.log(data);
         getNotification();
     })
   }
+  const  requestApproved = async (event) => {
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const signer = await provider.getSigner();
+    let walletAddress = await signer.getAddress();
+    GivePermission(event.target.value);
+    deleteNotif(event);
+    console.log("now?:",CheckPermission())
+  }
+  
+
 
   function Notification(props) {
     return (
@@ -41,7 +70,7 @@ function UsersiteHomepage() {
     <div className="card-body">
       <h5 className="card-title">{props.hospitalAddress}</h5>
       <p className="card-text">Wants to view your records</p>
-      <button type="button" className='access' value= {props.hospitalAddress} onClick = {deleteNotif}>Access</button>
+      <button type="button" className='access' value= {props.hospitalAddress} onClick = {requestApproved}>Access</button>
       <button type="button" className='deny' value= {props.hospitalAddress} onClick = {deleteNotif} >Deny</button>
     </div>
   </div>
@@ -81,7 +110,7 @@ function UsersiteHomepage() {
   const [openUpdate, setopenUpdate] = useState(false)
 
   //dummy state notification ka badme change kardena
-  const [NOTI, SETNOTI] = useState(["APOLLO", "LALPATH", "EYECARE", "EYECARE", "EYECARE", "EYECARE", "EYECARE", "EYECARE", "EYECARE"])
+  // const [NOTI, SETNOTI] = useState(["APOLLO", "LALPATH", "EYECARE", "EYECARE", "EYECARE", "EYECARE", "EYECARE", "EYECARE", "EYECARE"])
 
   //update biodata section
 
@@ -140,6 +169,9 @@ function UsersiteHomepage() {
     fetch_data();
   }, []);
   useEffect(() => {
+    getReports();
+  }, []);
+  useEffect(() => {
     getNotification();
   }, []);
 
@@ -181,6 +213,8 @@ function UsersiteHomepage() {
       .then((data) => {
         console.log("notif:", data)
         if (data) setNotif(data);
+        // console.log("Permisssion",CheckPermission(walletAddress));
+        
       })
 
   }
