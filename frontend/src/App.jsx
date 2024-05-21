@@ -1,12 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
-import React, { useState } from 'react';
+import React from 'react';
 import Loginpage from './loginpage';
 import { Route, Routes } from "react-router-dom"
 //for checking only
 import HospitalHomepage from './pages/hospital_homepage';
 import UsersiteHomepage from './pages/usersite_homepage';
 import RegistrationPage from './pages/registrationpage';
+import Chatbot from './chatbot';
 
 function App() {
 
@@ -23,6 +23,7 @@ function App() {
 
         <Route path='/hospitalpage' element={<HospitalHomepage />} />
         <Route path='/registrationpage' element={<RegistrationPage />} />
+        <Route path='/chatbot' element={<Chatbot />} />
 
       </Routes>
 
