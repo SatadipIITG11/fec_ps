@@ -6,7 +6,7 @@ import Timeline from '../popups/timeline'
 import Reports from '../popups/reports'
 import { useNavigate } from 'react-router-dom'
 import { ethers } from 'ethers';
-
+import {CheckPermission} from '../Get_functions'
 import { func1, func2 } from '../Get_functions'
 import { Set_My_Data } from "../Set_function"
 import Notification from '../notifications/notification'
@@ -32,6 +32,7 @@ function UsersiteHomepage() {
     }).then( (data) => {
         console.log(data);
         getNotification();
+        
     })
   }
 
@@ -132,6 +133,8 @@ function UsersiteHomepage() {
     setdeficy(name2[1][2])
     setchronic(name2[1][3])
     setID(walletAddress)
+    let prom= await CheckPermission("0x2a7e2c15e86ffb78b89b21ae6f02ecdf110f758f")
+    console.log(prom)
 
 
   }

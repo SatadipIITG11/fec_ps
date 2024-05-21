@@ -277,19 +277,20 @@ function HospitalHomepage() {
         <button className="dropdown-toggle" onClick={toggleDropdown}>
           {selectedOption ? selectedOption.label : 'Select an option'}
         </button>
-        {isOpen && (
-          <div className="dropdown-menu">
-            {options.map(option => (
-              <div
+        {isOpen?(
+          
+          options.map((option) => {
+              
+              return (<div
                 key={option.id}
                 className="dropdown-item"
                 onClick={() => handleOptionClick(option)}
-              >
+               >
                 {option.label}
-              </div>
-            ))}
-          </div>
-        )}
+              </div>);
+            })
+          
+        ):""}
         <div className="browse-upload">
           <PdfUpload />
         </div>

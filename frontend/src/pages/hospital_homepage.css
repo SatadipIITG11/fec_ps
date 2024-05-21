@@ -158,12 +158,18 @@
 
 .dropdown-item {
     background-color: rgb(140, 137, 137, 0.8);
+    width: 300px;
     margin: 4px 0px;
     cursor: pointer;
     border-radius: 5px;
     font-weight: 500;
 
 }
+/* .dropdown-menu{
+    height: 200px;
+    width: 200px;
+    background-color: aquamarine;
+} */
 
 .browse-upload {
     margin-top: 25px;
