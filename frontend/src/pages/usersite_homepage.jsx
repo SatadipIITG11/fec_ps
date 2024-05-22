@@ -24,14 +24,47 @@ function UsersiteHomepage() {
   // }.then( ()=>{
 
   // })
-  const getReports = async () =>{
-    const provider = new ethers.BrowserProvider(window.ethereum);
-    const signer = await provider.getSigner();
-    let walletAddress = await signer.getAddress();
-    console.log("func2",func2(walletAddress));
-    //isse jaise present karna hain karde
+  const [allReports,setallReports]=useState([]);
+  
+  
+    // let allReports=[];
+    const getReports = async () =>{
+      const provider = new ethers.BrowserProvider(window.ethereum);
+      const signer = await provider.getSigner();
+      let walletAddress = await signer.getAddress();
+      let reports= await func2(walletAddress);
+     
+      console.log("func2",reports);
+       
+      let sizeofcids=reports[1].length
+      let allreports=[];
+      for(let i=0;i<sizeofcids;i++){
+          let report={
+            "cid":reports[1][i],
+            "type":reports[2][i]
+          }
+          
+          allreports.push(report);
+          setallReports(allreports);
+          
+      }
+      
+
+      // console.log(allReports);
+      // setallReports(prevReports => [...prevReports, report]);
+      // console.log("NEW REPORTS ARRAY",allReports)
+      
+      
+      // console.log("func2",func2(walletAddress));
+      //isse jaise present karna hain karde
+      
+    }
+
+  
+  
     
-  }
+    
+
   
   const  deleteNotif = async (event) => {
     const provider = new ethers.BrowserProvider(window.ethereum);
@@ -177,6 +210,10 @@ function UsersiteHomepage() {
   useEffect(() => {
     getNotification();
   }, []);
+  useEffect(() => {
+    console.log('Data state updated:', allReports);
+  }, [allReports]); // Log the state whenever it changes
+
 
 
   const Set_Data = async (Name, Age, Gender, Contact) => {
@@ -312,7 +349,7 @@ function UsersiteHomepage() {
             Timeline
           </div>
           <Timeline trigger={timelinePop} setTrigger={settimelinePop} />
-          <Reports trigger={reportsPop} setTrigger={setreportsPop} />
+          <Reports trigger={reportsPop} setTrigger={setreportsPop} allReports={allReports} />
         </div>
       </div>
       <div className="notificationuser" onClick={testyz}
