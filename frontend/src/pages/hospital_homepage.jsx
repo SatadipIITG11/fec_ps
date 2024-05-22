@@ -4,20 +4,17 @@ import { testy, testyz } from './testy'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import PdfUpload from './pdfupload'
-
+// import { func1, func2,CheckPermission } from '../Get_functions'
 import Timeline from '../popups/timeline'
 import Reports from '../popups/reports'
 // const { ethers } = require("ethers");
 
 import { ethers } from 'ethers';
-import { func1, func2 } from '../Get_functions'
+import { func1, func2,CheckPermission } from '../Get_functions'
 import { InsertReport } from "../Set_function"
 import { Set_User_Data } from "../Set_function"
 import Searchlist from '../search_list/searchlist'
 let name, age, gender, contact, blood, allergy, deficy, chronic;
-
-
-
 
 function HospitalHomepage() {
 
@@ -25,7 +22,7 @@ function HospitalHomepage() {
   const [registeredUsers, setRegisteredUsers] = useState([]);
   const [issearchlistopen, setSearchlistopen] = useState(true);
   // useEffect ( ()=>{console.log(registeredUsers) } ,  registeredUsers );
-
+  
   useEffect(() => {
 
     fetch('http://localhost:3000/get_registered_users'
@@ -53,8 +50,8 @@ function HospitalHomepage() {
       })
 
   }, [])
-
-
+  
+  //inputValue
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   //!!!!!Yaha dekh category me "category" string rahega!!!!!
@@ -68,6 +65,26 @@ function HospitalHomepage() {
 
   const [inputValue, setInputValue] = useState('');
   //guys inputvalue me search string rahega apne hisab se use karlo
+
+
+  const getReportHospital = async() => {
+    console.log("func1",func1(inputValue));
+    setuser_existence(true);
+    fetch_data(inputValue)
+    if(CheckPermission(inputValue) == false ){
+        //yaha popup dede ki permission mangi hain par abhi info access nahi kar sakte aur page refresh karde
+        console.log("Dont have permission");
+    }
+    else{
+      console.log("func2",func2(inputValue));
+      
+
+    }
+
+  } 
+  useEffect(() => {
+    getReportHospital();
+  }, [inputValue]);
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -111,7 +128,8 @@ function HospitalHomepage() {
   const [Meta_ID, setID] = useState("")
 
   const fetch_data = async (User_Address) => {
-    let walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE"
+    let walletAddress = User_Address
+    // let walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE"
     let name2 = await func1(walletAddress)
     // func_get_reports(walletAddress)
     // SetAge(walletAddress)
@@ -132,10 +150,10 @@ function HospitalHomepage() {
     // setage(age)
     // setgender(gender)
     // setcontact(contact)
-    // setblood(blood)
-    // setallergy(allergy)
-    // setdeficy(deficy)
-    // setchronic(chronic)
+    setblood(blood)
+    setallergy(allergy)
+    setdeficy(deficy)
+    setchronic(chronic)
     setopenUpdate(false)
     console.log("wow1");
     Set_Data(blood, allergy, deficy, chronic); // User addresss store karna hai yahan
@@ -147,9 +165,9 @@ function HospitalHomepage() {
     // const provider = new ethers.BrowserProvider(window.ethereum);
     // const signer = await provider.getSigner();
     // let walletAddress = await signer.getAddress();
-    let walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE";
+    // let walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE";
     // console.log(78)
-    Set_User_Data(walletAddress, Blood, Allergy, Deficy, Chronic)
+    Set_User_Data(inputValue, Blood, Allergy, Deficy, Chronic)
   }
 
   // const { ethers } = require("ethers");
@@ -161,28 +179,27 @@ function HospitalHomepage() {
   const [reportsPop, setreportsPop] = useState(false)
   const [user_existence, setuser_existence] = useState(false)
 
-  const handleEnter = (event) => {
+  // const handleEnter = (event) => {
 
-    if (event.key === 'Enter') {
-      //for checking purpose only
-      //here I have to check existence of user and set user_existence
-      fetch_data(event.target.value)
-      // console.log(event.target.value)
-      setuser_existence(true)
-      console.log("wowoowooowow")
-    }
+  //   if (event.key === 'Enter') {
+  //     //for checking purpose only
+  //     //here I have to check existence of user and set user_existence
+  //     fetch_data(event.target.value)
+  //     setuser_existence(true)
+  //     // console.log("wowoowooowow")
+  //   }
 
-  }
-
+  // }
+//onKeyDown={handleEnter}
   return (
     <div id='hospihome'>
       <div className="navbarhospi">
         <div className="logohospi">LIFE LEDGER</div>
         <div className="Searchdiv">
           <div className='searchdiv'><i class="fa-solid fa-magnifying-glass" id='searchicon'></i>
-            <input className='searchbar' id='searchbar' type="text" placeholder='Search by Id' onChange={handleInputChange} onKeyDown={handleEnter} /></div>
+            <input className='searchbar' id='searchbar' type="text" placeholder='Search by Id' onChange={handleInputChange}  /></div>
 
-
+            
 
         </div>
         <div className='upload' onClick={() => setopenupload(true)}>
@@ -280,21 +297,22 @@ function HospitalHomepage() {
         <button className="dropdown-toggle" onClick={toggleDropdown}>
           {selectedOption ? selectedOption.label : 'Select an option'}
         </button>
-        {isOpen && (
-          <div className="dropdown-menu">
-            {options.map(option => (
-              <div
+        {isOpen?(
+          
+          options.map((option) => {
+              
+              return (<div
                 key={option.id}
                 className="dropdown-item"
                 onClick={() => handleOptionClick(option)}
-              >
+               >
                 {option.label}
-              </div>
-            ))}
-          </div>
-        )}
+              </div>);
+            })
+          
+        ):""}
         <div className="browse-upload">
-          <PdfUpload />
+          <PdfUpload user_id = {inputValue} />
         </div>
       </div>) : ""}
       {openUpdate === true ? (<div className="to-update">

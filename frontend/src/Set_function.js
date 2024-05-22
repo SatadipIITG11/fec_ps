@@ -10,8 +10,9 @@ export async function Set_My_Data(metamaskID, name, age, gender, contactnumber) 
     try {
         await provider.send("eth_requestAccounts", []);
         const signer = await provider.getSigner();
+        const caller = await signer.getAddress();
         const contract = new ethers.Contract(address, ERC20_ABI, signer)
-        await contract.set_general_info(metamaskID, name, age, gender, contactnumber)
+        await contract.set_general_info(metamaskID, caller, name, age, gender, contactnumber)
     }
     catch (err) {
         console.log(err);
@@ -26,8 +27,9 @@ export async function Set_User_Data(metamaskID, blood_type, allergy, deficiency,
     try {
         await provider.send("eth_requestAccounts", []);
         const signer = await provider.getSigner();
+        const caller = await signer.getAddress();
         const contract = new ethers.Contract(address, ERC20_ABI, signer)
-        await contract.set_emergency_info(metamaskID, blood_type, allergy, deficiency, chronicdisease)
+        await contract.set_emergency_info(metamaskID, caller, blood_type, allergy, deficiency, chronicdisease)
     }
     catch (err) {
         console.log(err);
@@ -43,15 +45,16 @@ export async function InsertReport(metamaskID, cID, timeStamp, category) {
     try {
         await provider.send("eth_requestAccounts", []);
         const signer = await provider.getSigner();
+        const caller = await signer.getAddress();
         const contract = new ethers.Contract(address, ERC20_ABI, signer)
-        await contract.insertReport(metamaskID, cID, timeStamp, category)
+        await contract.insertReport(metamaskID, caller, cID, timeStamp, category)
     }
     catch (err) {
         console.log(err);
     }
 }
 
-export async function GivePermission(patient, hospital) {
+export async function GivePermission(hospital) {
     const provider = new ethers.BrowserProvider(window.ethereum);
     const ERC20_ABI = contractABI;
     // Your ERC20 ABI definition
@@ -59,8 +62,9 @@ export async function GivePermission(patient, hospital) {
     try {
         await provider.send("eth_requestAccounts", []);
         const signer = await provider.getSigner();
+        const caller = await signer.getAddress();
         const contract = new ethers.Contract(address, ERC20_ABI, signer)
-        await contract.addAllowedAddress(patient, hospital)
+        await contract.addAllowedAddress(caller, hospital)
     }
     catch (err) {
         console.log(err);

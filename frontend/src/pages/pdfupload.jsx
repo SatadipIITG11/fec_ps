@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Set_My_Data, Set_User_Data, InsertReport, GivePermission } from "../Set_function"
 
-function PdfUpload() {
+function PdfUpload(props) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [uploadResult, setUploadResult] = useState(null);
@@ -13,7 +14,7 @@ function PdfUpload() {
 
   const handleUpload = async () => {
     if (!selectedFile) return;
-    
+
     const formData = new FormData();
     formData.append('file', selectedFile);
 
@@ -25,7 +26,7 @@ function PdfUpload() {
           'Content-Type': 'multipart/form-data',
         }
       });
-
+      InsertReport(props.user_id, response.data.timestamp, response.data.ipfsHash, "Procedural");
       setUploading(false);
       setUploadResult(response.data);
       setSelectedFile(null);
@@ -33,6 +34,9 @@ function PdfUpload() {
       console.error('Error uploading PDF file:', error);
       setUploading(false);
     }
+
+
+
   };
 
   return (

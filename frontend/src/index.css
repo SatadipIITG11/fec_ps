@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -17,17 +17,18 @@ body,
 html {
   overflow: hidden;
   margin: 0;
-  /* Remove default margin to ensure full-width display */
+ 
   padding: 0;
-  /* Remove default padding to ensure full-width display */
-}
+  
+} */
 
 #root {
   display: flex;
   justify-content: center;
   /* margin-top: 20vh; */
-  height: 100vh;
-  width: 100vw;
+  /* height: 100vh;
+  width: 100vw; */
+  min-height: 100%;
 }
 
 body video {

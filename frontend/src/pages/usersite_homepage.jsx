@@ -7,11 +7,76 @@ import Reports from '../popups/reports'
 import { useNavigate } from 'react-router-dom'
 import { ethers } from 'ethers';
 
-import { func1, func2 } from '../Get_functions'
-import { Set_My_Data } from "../Set_function"
+import { func1, func2,CheckPermission } from '../Get_functions'
+// import { Set_My_Data, } from '../Set_functions'
+import { Set_My_Data,Set_User_Data,InsertReport,GivePermission } from "../Set_function"
 import Notification from '../notifications/notification'
 
 function UsersiteHomepage() {
+
+  // const try_promise = async () =>{
+  //   const provider = new ethers.BrowserProvider(window.ethereum);
+  //   const signer = await provider.getSigner();
+  //   let walletAddress = await signer.getAddress();
+  //   CheckPermission(walletAddress);
+
+
+  // }.then( ()=>{
+
+  // })
+  const getReports = async () =>{
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const signer = await provider.getSigner();
+    let walletAddress = await signer.getAddress();
+    console.log("func2",func2(walletAddress));
+    //isse jaise present karna hain karde
+    
+  }
+  
+  const  deleteNotif = async (event) => {
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const signer = await provider.getSigner();
+    let walletAddress = await signer.getAddress();
+    let postData = {
+      user_id : walletAddress ,
+      hospital_id : event.target.value 
+  }
+    
+    fetch('http://localhost:3000/delete_notification', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(postData)
+    }).then( (data) => {
+        // console.log(data);
+        getNotification();
+        
+    })
+  }
+  const  requestApproved = async (event) => {
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const signer = await provider.getSigner();
+    let walletAddress = await signer.getAddress();
+    GivePermission(event.target.value);
+    deleteNotif(event);
+    console.log("now?:",CheckPermission())
+  }
+  
+
+
+  function Notification(props) {
+    return (
+      <div className="card">
+    <div className="card-body">
+      <h5 className="card-title">{props.hospitalAddress}</h5>
+      <p className="card-text">Wants to view your records</p>
+      <button type="button" className='access' value= {props.hospitalAddress} onClick = {requestApproved}>Access</button>
+      <button type="button" className='deny' value= {props.hospitalAddress} onClick = {deleteNotif} >Deny</button>
+    </div>
+  </div>
+    )
+  }
 
   // useEffect(() => {
   //   const disconnectFromMetaMask = () => {
@@ -44,9 +109,9 @@ function UsersiteHomepage() {
   //baki hai reports ki designing....
   const [reportsPop, setreportsPop] = useState(false)
   const [openUpdate, setopenUpdate] = useState(false)
-  
+
   //dummy state notification ka badme change kardena
-  const [NOTI,SETNOTI]=useState(["APOLLO","LALPATH","EYECARE","EYECARE","EYECARE","EYECARE","EYECARE","EYECARE","EYECARE"])
+  // const [NOTI, SETNOTI] = useState(["APOLLO", "LALPATH", "EYECARE", "EYECARE", "EYECARE", "EYECARE", "EYECARE", "EYECARE", "EYECARE"])
 
   //update biodata section
 
@@ -81,7 +146,7 @@ function UsersiteHomepage() {
     const provider = new ethers.BrowserProvider(window.ethereum);
     const signer = await provider.getSigner();
     let walletAddress = await signer.getAddress();
-    walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE"
+    // walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE"
     let name2 = await func1(walletAddress)
     // func_get_reports(walletAddress)
     // SetAge(walletAddress)
@@ -97,12 +162,17 @@ function UsersiteHomepage() {
     setdeficy(name2[1][2])
     setchronic(name2[1][3])
     setID(walletAddress)
+    let prom= await CheckPermission("0x2a7e2c15e86ffb78b89b21ae6f02ecdf110f758f")
+    console.log(prom)
 
 
   }
 
   useEffect(() => {
     fetch_data();
+  }, []);
+  useEffect(() => {
+    getReports();
   }, []);
   useEffect(() => {
     getNotification();
@@ -113,7 +183,7 @@ function UsersiteHomepage() {
     const provider = new ethers.BrowserProvider(window.ethereum);
     const signer = await provider.getSigner();
     let walletAddress = await signer.getAddress();
-    walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE"
+    // walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE"
     // console.log(78)
     Set_My_Data(walletAddress, Name, Age, Gender, Contact)
   }
@@ -145,9 +215,43 @@ function UsersiteHomepage() {
       .then(response => response.json())
       .then((data) => {
         console.log("notif:", data)
-        if(data) setNotif(data);
+        if (data) setNotif(data);
+        // console.log("Permisssion",CheckPermission(walletAddress));
+        
       })
 
+  }
+
+  //!!TESTING STATES!!
+   
+  const [opentest1, setopentest1] = useState(false)
+  const [opentest2, setopentest2] = useState(false)
+  const [opentest3, setopentest3] = useState(false)
+  const [opentest4, setopentest4] = useState(false)
+
+  const updatetest1 = () => {
+    
+    setopentest1(false)
+    
+    
+    
+  }
+  const updatetest2 = () => {
+    
+    setopentest2(false)
+   
+    
+   
+  }
+  const updatetest3 = () => {
+    
+    setopentest3(false)
+    
+  }
+  const updatetest4 = () => {
+    
+    setopentest4(false)
+    
   }
 
   return (
@@ -225,9 +329,9 @@ function UsersiteHomepage() {
         </div>
         <div class="offcanvas-body">
           {//Yaha notification state pass kardena as a prop
-            Notif.map((value)=><Notification hospitalAddress={value}/>)
+            Notif.map((value) => <Notification hospitalAddress={value} />)
           }
-          
+
         </div>
       </div>
 
@@ -271,6 +375,86 @@ function UsersiteHomepage() {
           SUBMIT
         </div>
       </div>) : ""}
+
+      {/* !!ONLY FOR TESTING PURPOSE WE WILL REMOVE IT LATER!!
+      START!!! */}
+      <button className='TEST' onClick={()=>setopentest1(true)}>test1</button>
+      <button className='TEST' onClick={()=>setopentest2(true)}>test2</button>
+      <button className='TEST' onClick={()=>setopentest3(true)}>test3</button>
+      <button className='TEST' onClick={()=>setopentest4(true)}>test4</button>
+
+{opentest1 === true ? (<div className="test">
+        <div className="close-update">
+          <i class="fa-solid fa-xmark" id='cross' onClick={() => setopentest1(false)}></i>
+        </div>
+        <div className="update update-name">
+          <span>Name:</span>
+          <input type="text" onChange={(e) => { name = e.target.value }} />
+        </div>
+        <div className="update update-age">
+          <span>Age:</span>
+          <input type="text" onChange={(e) => { age = e.target.value }} />
+        </div>
+        
+        <div className="submit-update" onClick={updatetest1}>
+          SUBMIT
+        </div>
+      </div>) : ""}
+
+      {opentest2 === true ? (<div className="test">
+        <div className="close-update">
+          <i class="fa-solid fa-xmark" id='cross' onClick={() => setopentest2(false)}></i>
+        </div>
+        <div className="update update-name">
+          <span>Name:</span>
+          <input type="text" onChange={(e) => { name = e.target.value }} />
+        </div>
+        <div className="update update-age">
+          <span>Age:</span>
+          <input type="text" onChange={(e) => { age = e.target.value }} />
+        </div>
+        
+        <div className="submit-update" onClick={updatetest2}>
+          SUBMIT
+        </div>
+      </div>) : ""}
+
+      {opentest3 === true ? (<div className="test">
+        <div className="close-update">
+          <i class="fa-solid fa-xmark" id='cross' onClick={() => setopentest3(false)}></i>
+        </div>
+        <div className="update update-name">
+          <span>Name:</span>
+          <input type="text" onChange={(e) => { name = e.target.value }} />
+        </div>
+        <div className="update update-age">
+          <span>Age:</span>
+          <input type="text" onChange={(e) => { age = e.target.value }} />
+        </div>
+        
+        <div className="submit-update" onClick={updatetest3}>
+          SUBMIT
+        </div>
+      </div>) : ""}
+
+      {opentest4 === true ? (<div className="test">
+        <div className="close-update">
+          <i class="fa-solid fa-xmark" id='cross' onClick={() => setopentest4(false)}></i>
+        </div>
+        <div className="update update-name">
+          <span>Name:</span>
+          <input type="text" onChange={(e) => { name = e.target.value }} />
+        </div>
+        <div className="update update-age">
+          <span>Age:</span>
+          <input type="text" onChange={(e) => { age = e.target.value }} />
+        </div>
+        
+        <div className="submit-update" onClick={updatetest4}>
+          SUBMIT
+        </div>
+      </div>) : ""}
+      {/* !!TESTNG CODE ENDS HERE!! */}
 
     </div>
   )

@@ -218,6 +218,21 @@
     z-index: -1;
 
 }
+.access{
+    background-color:aqua;
+    margin-right: 20px;
+    border-radius: 5px;
+    outline: none;
+    
+ }
+ .deny{
+     background-color: red;
+     border-radius: 5px;
+     outline: none;
+ }
+ .card{
+     margin-bottom: 5px;
+ }
 
 #notiIcon {
     color: white;

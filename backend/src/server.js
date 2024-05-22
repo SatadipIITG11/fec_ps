@@ -7,7 +7,7 @@ const { ObjectId } = require('mongodb')
 // const objectId = new ObjectId("5ca4bbc7a2dd94ee5816238c");
 
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:3001'); // Set the allowed origin
+    res.header('Access-Control-Allow-Origin', '*'); // Set the allowed origin
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Set the allowed HTTP methods
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Set the allowed headers
     next();
@@ -184,3 +184,67 @@ app.post("/get_notification", (req, res) => {
 
 
 })    
+ 
+app.post("/delete_notification", (req, res) => {
+
+    let a = req.body.user_id.toString();
+    console.log(a.toLowerCase());
+    let b = a.toLowerCase();
+    let c = req.body.hospital_id.toString();
+    let d = c.toLowerCase();
+    // let dummy = "0x12CB2FfF48C573eB77A592714Bd49004e090574F";
+    // let dum2 = dummy.toLowerCase();
+    db.collection('pending_approvals')
+    .updateMany(
+        { user_id: b },
+        { $pull : {hospital_list:d} }
+        )
+    .then( () =>{
+        console.log("del " ,req.body );
+        res.status(200).json("success");
+    }
+    )    
+    .catch((e) => {
+            res.status(500).json("error:", e);
+    }) 
+    //db.stores.updateMany(
+    // { },
+    // { $pull: { fruits: { $in: [ "apples", "oranges" ] }, vegetables: "carrots" } }
+// )
+
+
+})  
+
+app.post("/add_notification", (req, res) => {
+
+    let a = req.body.user_id.toString();
+    console.log(a.toLowerCase());
+    let b = a.toLowerCase();
+    let c = req.body.hospital_id.toString();
+    let d = c.toLowerCase();
+    // let dummy = "0x12CB2FfF48C573eB77A592714Bd49004e090574F";
+    // let dum2 = dummy.toLowerCase();
+    db.collection('pending_approvals')
+    .updateMany(
+        { user_id: b },
+        {$push:{hospital_list:d}}
+        )
+    .catch((e) => {
+            res.status(500).json("error:", e);
+    })        
+        // .findOne({ user_id: b })
+        // .then((data) => {
+        //     if(!data)  res.status(200).json("");
+        //     else res.status(200).json(data.hospital_list);
+        //     console.log(data)
+        // })
+        // .catch((e) => {
+        //     res.status(500).json("error:", e);
+    
+
+    //db.employees.updateMany(
+    //{_id:3},
+    //{$push:{"skills":"Sports"}})
+
+
+}) 
