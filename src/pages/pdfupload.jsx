@@ -23,7 +23,7 @@ function PdfUpload() {
       const response = await axios.post('http://localhost:4000/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
-        },
+        }
       });
 
       setUploading(false);
