@@ -196,7 +196,7 @@ function HospitalHomepage() {
       <div className="navbarhospi">
         <div className="logohospi">LIFE LEDGER</div>
         <div className="Searchdiv">
-          <div className='searchdiv'><i class="fa-solid fa-magnifying-glass" id='searchicon'></i>
+          <div className='searchdiv'><div className='searchButton'><i class="fa-solid fa-magnifying-glass" id='searchicon'></i></div>
             <input className='searchbar' id='searchbar' type="text" placeholder='Search by Id' onChange={handleInputChange}  /></div>
 
             
@@ -263,7 +263,7 @@ function HospitalHomepage() {
                 Timeline
               </div>
               <Timeline trigger={timelinePop} setTrigger={settimelinePop} />
-              <Reports trigger={reportsPop} setTrigger={setreportsPop} />
+              {/* <Reports trigger={reportsPop} setTrigger={setreportsPop} /> */}
             </div>
           )
           :

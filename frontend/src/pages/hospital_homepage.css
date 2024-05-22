@@ -53,10 +53,22 @@
     backdrop-filter: blur(12px);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
 }
+.searchButton{
+    width: 4vw;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+#searchicon:hover{
+    color: rgba(0, 0, 0, 0.9);
+}
 
-/* .Searchdiv{
-  position: static;
-} */
+.Searchdiv{
+  display: flex;
+}
+
 
 .searchbar {
     border: none;
@@ -84,6 +96,7 @@
     padding-left: 6px;
     padding-right: 4px;
     color: white;
+    
 }
 
 .upload {
