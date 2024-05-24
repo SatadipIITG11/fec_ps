@@ -1,5 +1,62 @@
 export const contractABI = [
     {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "hospital",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "patientId",
+                "type": "address"
+            }
+        ],
+        "name": "AccessDenied",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "hospital",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "patientId",
+                "type": "address"
+            }
+        ],
+        "name": "AccessGranted",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "hospital",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "patientId",
+                "type": "address"
+            }
+        ],
+        "name": "AccessRequested",
+        "type": "event"
+    },
+    {
         "inputs": [
             {
                 "internalType": "address",
@@ -124,6 +181,42 @@ export const contractABI = [
         "inputs": [
             {
                 "internalType": "address",
+                "name": "patientAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "hospitalAddress",
+                "type": "address"
+            }
+        ],
+        "name": "requestAccess",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bool",
+                "name": "_grant",
+                "type": "bool"
+            },
+            {
+                "internalType": "address",
+                "name": "patientAddress",
+                "type": "address"
+            }
+        ],
+        "name": "respondToRequest",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
                 "name": "patient",
                 "type": "address"
             },
@@ -194,6 +287,40 @@ export const contractABI = [
         "name": "set_general_info",
         "outputs": [],
         "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "accessRequests",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "hospital",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "patient",
+                "type": "address"
+            },
+            {
+                "internalType": "bool",
+                "name": "granted",
+                "type": "bool"
+            },
+            {
+                "internalType": "bool",
+                "name": "exists",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
         "type": "function"
     },
     {
@@ -507,4 +634,4 @@ export const contractABI = [
     }
 ];
 
-export const contractAddress = '0x36D4978e840E15D0dcf86D2c66819cb8afcb4fEA';
+export const contractAddress = '0xeaDa555E65e4ba0a7Eb44B1D50D143ff43c58dF8';
