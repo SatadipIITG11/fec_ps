@@ -1,15 +1,28 @@
 .event {
   position: relative;
-  width: 40%;
+  width: 150%;
+  height:90px ;
   margin: 20px auto;
   padding: 10px;
   background: rgba(255, 255, 255, 0.1);
   color: white;
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+}
+.link-click{
+  text-decoration: none;
+
+}
+.event:hover{
+  background: rgba(57, 53, 53, 0.9);
 }
 
 .event.left {
   align-self: flex-start;
+  
 }
 
 .event.right {
@@ -29,10 +42,15 @@
 
 .event.left::after {
   right: 100%;
+  
 }
 
 .event.right::after {
   left: 100%;
 }
+
+/* .event-content{
+  width: 100px;
+} */
 
 /* Add more styles for the event appearance */

@@ -6,20 +6,19 @@ function Timeline(props) {
 
   //checking event list just for checking
 
-  const myEvents = [
-    { id: 1, content: 'Jan24' },
-    { id: 2, content: 'Event' },
-    { id: 3, content: 'Event' },
-    { id: 4, content: 'Event' },
-    { id: 5, content: 'Event' },
-    { id: 6, content: 'Event' },
-    { id: 7, content: 'Event' },
-    { id: 8, content: 'Event' },
-    { id: 9, content: 'Event' },
-    { id: 10, content: 'Event' },
-    { id: 11, content: 'Event' },
-    // Add more event data
-  ];
+  const myEvents = [];
+ 
+  for(let i=0;i<props.timeline.length;i++)
+    {
+      let time={
+        id:(i+1),
+        content:props.timeline[i].date.slice(0,10),
+        cid:props.timeline[i].cid
+      }
+      myEvents.push(time);
+    }
+
+    console.log("MY EVENTS:",myEvents)
 
 
   return props.trigger === true ? (

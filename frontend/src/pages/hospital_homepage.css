@@ -53,10 +53,22 @@
     backdrop-filter: blur(12px);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
 }
+.searchButton{
+    width: 4vw;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+#searchicon:hover{
+    color: rgba(0, 0, 0, 0.9);
+}
 
-/* .Searchdiv{
-  position: static;
-} */
+.Searchdiv{
+  display: flex;
+}
+
 
 .searchbar {
     border: none;
@@ -84,6 +96,7 @@
     padding-left: 6px;
     padding-right: 4px;
     color: white;
+    
 }
 
 .upload {
@@ -158,12 +171,18 @@
 
 .dropdown-item {
     background-color: rgb(140, 137, 137, 0.8);
+    width: 300px;
     margin: 4px 0px;
     cursor: pointer;
     border-radius: 5px;
     font-weight: 500;
 
 }
+/* .dropdown-menu{
+    height: 200px;
+    width: 200px;
+    background-color: aquamarine;
+} */
 
 .browse-upload {
     margin-top: 25px;

@@ -1,7 +1,15 @@
 import React from 'react'
 import './eachreport.css'
-
+import { useState } from 'react';
 function Eachreport(props) {
+  
+
+  // if (!props.reportCid || props.reportCid === 0) {
+  //   return <p>Loading...</p>; // Display a loading message or spinner
+  // }
+  let report=props.reportCid
+  
+
   return props.Trigger === true ? (
     <div className='PDF'>
       <div className="close" >
@@ -9,8 +17,14 @@ function Eachreport(props) {
           <i class="fa-solid fa-xmark"></i>
         </div>
       </div>
-
-      {/* there will be javascript map rendering for each pdf files of different pdf types so make another component for single pdf element */}
+      <div className='report'>{
+        report.map((value)=>{
+          return(
+            <><a className='pdf-link' href={`https://gateway.pinata.cloud/ipfs/${value}`}>https://gateway.pinata.cloud/ipfs/{value}</a><br></br></>
+          )
+        })
+      }</div>
+      
     </div>
   ) : "";
 }

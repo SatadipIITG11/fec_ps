@@ -1,4 +1,6 @@
-
+///to use this install dependencies by running npm install express multer axios cors form-data
+// run the server by running node src/backend/ipfsserver.js
+// This is the backend server that will handle the file uploads and pinning to IPFS using Pinata
 const express = require('express');
 const multer = require('multer');
 const axios = require('axios');
@@ -6,7 +8,7 @@ const cors = require('cors');
 const FormData = require('form-data');
 
 const app = express();
-const port = process.env.PORT || 4000; // Use port from environment variable or default to 3000
+const port = process.env.PORT || 4000; // I used the port 4000
 
 // Set up CORS
 app.use(cors());

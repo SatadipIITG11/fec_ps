@@ -24,7 +24,7 @@ function PdfUpload(props) {
       const response = await axios.post('http://localhost:4000/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
-        },
+        }
       });
       InsertReport(props.user_id, response.data.timestamp, response.data.ipfsHash, "Procedural");
       setUploading(false);

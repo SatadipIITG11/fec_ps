@@ -24,14 +24,59 @@ function UsersiteHomepage() {
   // }.then( ()=>{
 
   // })
-  const getReports = async () =>{
-    const provider = new ethers.BrowserProvider(window.ethereum);
-    const signer = await provider.getSigner();
-    let walletAddress = await signer.getAddress();
-    console.log("func2",func2(walletAddress));
-    //isse jaise present karna hain karde
+  const [allReports,setallReports]=useState([]);
+  const [timeline,setTimeline]=useState([]);
+  
+  
+    // let allReports=[];
+    const getReports = async () =>{
+      const provider = new ethers.BrowserProvider(window.ethereum);
+      const signer = await provider.getSigner();
+      let walletAddress = await signer.getAddress();
+      let reports= await func2(walletAddress);
+     
+      console.log("func2",reports[0]);
+       
+      let sizeofcids=reports[1].length
+      let allreports=[];
+      for(let i=0;i<sizeofcids;i++){
+          let report={
+            "cid":reports[1][i],
+            "type":reports[2][i]
+          }
+          
+          allreports.push(report);
+          setallReports(allreports);
+          
+      }
+      let sizeofdates=reports[0].length
+      let times=[];
+      for(let i=0;i<sizeofdates;i++)
+        {
+          let time={
+             date:reports[0][i],
+             cid:reports[1][i]
+          }
+          times.push(time);
+          setTimeline(times);
+        }
+      
+
+      // console.log(allReports);
+      // setallReports(prevReports => [...prevReports, report]);
+      // console.log("NEW REPORTS ARRAY",allReports)
+      
+      
+      // console.log("func2",func2(walletAddress));
+      //isse jaise present karna hain karde
+      
+    }
+
+  
+  
     
-  }
+    
+
   
   const  deleteNotif = async (event) => {
     const provider = new ethers.BrowserProvider(window.ethereum);
@@ -51,6 +96,7 @@ function UsersiteHomepage() {
     }).then( (data) => {
         // console.log(data);
         getNotification();
+        
     })
   }
   const  requestApproved = async (event) => {
@@ -161,6 +207,8 @@ function UsersiteHomepage() {
     setdeficy(name2[1][2])
     setchronic(name2[1][3])
     setID(walletAddress)
+    let prom= await CheckPermission("0x2a7e2c15e86ffb78b89b21ae6f02ecdf110f758f")
+    console.log(prom)
 
 
   }
@@ -174,6 +222,13 @@ function UsersiteHomepage() {
   useEffect(() => {
     getNotification();
   }, []);
+  useEffect(() => {
+    console.log('Reports state updated:', allReports);
+  }, [allReports]); // Log the state whenever it changes
+  useEffect(() => {
+    console.log('Timeline state updated:', timeline);
+  }, [timeline]); // Log the state whenever it changes
+
 
 
   const Set_Data = async (Name, Age, Gender, Contact) => {
@@ -308,8 +363,8 @@ function UsersiteHomepage() {
           <div className="Box4 Box" onClick={() => settimelinePop(true)}>
             Timeline
           </div>
-          <Timeline trigger={timelinePop} setTrigger={settimelinePop} />
-          <Reports trigger={reportsPop} setTrigger={setreportsPop} />
+          <Timeline trigger={timelinePop} setTrigger={settimelinePop} timeline={timeline} />
+          <Reports trigger={reportsPop} setTrigger={setreportsPop} allReports={allReports} />
         </div>
       </div>
       <div className="notificationuser" onClick={testyz}

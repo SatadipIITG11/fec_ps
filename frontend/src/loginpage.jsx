@@ -134,7 +134,7 @@ function Loginpage() {
           <div className={toggleState === 2 ? "tab-focused" : "tab"} onClick={() => setToggle(2)}>Hospital</div>
 
         </div>
-        <div className="container">
+        <div className="containernew">
           <div className="header">
             Log In
           </div>

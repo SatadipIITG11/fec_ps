@@ -196,7 +196,7 @@ function HospitalHomepage() {
       <div className="navbarhospi">
         <div className="logohospi">LIFE LEDGER</div>
         <div className="Searchdiv">
-          <div className='searchdiv'><i class="fa-solid fa-magnifying-glass" id='searchicon'></i>
+          <div className='searchdiv'><div className='searchButton'><i class="fa-solid fa-magnifying-glass" id='searchicon'></i></div>
             <input className='searchbar' id='searchbar' type="text" placeholder='Search by Id' onChange={handleInputChange}  /></div>
 
             
@@ -262,8 +262,8 @@ function HospitalHomepage() {
               <div className="Box4 Box" onClick={() => settimelinePop(true)}>
                 Timeline
               </div>
-              <Timeline trigger={timelinePop} setTrigger={settimelinePop} />
-              <Reports trigger={reportsPop} setTrigger={setreportsPop} />
+              {/* <Timeline trigger={timelinePop} setTrigger={settimelinePop} /> */}
+              {/* <Reports trigger={reportsPop} setTrigger={setreportsPop} /> */}
             </div>
           )
           :
@@ -297,19 +297,20 @@ function HospitalHomepage() {
         <button className="dropdown-toggle" onClick={toggleDropdown}>
           {selectedOption ? selectedOption.label : 'Select an option'}
         </button>
-        {isOpen && (
-          <div className="dropdown-menu">
-            {options.map(option => (
-              <div
+        {isOpen?(
+          
+          options.map((option) => {
+              
+              return (<div
                 key={option.id}
                 className="dropdown-item"
                 onClick={() => handleOptionClick(option)}
-              >
+               >
                 {option.label}
-              </div>
-            ))}
-          </div>
-        )}
+              </div>);
+            })
+          
+        ):""}
         <div className="browse-upload">
           <PdfUpload user_id = {inputValue} />
         </div>
