@@ -262,7 +262,7 @@ function HospitalHomepage() {
               <div className="Box4 Box" onClick={() => settimelinePop(true)}>
                 Timeline
               </div>
-              <Timeline trigger={timelinePop} setTrigger={settimelinePop} />
+              {/* <Timeline trigger={timelinePop} setTrigger={settimelinePop} /> */}
               {/* <Reports trigger={reportsPop} setTrigger={setreportsPop} /> */}
             </div>
           )

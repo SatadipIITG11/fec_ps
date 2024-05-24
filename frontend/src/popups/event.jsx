@@ -3,12 +3,14 @@ import './event.css';
 
 const Event = ({ data, position }) => {
   const alignment = position % 2 === 0 ? 'left' : 'right';
+
+ 
   return (
-    <li className={`event ${alignment}`}>
+    <a href={`https://gateway.pinata.cloud/ipfs/${data.cid}`} className='link-click'><li className={`event ${alignment}`}>
       <div className="event-content">
         {data.content}
       </div>
-    </li>
+    </li></a>
   );
 };
 

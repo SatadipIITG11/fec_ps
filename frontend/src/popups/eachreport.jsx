@@ -8,14 +8,8 @@ function Eachreport(props) {
   //   return <p>Loading...</p>; // Display a loading message or spinner
   // }
   let report=props.reportCid
-  console.log("HEHEHEHE",props)
+  
 
-  const [link, setLink] = useState('https://example.com');
-
-  // Simulate changing the link after some time or event
-  const changeLink = (event) => {
-    setLink(event.target.textContent);
-  };
   return props.Trigger === true ? (
     <div className='PDF'>
       <div className="close" >
@@ -26,7 +20,7 @@ function Eachreport(props) {
       <div className='report'>{
         report.map((value)=>{
           return(
-            <><a className='pdf-link' href={link} onClick={changeLink}>https://gateway.pinata.cloud/ipfs/{value}</a><br></br></>
+            <><a className='pdf-link' href={`https://gateway.pinata.cloud/ipfs/${value}`}>https://gateway.pinata.cloud/ipfs/{value}</a><br></br></>
           )
         })
       }</div>

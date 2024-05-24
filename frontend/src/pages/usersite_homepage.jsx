@@ -25,6 +25,7 @@ function UsersiteHomepage() {
 
   // })
   const [allReports,setallReports]=useState([]);
+  const [timeline,setTimeline]=useState([]);
   
   
     // let allReports=[];
@@ -34,7 +35,7 @@ function UsersiteHomepage() {
       let walletAddress = await signer.getAddress();
       let reports= await func2(walletAddress);
      
-      console.log("func2",reports);
+      console.log("func2",reports[0]);
        
       let sizeofcids=reports[1].length
       let allreports=[];
@@ -48,6 +49,17 @@ function UsersiteHomepage() {
           setallReports(allreports);
           
       }
+      let sizeofdates=reports[0].length
+      let times=[];
+      for(let i=0;i<sizeofdates;i++)
+        {
+          let time={
+             date:reports[0][i],
+             cid:reports[1][i]
+          }
+          times.push(time);
+          setTimeline(times);
+        }
       
 
       // console.log(allReports);
@@ -211,8 +223,11 @@ function UsersiteHomepage() {
     getNotification();
   }, []);
   useEffect(() => {
-    console.log('Data state updated:', allReports);
+    console.log('Reports state updated:', allReports);
   }, [allReports]); // Log the state whenever it changes
+  useEffect(() => {
+    console.log('Timeline state updated:', timeline);
+  }, [timeline]); // Log the state whenever it changes
 
 
 
@@ -348,7 +363,7 @@ function UsersiteHomepage() {
           <div className="Box4 Box" onClick={() => settimelinePop(true)}>
             Timeline
           </div>
-          <Timeline trigger={timelinePop} setTrigger={settimelinePop} />
+          <Timeline trigger={timelinePop} setTrigger={settimelinePop} timeline={timeline} />
           <Reports trigger={reportsPop} setTrigger={setreportsPop} allReports={allReports} />
         </div>
       </div>
