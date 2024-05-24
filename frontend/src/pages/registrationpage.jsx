@@ -20,6 +20,12 @@ const RegistrationPage = () => {
     console.log('State updated', formData);
   }, [Toggle]);
 
+  const [tabState,setTabState]=useState(1);
+  // !!! tab 1 state is for patient and tab 2 state is for hospital !!!
+
+
+  
+
 
   // const connectWalletHandler = async () => {
   //   window.web3 = new Web3(window.ethereum)
@@ -131,9 +137,15 @@ const RegistrationPage = () => {
   };
 
   return (
-    <div className="container"> {/* Applying container class */}
+    <div className="container"> 
+     <h1 className='regis-header'>REGISTRATION PAGE</h1>
       <div className="form-container"> {/* Applying form-container class */}
-        <h2>Registration Page</h2>
+        {/* <h2>Registration Page</h2> */}
+        <div className="registration-tabs">
+          <div className={tabState === 1 ? "registration-tab-focused" : "registration-tab"} onClick={() => setTabState(1)}>Patient</div>
+          <div className={tabState === 2 ? "registration-tab-focused" : "registration-tab"} onClick={() => setTabState(2)}>Hospital</div>
+
+        </div>
         <form onSubmit={handleSubmit}>
           <div className="form-group"> {/* Applying form-group class */}
             <label>Name</label>
