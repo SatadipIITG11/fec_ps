@@ -196,7 +196,7 @@ function HospitalHomepage() {
       <div className="navbarhospi">
         <div className="logohospi">LIFE LEDGER</div>
         <div className="Searchdiv">
-          <div className='searchdiv'><div className='searchButton'><i class="fa-solid fa-magnifying-glass" id='searchicon'></i></div>
+          <div className='searchdiv'><div className='searchButton' onClick={()=>console.log("searchbar wroking")}><i class="fa-solid fa-magnifying-glass" id='searchicon'></i></div>
             <input className='searchbar' id='searchbar' type="text" placeholder='Search by Id' onChange={handleInputChange}  /></div>
 
             
