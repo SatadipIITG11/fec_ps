@@ -3,7 +3,8 @@ import './registrationpage.css'; // Importing the CSS file
 import { ethers } from 'ethers'
 import Web3 from 'web3';
 // import { response } from 'express';
-
+import { Set_My_Data,Set_User_Data,InsertReport,GivePermission } from "../Set_function"
+import { CheckUser ,CheckHospital, AddHospital, AddUser } from "../Admin_functions"
 
 
 const RegistrationPage = () => {
@@ -85,11 +86,26 @@ const RegistrationPage = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     connectWalletHandler();
-    const validationErrors = {};
 
+
+    if(tabState==2){
+      if(CheckHospital(formData.Metamask_id)) {
+        console.log("Already registered") ;
+      }
+      else {
+        AddHospital(formData.Metamask_id) ;
+        console.log("registered now") ;
+      }
+
+    }
+    else{
+    const validationErrors = {};
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const signer = await provider.getSigner();
+    let walletAddress = await signer.getAddress();
 
     // Simple validation
     if (!formData.Name.trim()) {
@@ -105,7 +121,7 @@ const RegistrationPage = () => {
       validationErrors.ContactInfo = 'ContactInfo is required';
     }
 
-
+    console.log("me reg?",(CheckUser("0x2A7e2C15e86FFB78b89B21ae6F02ECdf110F758f")))
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
@@ -122,7 +138,16 @@ const RegistrationPage = () => {
       // }
 
       // )
-
+      let info = await CheckUser(walletAddress) ;
+      if(info) {
+        console.log("Already registered") ;
+      }
+      else {
+        AddUser(walletAddress) ;
+        Set_My_Data( formData.Metamask_id,  formData.Name,  formData.Age,  formData.Gender,  formData.ContactInfo) ;
+        console.log("registered now") ;
+      }
+      
 
 
 
@@ -133,6 +158,8 @@ const RegistrationPage = () => {
         email: '',
         password: '',
       });
+    }
+
     }
   };
 

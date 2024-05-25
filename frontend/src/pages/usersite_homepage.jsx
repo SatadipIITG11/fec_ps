@@ -11,6 +11,7 @@ import { func1, func2,CheckPermission } from '../Get_functions'
 // import { Set_My_Data, } from '../Set_functions'
 import { Set_My_Data,Set_User_Data,InsertReport,GivePermission } from "../Set_function"
 import Notification from '../notifications/notification'
+import {All} from '../NotifReact.js'
 
 function UsersiteHomepage() {
 
@@ -172,10 +173,10 @@ function UsersiteHomepage() {
   const [Meta_ID, setID] = useState("")
 
   const updateBio = () => {
-    // setname(name)
-    // setage(age)
-    // setgender(gender)
-    // setcontact(contact)
+    setname(name)
+    setage(age)
+    setgender(gender)
+    setcontact(contact)
     // setblood(blood)
     // setallergy(allergy)
     // setdeficy(deficy)
@@ -381,8 +382,9 @@ function UsersiteHomepage() {
         </div>
         <div class="offcanvas-body">
           {//Yaha notification state pass kardena as a prop
-            Notif.map((value) => <Notification hospitalAddress={value} />)
+            // Notif.map((value) => <Notification hospitalAddress={value} />)
           }
+          <All></All>
 
         </div>
       </div>

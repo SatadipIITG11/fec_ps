@@ -18,7 +18,9 @@ let name, age, gender, contact, blood, allergy, deficy, chronic;
 
 function HospitalHomepage() {
 
-
+  const [allReports,setallReports]=useState([]);
+  const [timeline,setTimeline]=useState([]);
+  
   const [registeredUsers, setRegisteredUsers] = useState([]);
   const [issearchlistopen, setSearchlistopen] = useState(true);
   // useEffect ( ()=>{console.log(registeredUsers) } ,  registeredUsers );
@@ -68,16 +70,46 @@ function HospitalHomepage() {
 
 
   const getReportHospital = async() => {
+    // if(inputValue.length != 41)  return ;
     console.log("func1",func1(inputValue));
     setuser_existence(true);
-    fetch_data(inputValue)
+    if(inputValue) fetch_data(inputValue)
     if(CheckPermission(inputValue) == false ){
         //yaha popup dede ki permission mangi hain par abhi info access nahi kar sakte aur page refresh karde
         console.log("Dont have permission");
     }
     else{
+      try{
       console.log("func2",func2(inputValue));
-      
+      let reports= await func2(inputValue);
+        
+      let sizeofcids=reports[1].length
+      let allreports=[];
+      for(let i=0;i<sizeofcids;i++){
+          let report={
+            "cid":reports[1][i],
+            "type":reports[2][i]
+          }
+          
+          allreports.push(report);
+          setallReports(allreports);
+          
+      }
+      let sizeofdates=reports[0].length
+      let times=[];
+      for(let i=0;i<sizeofdates;i++)
+        {
+          let time={
+             date:reports[0][i],
+             cid:reports[1][i]
+          }
+          times.push(time);
+          setTimeline(times);
+        }
+      }
+      catch{
+        
+      }
 
     }
 
@@ -262,6 +294,8 @@ function HospitalHomepage() {
               <div className="Box4 Box" onClick={() => settimelinePop(true)}>
                 Timeline
               </div>
+              <Timeline trigger={timelinePop} setTrigger={settimelinePop} timeline={timeline} />
+              <Reports trigger={reportsPop} setTrigger={setreportsPop} allReports={allReports} />
               {/* <Timeline trigger={timelinePop} setTrigger={settimelinePop} /> */}
               {/* <Reports trigger={reportsPop} setTrigger={setreportsPop} /> */}
             </div>
