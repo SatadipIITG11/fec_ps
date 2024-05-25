@@ -11,7 +11,7 @@ import { func1, func2,CheckPermission } from '../Get_functions'
 // import { Set_My_Data, } from '../Set_functions'
 import { Set_My_Data,Set_User_Data,InsertReport,GivePermission } from "../Set_function"
 import Notification from '../notifications/notification'
-import {All} from '../NotifReact.js'
+// import {All} from '../NotifReact.js'
 
 function UsersiteHomepage() {
 
@@ -384,7 +384,7 @@ function UsersiteHomepage() {
           {//Yaha notification state pass kardena as a prop
             // Notif.map((value) => <Notification hospitalAddress={value} />)
           }
-          <All></All>
+          {/* <All></All> */}
 
         </div>
       </div>
