@@ -71,7 +71,8 @@ function HospitalHomepage() {
 
   const getReportHospital = async() => {
     // if(inputValue.length != 41)  return ;
-    console.log("func1",func1(inputValue));
+    try
+    {console.log("func1",func1(inputValue));
     setuser_existence(true);
     if(inputValue) fetch_data(inputValue)
     if(CheckPermission(inputValue) == false ){
@@ -107,11 +108,15 @@ function HospitalHomepage() {
           setTimeline(times);
         }
       }
-      catch{
-        
+      catch(e){
+        console.log(e)
       }
 
     }
+   }
+   catch(e){
+    console.log(e,"kya error hai bc bata ab")
+   }
 
   } 
   useEffect(() => {
@@ -160,7 +165,9 @@ function HospitalHomepage() {
   const [Meta_ID, setID] = useState("")
 
   const fetch_data = async (User_Address) => {
-    let walletAddress = User_Address
+    
+    try
+    {let walletAddress = User_Address
     // let walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE"
     let name2 = await func1(walletAddress)
     // func_get_reports(walletAddress)
@@ -176,6 +183,10 @@ function HospitalHomepage() {
     setdeficy(name2[1][2])
     setchronic(name2[1][3])
     setID(walletAddress)
+    }
+    catch(e){
+      console.log(e,"kya bcc error")
+    }
   }
   const updateBio = () => {
     // setname(name)

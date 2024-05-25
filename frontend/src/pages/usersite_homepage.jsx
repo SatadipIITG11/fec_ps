@@ -382,7 +382,7 @@ function UsersiteHomepage() {
         </div>
         <div class="offcanvas-body">
           {//Yaha notification state pass kardena as a prop
-            // Notif.map((value) => <Notification hospitalAddress={value} />)
+            Notif.map((value) => <Notification hospitalAddress={value} />)
           }
           {/* <All></All> */}
 
