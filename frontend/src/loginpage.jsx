@@ -5,7 +5,7 @@ import { ethers } from 'ethers'
 import Web3 from 'web3';
 import { useNavigate } from 'react-router-dom';
 // import bgImage from './video/background-img.webm'
-
+import { CheckUser ,CheckHospital, AddHospital, AddUser } from "./Admin_functions"
 
 
 function Loginpage() {
@@ -30,7 +30,7 @@ function Loginpage() {
     if (window.ethereum && window.ethereum.isMetaMask) {
       console.log('MetaMask Here!');
 
-
+      console.log("working?",CheckUser("0x2A7e2C15e86FFB78b89B21ae6F02ECdf110F758f"))
       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
       // .then(results => {
       //   console.log(results[0]);
@@ -45,45 +45,69 @@ function Loginpage() {
 
       // let flag = 1
 
-      try {
-        console.log(accounts[0]);
-        let postData = {
-          "id": accounts[0].toString(),
-          "who": toggleState
-        };
-        fetch('http://localhost:3000/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(postData)
-        })
-          // .then(()=>{
-          //   console.log("doing")
-          // })
-          .then(response => response.json())
-          .then((data) => {
-            console.log('success:', data)
+      // try {
+      //   console.log(accounts[0]);
+      //   let postData = {
+      //     "id": accounts[0].toString(),
+      //     "who": toggleState
+      //   };
+      //   fetch('http://localhost:3000/', {
+      //     method: 'POST',
+      //     headers: {
+      //       'Content-Type': 'application/json'
+      //     },
+      //     body: JSON.stringify(postData)
+      //   })
+      //     // .then(()=>{
+      //     //   console.log("doing")
+      //     // })
+      //     .then(response => response.json())
+      //     .then((data) => {
+      //       console.log('success:', data)
 
-            if (data === true) {
-              handleclick(toggleState);
-            }
-            //else navigate to registration page
-            else {
-              alert("You are not registered! Please go to registration page Okay!")
-            }
-          })
-          .catch((e) => {
-            console.log("error:", e)
-          })
+      //       if (data === true) {
+      //         handleclick(toggleState);
+      //       }
+      //       //else navigate to registration page
+      //       else {
+      //         alert("You are not registered! Please go to registration page Okay!")
+      //       }
+      //     })
+      //     .catch((e) => {
+      //       console.log("error:", e)
+      //     })
 
-        // handleclick(toggleState);
-        //routing karna padega navigate and check the toggle state for this bcz of 2 tabs
+      //   // handleclick(toggleState);
+      //   //routing karna padega navigate and check the toggle state for this bcz of 2 tabs
 
 
-      } catch (e) {
-        console.log(e);
+      // } catch (e) {
+      //   console.log(e);
+      // }
+      if(toggleState==1){
+        let info = await CheckUser(accounts[0]) ;
+        console.log("info",info);
+      if (info == true) {
+        handleclick(toggleState);
       }
+          //else navigate to registration page
+      else {
+         alert("You are not registered! Please go to registration page Okay!")
+      }
+    }
+    else {
+      console.log("hospi working?" , CheckHospital(accounts[0]));
+      let info = await CheckHospital(accounts[0]) ;
+      if (info == true) {
+        handleclick(toggleState);
+      }
+          //else navigate to registration page
+      else {
+         alert("You are not registered! Please go to registration page Okay!")
+      }
+
+    }
+
 
     } else {
       console.log('Need to install MetaMask');

@@ -15,6 +15,7 @@ function Searchlist(props) {
     return (props.Inputtext && user.includes(props.Inputtext))
   })
   const handleclick = async (event) => {
+    try{
     const provider = new ethers.BrowserProvider(window.ethereum);
     const signer = await provider.getSigner();
     let walletAddress = await signer.getAddress();
@@ -39,6 +40,11 @@ function Searchlist(props) {
       },
       body: JSON.stringify(postData)
     })
+
+    }
+    catch(e){
+      console.log(e);
+    }
   
 
   }

@@ -64,3 +64,37 @@ export async function RemoveHospital(metamaskID) {
         console.log(err);
     }
 }
+
+export async function CheckHospital(metamaskID) {
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const ERC20_ABI = contractABI;
+    // Your ERC20 ABI definition
+    const address = contractAddress;
+    try {
+        await provider.send("eth_requestAccounts", []);
+        const signer = await provider.getSigner();
+        const contract = new ethers.Contract(address, ERC20_ABI, signer)
+        const res = await contract.isRegisteredHospital(metamaskID)
+        return res
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+export async function CheckUser(metamaskID) {
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const ERC20_ABI = contractABI;
+    // Your ERC20 ABI definition
+    const address = contractAddress;
+    try {
+        await provider.send("eth_requestAccounts", []);
+        const signer = await provider.getSigner();
+        const contract = new ethers.Contract(address, ERC20_ABI, signer)
+        const res = await contract.isRegisteredPatient(metamaskID)
+        return res
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
