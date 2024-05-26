@@ -66,23 +66,31 @@ function HospitalHomepage() {
   ];
 
   const [inputValue, setInputValue] = useState('');
+  const [inputIDValue, setInputIDValue] = useState('');
   //guys inputvalue me search string rahega apne hisab se use karlo
 
-
+  const [user_existence, setuser_existence] = useState(false)
   const getReportHospital = async() => {
     // if(inputValue.length != 41)  return ;
     try
-    {console.log("func1",func1(inputValue));
-    setuser_existence(true);
-    if(inputValue) fetch_data(inputValue)
-    if(CheckPermission(inputValue) == false ){
+    {console.log("func1",func1(inputIDValue));
+    setuser_existence(false)
+    console.log("user Existence:",user_existence)
+    if(inputIDValue) fetch_data(inputIDValue)
+      let checky=await CheckPermission(inputIDValue)
+   
+    if(checky === false ){
         //yaha popup dede ki permission mangi hain par abhi info access nahi kar sakte aur page refresh karde
         console.log("Dont have permission");
+        
+
     }
-    else{
+    
+    else if(checky===true){
       try{
-      console.log("func2",func2(inputValue));
-      let reports= await func2(inputValue);
+        setuser_existence(true)
+      console.log("func2",func2(inputIDValue));
+      let reports= await func2(inputIDValue);
         
       let sizeofcids=reports[1].length
       let allreports=[];
@@ -121,10 +129,13 @@ function HospitalHomepage() {
   } 
   useEffect(() => {
     getReportHospital();
-  }, [inputValue]);
+  }, [inputIDValue]);
 
   const handleInputChange = (event) => {
+
+    setuser_existence(false);
     setInputValue(event.target.value);
+    console.log("handleSEARCHCHANGE",event.target.value)
     setSearchlistopen(true);
 
 
@@ -220,7 +231,7 @@ function HospitalHomepage() {
   const [timelinePop, settimelinePop] = useState(false)
   //baki hai reports ki designing....
   const [reportsPop, setreportsPop] = useState(false)
-  const [user_existence, setuser_existence] = useState(false)
+  
 
   // const handleEnter = (event) => {
 
@@ -234,12 +245,23 @@ function HospitalHomepage() {
 
   // }
 //onKeyDown={handleEnter}
+
+// const searchHandler= async()=>{
+  
+// }
+// const handleKeyDown=(event)=>{
+//   if (event.key === 'Backspace') {
+//     setuser_existence(false)
+    
+    
+// }
+// }
   return (
     <div id='hospihome'>
       <div className="navbarhospi">
         <div className="logohospi">LIFE LEDGER</div>
         <div className="Searchdiv">
-          <div className='searchdiv'><div className='searchButton' onClick={()=>console.log("searchbar wroking")}><i class="fa-solid fa-magnifying-glass" id='searchicon'></i></div>
+          <div className='searchdiv'><div className='searchButton' ><i class="fa-solid fa-magnifying-glass" id='searchicon'></i></div>
             <input className='searchbar' id='searchbar' type="text" placeholder='Search by Id' onChange={handleInputChange}  /></div>
 
             
@@ -264,7 +286,7 @@ function HospitalHomepage() {
 
 
       <div className="bodyhospi">
-        <div className="details">
+        {user_existence?(<div className="details">
           <div className="name">
             <div className="nametext">Name:</div>
             <div className="namebox"> {Name} </div>
@@ -273,9 +295,22 @@ function HospitalHomepage() {
             <div className="nametext">Id:</div>
             <div className="namebox"> {Meta_ID} </div>
           </div>
+        </div>):
+        (
+          <div className="details">
+          <div className="name">
+            <div className="nametext">Name:</div>
+            <div className="namebox"></div>
+          </div>
+          <div id="id">
+            <div className="nametext">Id:</div>
+            <div className="namebox"></div>
+          </div>
         </div>
 
-        {user_existence === true ?
+        )}
+         
+         <div>{user_existence?
           (
             <div className="blocksuser">
               <div className="Box1 Box">
@@ -320,7 +355,7 @@ function HospitalHomepage() {
               <div className="box4 box"></div>
             </div>
 
-          )}
+          )}</div>
         {/* <div className="blockshospi">
             <div className="box1 box"></div>
             <div className="box2 box"></div>
@@ -402,7 +437,7 @@ function HospitalHomepage() {
         </div>
       </div>) : ""}
 
-      {issearchlistopen === true ? <Searchlist Inputtext={inputValue} setInputtext={setInputValue} Registeredusers={registeredUsers} setOpenlist={setSearchlistopen} /> : ""}
+      {issearchlistopen === true ? <Searchlist Inputtext={inputValue} setInputtext={setInputIDValue} Registeredusers={registeredUsers} setOpenlist={setSearchlistopen} /> : ""}
 
 
       {/* <Searchlist Inputtext={inputValue} setInputtext={setInputValue} Registeredusers={registeredUsers}/> */}
