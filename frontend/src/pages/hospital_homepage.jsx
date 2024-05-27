@@ -59,9 +59,9 @@ function HospitalHomepage() {
   //!!!!!Yaha dekh category me "category" string rahega!!!!!
   const [category, setCategory] = useState("");
   const options = [
-    { id: 1, label: 'Daignostic' },
-    { id: 2, label: 'Medication/prescriptions' },
-    { id: 3, label: 'Procedural (operations,surgeries,etc)' },
+    { id: 1, label: 'Diagnostic' },
+    { id: 2, label: 'Medication' },
+    { id: 3, label: 'Procedural' },
     { id: 4, label: 'Others' },
   ];
 
@@ -82,7 +82,9 @@ function HospitalHomepage() {
     if(checky === false ){
         //yaha popup dede ki permission mangi hain par abhi info access nahi kar sakte aur page refresh karde
         console.log("Dont have permission");
-        
+        //aage ka sure nahi dekh lena
+        setuser_existence(true);
+
 
     }
     
@@ -154,6 +156,7 @@ function HospitalHomepage() {
     setSelectedOption(option);
     setCategory(option.label);
     console.log(option.label);
+    console.log("cat2",category);
     setIsOpen(false);
   };
 
@@ -392,7 +395,7 @@ function HospitalHomepage() {
           
         ):""}
         <div className="browse-upload">
-          <PdfUpload user_id = {inputValue} />
+          <PdfUpload user_id = {inputValue} category = {category}  />
         </div>
       </div>) : ""}
       {openUpdate === true ? (<div className="to-update">

@@ -26,7 +26,8 @@ function PdfUpload(props) {
           'Content-Type': 'multipart/form-data',
         }
       });
-      InsertReport(props.user_id, response.data.timestamp, response.data.ipfsHash, "Procedural");
+      console.log("cat",props.category.toString)
+      InsertReport(props.user_id, response.data.timestamp, response.data.ipfsHash,"Procedural" ); //props.category.toString
       setUploading(false);
       setUploadResult(response.data);
       setSelectedFile(null);
