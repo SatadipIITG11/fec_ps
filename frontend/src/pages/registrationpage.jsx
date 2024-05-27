@@ -143,8 +143,8 @@ const RegistrationPage = () => {
         console.log("Already registered") ;
       }
       else {
-        AddUser(walletAddress) ;
-        Set_My_Data( formData.Metamask_id,  formData.Name,  formData.Age,  formData.Gender,  formData.ContactInfo) ;
+        await AddUser(walletAddress) ;
+        await Set_My_Data( formData.Metamask_id,  formData.Name,  formData.Age,  formData.Gender,  formData.ContactInfo) ;
         console.log("registered now") ;
       }
       

@@ -6,6 +6,7 @@ import Timeline from '../popups/timeline'
 import Reports from '../popups/reports'
 import { useNavigate } from 'react-router-dom'
 import { ethers } from 'ethers';
+import {FetchRequest , responseToRequest , SendRequest } from '../Notif' 
 
 import { func1, func2,CheckPermission } from '../Get_functions'
 // import { Set_My_Data, } from '../Set_functions'
@@ -88,25 +89,34 @@ function UsersiteHomepage() {
       hospital_id : event.target.value 
   }
     
-    fetch('http://localhost:3000/delete_notification', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(postData)
-    }).then( (data) => {
-        // console.log(data);
-        getNotification();
+    // fetch('http://localhost:3000/delete_notification', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify(postData)
+    // }).then( (data) => {
+    //     // console.log(data);
+    //     getNotification();
         
-    })
+    // })
+
+    // await responseToRequest(1,postData.hospital_id,postData.user_id );
+
+    // getNotification();
+
   }
   const  requestApproved = async (event) => {
     const provider = new ethers.BrowserProvider(window.ethereum);
     const signer = await provider.getSigner();
     let walletAddress = await signer.getAddress();
-    GivePermission(event.target.value);
-    deleteNotif(event);
+    await responseToRequest(1,event.target.value,walletAddress );
+    setNotif([]);
+    getNotification();
+    // GivePermission(event.target.value);
+    // deleteNotif(event);
     console.log("now?:",CheckPermission())
+    // setNotif([]);
   }
   
 
@@ -118,7 +128,7 @@ function UsersiteHomepage() {
       <h5 className="card-title">{props.hospitalAddress}</h5>
       <p className="card-text">Wants to view your records</p>
       <button type="button" className='access' value= {props.hospitalAddress} onClick = {requestApproved}>Access</button>
-      <button type="button" className='deny' value= {props.hospitalAddress} onClick = {deleteNotif} >Deny</button>
+      <button type="button" className='deny' value= {props.hospitalAddress} onClick = {()=>{setNotif([])}} >Deny</button>
     </div>
   </div>
     )
@@ -255,24 +265,26 @@ function UsersiteHomepage() {
     let postData = {
       id: walletAddress
     }
-    fetch('http://localhost:3000/get_notification', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(postData)
-    })
-      // .then(()=>{
-      //   console.log("doing")
-      // })
-      .then(response => response.json())
-      .then((data) => {
-        console.log("notif:", data)
-        if (data) setNotif(data);
-        // console.log("Permisssion",CheckPermission(walletAddress));
+    // fetch('http://localhost:3000/get_notification', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify(postData)
+    // })
+    //   // .then(()=>{
+    //   //   console.log("doing")
+    //   // })
+    //   .then(response => response.json())
+    //   .then((data) => {
+    //     console.log("notif:", data)
+    //     if (data) setNotif(data);
+    //     // console.log("Permisssion",CheckPermission(walletAddress));
         
-      })
-
+    //   })
+    // console.log("buddy",FetchRequest(walletAddress));
+    let data  = await FetchRequest(walletAddress);
+    setNotif([...Notif,data]);
   }
 
   //!!TESTING STATES!!

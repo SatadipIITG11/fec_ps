@@ -8,7 +8,7 @@ import PdfUpload from './pdfupload'
 import Timeline from '../popups/timeline'
 import Reports from '../popups/reports'
 // const { ethers } = require("ethers");
-
+import {FetchRequest , responseToRequest , SendRequest } from '../Notif' 
 import { ethers } from 'ethers';
 import { func1, func2,CheckPermission } from '../Get_functions'
 import { InsertReport } from "../Set_function"
