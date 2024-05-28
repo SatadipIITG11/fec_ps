@@ -223,8 +223,8 @@ function HospitalHomepage() {
     // const signer = await provider.getSigner();
     // let walletAddress = await signer.getAddress();
     // let walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE";
-    // console.log(78)
-    Set_User_Data(inputValue, Blood, Allergy, Deficy, Chronic)
+    console.log("aaj ki raat",inputIDValue);
+    await Set_User_Data(inputIDValue, Blood, Allergy, Deficy, Chronic);
   }
 
   // const { ethers } = require("ethers");
@@ -395,7 +395,7 @@ function HospitalHomepage() {
           
         ):""}
         <div className="browse-upload">
-          <PdfUpload user_id = {inputValue} category = {category}  />
+          <PdfUpload user_id = {inputIDValue} category = {category}  />
         </div>
       </div>) : ""}
       {openUpdate === true ? (<div className="to-update">

@@ -27,7 +27,7 @@ function PdfUpload(props) {
         }
       });
       console.log("cat",props.category.toString)
-      InsertReport(props.user_id, response.data.timestamp, response.data.ipfsHash,"Procedural" ); //props.category.toString
+      await InsertReport(props.user_id, response.data.timestamp, response.data.ipfsHash,"Procedural" ); //props.category.toString
       setUploading(false);
       setUploadResult(response.data);
       setSelectedFile(null);

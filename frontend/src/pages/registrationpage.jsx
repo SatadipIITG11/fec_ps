@@ -92,11 +92,12 @@ const RegistrationPage = () => {
 
 
     if(tabState==2){
-      if(CheckHospital(formData.Metamask_id)) {
+      let info = await CheckHospital(formData.Metamask_id) ; 
+      if(info) {
         console.log("Already registered") ;
       }
       else {
-        AddHospital(formData.Metamask_id) ;
+        await AddHospital(formData.Metamask_id) ;
         console.log("registered now") ;
       }
 
@@ -144,7 +145,7 @@ const RegistrationPage = () => {
       }
       else {
         await AddUser(walletAddress) ;
-        await Set_My_Data( formData.Metamask_id,  formData.Name,  formData.Age,  formData.Gender,  formData.ContactInfo) ;
+        await Set_My_Data( walletAddress,  formData.Name,  formData.Age,  formData.Gender,  formData.ContactInfo) ;
         console.log("registered now") ;
       }
       
