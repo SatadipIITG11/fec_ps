@@ -89,24 +89,24 @@ const RegistrationPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     connectWalletHandler();
-
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const signer = await provider.getSigner();
+    let walletAddress = await signer.getAddress();
 
     if(tabState==2){
-      let info = await CheckHospital(formData.Metamask_id) ; 
+      let info = await CheckHospital(walletAddress) ; 
       if(info) {
         console.log("Already registered") ;
       }
       else {
-        await AddHospital(formData.Metamask_id) ;
+        await AddHospital(walletAddress) ;
         console.log("registered now") ;
       }
 
     }
     else{
     const validationErrors = {};
-    const provider = new ethers.BrowserProvider(window.ethereum);
-    const signer = await provider.getSigner();
-    let walletAddress = await signer.getAddress();
+   
 
     // Simple validation
     if (!formData.Name.trim()) {
