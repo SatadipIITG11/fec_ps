@@ -66,35 +66,47 @@ export async function RemoveHospital(metamaskID) {
 }
 
 export async function CheckHospital(metamaskID) {
-    const provider = new ethers.BrowserProvider(window.ethereum);
-    const ERC20_ABI = contractABI;
-    // Your ERC20 ABI definition
-    const address = contractAddress;
-    try {
-        await provider.send("eth_requestAccounts", []);
-        const signer = await provider.getSigner();
-        const contract = new ethers.Contract(address, ERC20_ABI, signer)
-        const res = await contract.isRegisteredHospital(metamaskID)
-        return res
+    if (window.ethereum) {
+        await window.ethereum.enable(); // Request user permission to connect
+        const provider = new ethers.BrowserProvider(window.ethereum);
+        const ERC20_ABI = contractABI;
+        // Your ERC20 ABI definition
+        const address = contractAddress;
+        // const signer = await provider.getSigner();
+        const contract = new ethers.Contract(address, ERC20_ABI, provider);
+        try {
+            const patient = metamaskID
+            // const caller = await signer.getAddress();
+            const reports = await contract.isRegisteredHospital(patient);
+            return reports;
+        } catch (err) {
+            console.log(err);
+        }
     }
-    catch (err) {
-        console.log(err);
+    else {
+        console.log("MetaMask or similar provider not found.");
     }
 }
 
 export async function CheckUser(metamaskID) {
-    const provider = new ethers.BrowserProvider(window.ethereum);
-    const ERC20_ABI = contractABI;
-    // Your ERC20 ABI definition
-    const address = contractAddress;
-    try {
-        await provider.send("eth_requestAccounts", []);
-        const signer = await provider.getSigner();
-        const contract = new ethers.Contract(address, ERC20_ABI, signer)
-        const res = await contract.isRegisteredPatient(metamaskID)
-        return res
+    if (window.ethereum) {
+        await window.ethereum.enable(); // Request user permission to connect
+        const provider = new ethers.BrowserProvider(window.ethereum);
+        const ERC20_ABI = contractABI;
+        // Your ERC20 ABI definition
+        const address = contractAddress;
+        // const signer = await provider.getSigner();
+        const contract = new ethers.Contract(address, ERC20_ABI, provider);
+        try {
+            const patient = metamaskID
+            // const caller = await signer.getAddress();
+            const reports = await contract.isRegisteredPatient(patient);
+            return reports;
+        } catch (err) {
+            console.log(err);
+        }
     }
-    catch (err) {
-        console.log(err);
+    else {
+        console.log("MetaMask or similar provider not found.");
     }
 }

@@ -1,96 +1,5 @@
 export const contractABI = [
     {
-        "anonymous": false,
-        "inputs": [
-            {
-                "indexed": false,
-                "internalType": "address",
-                "name": "hospital",
-                "type": "address"
-            },
-            {
-                "indexed": false,
-                "internalType": "address",
-                "name": "patientId",
-                "type": "address"
-            }
-        ],
-        "name": "AccessDenied",
-        "type": "event"
-    },
-    {
-        "anonymous": false,
-        "inputs": [
-            {
-                "indexed": false,
-                "internalType": "address",
-                "name": "hospital",
-                "type": "address"
-            },
-            {
-                "indexed": false,
-                "internalType": "address",
-                "name": "patientId",
-                "type": "address"
-            }
-        ],
-        "name": "AccessGranted",
-        "type": "event"
-    },
-    {
-        "anonymous": false,
-        "inputs": [
-            {
-                "indexed": false,
-                "internalType": "address",
-                "name": "hospital",
-                "type": "address"
-            },
-            {
-                "indexed": false,
-                "internalType": "address",
-                "name": "patientId",
-                "type": "address"
-            }
-        ],
-        "name": "AccessRequested",
-        "type": "event"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "name": "accessRequests",
-        "outputs": [
-            {
-                "internalType": "address",
-                "name": "hospital",
-                "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "patient",
-                "type": "address"
-            },
-            {
-                "internalType": "bool",
-                "name": "granted",
-                "type": "bool"
-            },
-            {
-                "internalType": "bool",
-                "name": "exists",
-                "type": "bool"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
         "inputs": [
             {
                 "internalType": "address",
@@ -145,24 +54,213 @@ export const contractABI = [
                 "internalType": "address",
                 "name": "caller",
                 "type": "address"
+            },
+            {
+                "internalType": "string",
+                "name": "CID",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "timeStamp",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "category",
+                "type": "string"
             }
         ],
-        "name": "getReports",
+        "name": "insertReport",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "hospital",
+                "type": "address"
+            }
+        ],
+        "name": "registerHospital",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "patient",
+                "type": "address"
+            }
+        ],
+        "name": "registerPatient",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "patient",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "hospital",
+                "type": "address"
+            }
+        ],
+        "name": "removeAllowedAddress",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "patient",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "caller",
+                "type": "address"
+            }
+        ],
+        "name": "requestAccess",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bool",
+                "name": "_grant",
+                "type": "bool"
+            },
+            {
+                "internalType": "address",
+                "name": "caller",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "hospital",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "patient",
+                "type": "address"
+            }
+        ],
+        "name": "respondToRequest",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "patient",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "caller",
+                "type": "address"
+            },
+            {
+                "internalType": "string",
+                "name": "_Blood_Type",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "allergy",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "deficiency",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "chronicdisease",
+                "type": "string"
+            }
+        ],
+        "name": "set_emergency_info",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "patient",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "caller",
+                "type": "address"
+            },
+            {
+                "internalType": "string",
+                "name": "_patient_Name",
+                "type": "string"
+            },
+            {
+                "internalType": "int256",
+                "name": "_age",
+                "type": "int256"
+            },
+            {
+                "internalType": "string",
+                "name": "_gender",
+                "type": "string"
+            },
+            {
+                "internalType": "int256",
+                "name": "_number",
+                "type": "int256"
+            }
+        ],
+        "name": "set_general_info",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "patient",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "caller",
+                "type": "address"
+            }
+        ],
+        "name": "fetchNotification",
         "outputs": [
             {
-                "internalType": "string[]",
+                "internalType": "address",
                 "name": "",
-                "type": "string[]"
-            },
-            {
-                "internalType": "string[]",
-                "name": "",
-                "type": "string[]"
-            },
-            {
-                "internalType": "string[]",
-                "name": "",
-                "type": "string[]"
+                "type": "address"
             }
         ],
         "stateMutability": "view",
@@ -257,26 +355,27 @@ export const contractABI = [
                 "internalType": "address",
                 "name": "caller",
                 "type": "address"
-            },
-            {
-                "internalType": "string",
-                "name": "CID",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "timeStamp",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "category",
-                "type": "string"
             }
         ],
-        "name": "insertReport",
-        "outputs": [],
-        "stateMutability": "nonpayable",
+        "name": "getReports",
+        "outputs": [
+            {
+                "internalType": "string[]",
+                "name": "",
+                "type": "string[]"
+            },
+            {
+                "internalType": "string[]",
+                "name": "",
+                "type": "string[]"
+            },
+            {
+                "internalType": "string[]",
+                "name": "",
+                "type": "string[]"
+            }
+        ],
+        "stateMutability": "view",
         "type": "function"
     },
     {
@@ -423,32 +522,6 @@ export const contractABI = [
         "inputs": [
             {
                 "internalType": "address",
-                "name": "hospital",
-                "type": "address"
-            }
-        ],
-        "name": "registerHospital",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "patient",
-                "type": "address"
-            }
-        ],
-        "name": "registerPatient",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
                 "name": "",
                 "type": "address"
             }
@@ -487,136 +560,6 @@ export const contractABI = [
         "inputs": [
             {
                 "internalType": "address",
-                "name": "patient",
-                "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "hospital",
-                "type": "address"
-            }
-        ],
-        "name": "removeAllowedAddress",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "patientAddress",
-                "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "hospitalAddress",
-                "type": "address"
-            }
-        ],
-        "name": "requestAccess",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "bool",
-                "name": "_grant",
-                "type": "bool"
-            },
-            {
-                "internalType": "address",
-                "name": "patientAddress",
-                "type": "address"
-            }
-        ],
-        "name": "respondToRequest",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "patient",
-                "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "caller",
-                "type": "address"
-            },
-            {
-                "internalType": "string",
-                "name": "_Blood_Type",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "allergy",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "deficiency",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "chronicdisease",
-                "type": "string"
-            }
-        ],
-        "name": "set_emergency_info",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "patient",
-                "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "caller",
-                "type": "address"
-            },
-            {
-                "internalType": "string",
-                "name": "_patient_Name",
-                "type": "string"
-            },
-            {
-                "internalType": "int256",
-                "name": "_age",
-                "type": "int256"
-            },
-            {
-                "internalType": "string",
-                "name": "_gender",
-                "type": "string"
-            },
-            {
-                "internalType": "int256",
-                "name": "_number",
-                "type": "int256"
-            }
-        ],
-        "name": "set_general_info",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
                 "name": "_addr",
                 "type": "address"
             }
@@ -634,4 +577,4 @@ export const contractABI = [
     }
 ];
 
-export const contractAddress = '0xeaDa555E65e4ba0a7Eb44B1D50D143ff43c58dF8';
+export const contractAddress = '0x44F187804D15C94DB055859a7E9E9106110B9057';

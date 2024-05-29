@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import './searchlist.css'
 import { func1, func2,CheckPermission } from '../Get_functions'
 import { ethers } from 'ethers'
-
+import {FetchRequest , responseToRequest , SendRequest } from '../Notif' 
 function Searchlist(props) {
 
   
@@ -33,13 +33,15 @@ function Searchlist(props) {
       hospital_id : walletAddress
 
     }
-    fetch('http://localhost:3000/add_notification', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(postData)
-    })
+    let ans = await  CheckPermission(event.target.textContent);
+    // fetch('http://localhost:3000/add_notification', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify(postData)
+    // })
+    if(!ans) await SendRequest(event.target.textContent);
 
     }
     catch(e){
