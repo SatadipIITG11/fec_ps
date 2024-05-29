@@ -40,7 +40,7 @@ function PdfUpload(props) {
   };
 
   return (
-    <div>
+    <div >
       <input
         type="file"
         accept="application/pdf"
