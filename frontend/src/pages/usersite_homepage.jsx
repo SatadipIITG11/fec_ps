@@ -37,7 +37,7 @@ function UsersiteHomepage() {
       let walletAddress = await signer.getAddress();
       let reports= await func2(walletAddress);
      
-      console.log("func2",reports[0]);
+      console.log("func2",reports);
        
       let sizeofcids=reports[1].length
       let allreports=[];
@@ -387,10 +387,10 @@ function UsersiteHomepage() {
 
       {/* <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button> */}
 
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasRightLabel">NOTIFICATIONS</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <div class="offcanvas offcanvas-end canvas-div" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header" >
+          <h5 class="offcanvas-title canvas-header" id="offcanvasRightLabel">Notifications:</h5>
+          <button type="button" className="btn-close cross-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
           {//Yaha notification state pass kardena as a prop

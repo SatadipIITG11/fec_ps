@@ -58,6 +58,7 @@ function HospitalHomepage() {
   const [selectedOption, setSelectedOption] = useState(null);
   //!!!!!Yaha dekh category me "category" string rahega!!!!!
   const [category, setCategory] = useState("");
+  const [typeAddress,setTypeAddress]=useState("");
   const options = [
     { id: 1, label: 'Diagnostic' },
     { id: 2, label: 'Medication' },
@@ -117,6 +118,7 @@ function HospitalHomepage() {
           times.push(time);
           setTimeline(times);
         }
+        
       }
       catch(e){
         console.log(e)
@@ -132,21 +134,46 @@ function HospitalHomepage() {
   useEffect(() => {
     getReportHospital();
   }, [inputIDValue]);
+  
 
   const handleInputChange = (event) => {
 
     setuser_existence(false);
     setInputValue(event.target.value);
+    setInputIDValue("");
     console.log("handleSEARCHCHANGE",event.target.value)
     setSearchlistopen(true);
 
 
   };
   const [addressValue, setaddressValue] = useState('')
+  const [uploaddisable,setUploaddisable]=useState(true)
 
   const handleAddressChange = (event) => {
+    
+    let element=document.getElementById("pdf-select")
     setaddressValue(event.target.value);
+    console.log(addressValue)
+    if(addressValue!==null && addressValue!=="")
+      {
+        
+        if (element.hasAttribute('disabled')) {
+          element.removeAttribute('disabled');
+         
+         }
+        
+      }
+      else if(addressValue===""){
+        // element.setAttribute('disabled', 'disabled');
+       // samaj nhi aa raha yeh set nhi ho raha
+       
+      }
+      
   };
+  useEffect(() => {
+    console.log('Address updated:', addressValue);
+    setUploaddisable(addressValue==="");
+  }, [addressValue]);
   //upload dropdown button
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -371,18 +398,18 @@ function HospitalHomepage() {
       </div>
 
       {openupload === true ? (<div id="uploadpop">
-        <div className="close-upload" onClick={() => setopenupload(false)}>
-          <i class="fa-solid fa-xmark"></i>
+        <div className="close-upload" >
+          <i class="fa-solid fa-xmark" onClick={() => {setopenupload(false);setUploaddisable(true)}}></i>
         </div>
         <div className="addressdiv">
-          <input type="text" className='type-address' placeholder='Address' onChange={handleAddressChange} />
+          <input type="text" className='type-address' placeholder='Type Address' onChange={handleAddressChange}/>
         </div>
         <button className="dropdown-toggle" onClick={toggleDropdown}>
           {selectedOption ? selectedOption.label : 'Select an option'}
         </button>
         {isOpen?(
           
-          options.map((option) => {
+          <div className='dropdown-div'>{options.map((option) => {
               
               return (<div
                 key={option.id}
@@ -391,12 +418,12 @@ function HospitalHomepage() {
                >
                 {option.label}
               </div>);
-            })
+            })}</div>
           
         ):""}
-        <div className="browse-upload">
-          <PdfUpload user_id = {inputIDValue} category = {category}  />
-        </div>
+        {/* <div className="browse-upload"> */}
+          <PdfUpload user_id = {inputIDValue} category = {category} isdisabled={uploaddisable} setdisabled={setUploaddisable}  />
+        {/* </div> */}
       </div>) : ""}
       {openUpdate === true ? (<div className="to-update">
         <div className="close-update">

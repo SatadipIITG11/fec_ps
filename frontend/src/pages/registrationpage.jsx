@@ -165,8 +165,11 @@ const RegistrationPage = () => {
   };
 
   return (
-    <div className="container"> 
-     <h1 className='regis-header'>REGISTRATION PAGE</h1>
+    <div className="container1"> 
+     <div className='navbar-regis'>
+        <div className="logo">LIFE LEDGER</div>
+     </div>
+     {/* <h1 className='regis-header'>REGISTRATION PAGE</h1> */}
       <div className="form-container"> {/* Applying form-container class */}
         {/* <h2>Registration Page</h2> */}
         <div className="registration-tabs">
@@ -174,10 +177,11 @@ const RegistrationPage = () => {
           <div className={tabState === 2 ? "registration-tab-focused" : "registration-tab"} onClick={() => setTabState(2)}>Hospital</div>
 
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='regis-form'>
           <div className="form-group"> {/* Applying form-group class */}
-            <label>Name</label>
+            <label className='white-text'>Name</label>
             <input
+              className='bg-theme'
               type="text"
               name="Name"
               value={formData.Name}
@@ -186,8 +190,9 @@ const RegistrationPage = () => {
             {errors.Name && <span className="error-message">{errors.Name}</span>}
           </div>
           <div className="form-group"> {/* Applying form-group class */}
-            <label>Age:</label>
+            <label className='white-text'>Age:</label>
             <input
+             className='bg-theme'
               type="text"
               name="Age"
               value={formData.Age}
@@ -196,8 +201,9 @@ const RegistrationPage = () => {
             {errors.Age && <span className="error-message">{errors.Age}</span>}
           </div>
           <div className="form-group"> {/* Applying form-group class */}
-            <label>Gender:</label>
+            <label className='white-text'>Gender:</label>
             <input
+             className='bg-theme'
               type="text"
               name="Gender"
               value={formData.Gender}
@@ -206,8 +212,9 @@ const RegistrationPage = () => {
             {errors.gender && <span className="error-message">{errors.Gender}</span>}
           </div>
           <div className="form-group"> {/* Applying form-group class */}
-            <label>ContactInfo</label>
+            <label className='white-text'>ContactInfo</label>
             <input
+              className='bg-theme'
               type="text"
               name="ContactInfo"
               value={formData.ContactInfo}
@@ -215,7 +222,7 @@ const RegistrationPage = () => {
             />
             {errors.ContactInfo && <span className="error-message">{errors.ContactInfo}</span>}
           </div>
-          <button type="submit">Register</button>
+          <button type="submit" >Register</button>
         </form>
       </div>
     </div>

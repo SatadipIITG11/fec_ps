@@ -14,11 +14,11 @@ function Reports(props) {
     
     for(let i=0;i<props.allReports.length;i++)
      {
-        if(props.allReports[i].type==="Daignostic")
+        if(props.allReports[i].type==="Diagnostic")
         {
             Daignostic.push(props.allReports[i].cid)
         }
-        else if(props.allReports[i].type==="Medication-Prescriptions")
+        else if(props.allReports[i].type==="Medication")
         {
             MedicationPrescriptions.push(props.allReports[i].cid)
         }
@@ -26,7 +26,7 @@ function Reports(props) {
         {
             Procedural.push(props.allReports[i].cid)
         }
-        else if(props.allReports[i].type==="Other Reports")
+        else if(props.allReports[i].type==="Others")
         {
             OtherReports.push(props.allReports[i].cid)
             
@@ -39,11 +39,11 @@ function Reports(props) {
          console.log(event.target.textContent)
         
 
-         if(event.target.textContent==="Daignostic")
+         if(event.target.textContent==="Diagnostic")
          {
             setpushReport(Daignostic);
          }
-         else if(event.target.textContent==="Medication-Prescriptions")
+         else if(event.target.textContent==="Medication")
          {
             setpushReport(MedicationPrescriptions);
          }
@@ -55,7 +55,7 @@ function Reports(props) {
             
             
          }
-         else if(event.target.textContent==="Other Reports")
+         else if(event.target.textContent==="Others")
          {
             setpushReport(OtherReports);
             
@@ -82,16 +82,16 @@ function Reports(props) {
                 </div>
                 <div className="reports-grid">
                     <div className="reporttype reporttype1" value="Daignostic" onClick={reporthandler}>
-                    Daignostic
+                    Diagnostic
                     </div>
                     <div className="reporttype reporttype2" value="Medication-Prescriptions" onClick={reporthandler}>
-                    Medication-Prescriptions
+                    Medication
                     </div>
                     <div className="reporttype reporttype3" value="Procedural" onClick={reporthandler}>
                     Procedural
                     </div>
                     <div className="reporttype reporttype4" value="Other Reports" onClick={reporthandler}>
-                    Other Reports
+                    Others
                     </div>
 
                 </div>

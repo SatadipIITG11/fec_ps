@@ -27,7 +27,7 @@ function PdfUpload(props) {
         }
       });
       console.log("cat",props.category.toString)
-      await InsertReport(props.user_id, response.data.timestamp, response.data.ipfsHash,"Procedural" ); //props.category.toString
+      await InsertReport(props.user_id, response.data.timestamp, response.data.ipfsHash,props.category ); //props.category.toString//"Procedural"
       setUploading(false);
       setUploadResult(response.data);
       setSelectedFile(null);
@@ -41,13 +41,14 @@ function PdfUpload(props) {
   };
 
   return (
-    <div >
-      <input
+    <div className="browse-upload">
+      <input disabled={props.isdisabled}
+        id='pdf-select'
         type="file"
         accept="application/pdf"
         onChange={handleFileChange}
       />
-      <button onClick={handleUpload} disabled={!selectedFile || uploading}>
+      <button className='upload-button' onClick={handleUpload} disabled={!selectedFile || uploading}>
         {uploading ? 'Uploading...' : 'Upload PDF'}
       </button>
       {uploadResult && (

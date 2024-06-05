@@ -54,7 +54,7 @@ function Searchlist(props) {
     <div className='search-list'>
       {
         filteredusers.map((user) => {
-          return (<p className='registered-user' value={user} onClick={handleclick}>{user}</p>)
+          return (<div className='registered-user' value={user} onClick={handleclick}>{user}</div>)
         })
       }
 

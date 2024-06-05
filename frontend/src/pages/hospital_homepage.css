@@ -131,13 +131,14 @@
 
 #uploadpop {
     position: absolute;
-    height: 340px;
-    width: 400px;
+    height: 400px;
+    width: 500px;
     background-color: rgb(140, 137, 137, 0.5);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
     right: 8vw;
     top: 68px;
     backdrop-filter: blur(5px);
@@ -157,26 +158,70 @@
 }
 
 .addressdiv {
-    margin: 20px 0px;
+    /* margin: 20px 0px; */
+    margin-bottom: 20px;
+    height: 25px;
+    width: 400px;
+    
 
 }
 
 .type-address {
     border: none;
     outline: none;
-    height: 25px;
-    width: 200px;
-
+    height: 30px;
+    width: 400px;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    /* backdrop-filter: blur(22px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.6); */
+    
+    
+}
+input::placeholder {
+    color: white; /* Change this to your desired color */
+    opacity: 1; /* Optional: ensures the color is fully opaque */
+}
+.dropdown-toggle{
+    width: 270px;
+    border-radius: 10px;
+    margin-bottom: 9px;
+    background-color: rgba(255, 255, 255, 0.008);
+    backdrop-filter: blur(222px);
+    box-shadow: 2px 2px 2px  rgba(0, 0, 0, 0.4);
+    outline: none;
+    border:none;
+    color: white;
 }
 
 .dropdown-item {
     background-color: rgb(140, 137, 137, 0.8);
+    box-shadow: 3px 6px 6px  rgba(0, 0, 0, 0.4);
+    height: 30px;
+    color: white;
     width: 300px;
-    margin: 4px 0px;
+    /* margin: 3px 0px; */
     cursor: pointer;
-    border-radius: 5px;
-    font-weight: 500;
+    border-radius: 10px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+}
+.dropdown-div{
+    margin-top: 9px;
+    margin-bottom: 9px;
+    background-color: rgb(140, 137, 137, 0.7);
+    width: 330px;
+    height: 200px;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 10px;
 }
 /* .dropdown-menu{
     height: 200px;
@@ -185,7 +230,25 @@
 } */
 
 .browse-upload {
-    margin-top: 25px;
+   
+    display: flex;
+    justify-content: center;
+    /* border: 2px solid black; */
+    height: 50px;
+    width: 360px;
+    align-items: center;
+}
+.upload-button{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.008);
+    backdrop-filter: blur(222px);
+    box-shadow: 2px 2px 2px  rgba(0, 0, 0, 0.4);
+    outline: none;
+    border:none;
+    color: white;
+
 }
 
 .bodyhospi {

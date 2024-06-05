@@ -1,9 +1,10 @@
 .search-list {
-    max-height: 300px;
-    overflow-y: scroll;
-    width: 60vw;
+    max-height: 400px;
+    /* overflow-y: scroll; */
+    width: 52vw;
     /* background-color: rgb(174, 68, 68); */
-    background-color: rgb(140, 137, 137, 0.5);
+    /* background-color: rgba(125, 117, 117, 0.5); */
+    background-color: rgba(138, 137, 139, 0.2);
     backdrop-filter: blur(12px);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
     color: white;
@@ -11,13 +12,31 @@
     top: 70px;
     right: 365px;
     z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    
 }
 
 .registered-user {
     padding: 0 10px;
+    height: 70px;
+    width: 50vw;
+    /* border: 2px solid black; */
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    margin-bottom:8px ;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(222px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+    z-index: 10;
 }
 
 .registered-user:hover {
-    color: rgb(15, 19, 34);
+    background-color: rgb(15, 19, 34,0.5);
     cursor: pointer;
+    
 }
