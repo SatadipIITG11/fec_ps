@@ -7,11 +7,11 @@ import Reports from '../popups/reports'
 import { useNavigate } from 'react-router-dom'
 import { ethers } from 'ethers';
 import {FetchRequest , responseToRequest , SendRequest } from '../Notif' 
-
+import '../notifications/notification.css'
 import { func1, func2,CheckPermission } from '../Get_functions'
 // import { Set_My_Data, } from '../Set_functions'
 import { Set_My_Data,Set_User_Data,InsertReport,GivePermission } from "../Set_function"
-import Notification from '../notifications/notification'
+// import Notification from '../notifications/notification'
 // import {All} from '../NotifReact.js'
 
 function UsersiteHomepage() {
@@ -111,7 +111,7 @@ function UsersiteHomepage() {
     const signer = await provider.getSigner();
     let walletAddress = await signer.getAddress();
     await responseToRequest(1,event.target.value,walletAddress );
-    setNotif([]);
+    setNotif("");
     getNotification();
     // GivePermission(event.target.value);
     // deleteNotif(event);
@@ -128,7 +128,7 @@ function UsersiteHomepage() {
       <h5 className="card-title">{props.hospitalAddress}</h5>
       <p className="card-text">Wants to view your records</p>
       <button type="button" className='access' value= {props.hospitalAddress} onClick = {requestApproved}>Access</button>
-      <button type="button" className='deny' value= {props.hospitalAddress} onClick = {()=>{setNotif([])}} >Deny</button>
+      <button type="button" className='deny' value= {props.hospitalAddress} onClick = {()=>{setNotif("")}} >Deny</button>
     </div>
   </div>
     )
@@ -150,7 +150,6 @@ function UsersiteHomepage() {
   // }, []);
 
   const disconnectFromMetaMask = () => {
-
     navigate('/');
   }
   const navigate = useNavigate();
@@ -171,7 +170,7 @@ function UsersiteHomepage() {
 
   //update biodata section
 
-  let name, age, gender, contact, blood, allergy, deficy, chronic;
+  let name, age, gender, contact;
   const [Name, setname] = useState("")
   const [Age, setage] = useState("")
   const [Gender, setgender] = useState("")
@@ -183,18 +182,9 @@ function UsersiteHomepage() {
   const [Meta_ID, setID] = useState("")
 
   const updateBio = () => {
-    setname(name)
-    setage(age)
-    setgender(gender)
-    setcontact(contact)
-    // setblood(blood)
-    // setallergy(allergy)
-    // setdeficy(deficy)
-    // setchronic(chronic)
     setopenUpdate(false)
     console.log("wow1");
-    Set_Data(name, age, gender, contact);
-    // fetch_data();
+    Set_Data(name, age, gender, contact);//this will edit the bio
     console.log("wow2");
   }
 
@@ -207,7 +197,7 @@ function UsersiteHomepage() {
     // func_get_reports(walletAddress)
     // SetAge(walletAddress)
     console.log(1);
-    console.log(name2);
+    console.log(name2,"DETAILS OF USER");
     setname(name2[0][0])
     // console.log(name2[1])
     setage(Number(name2[0][1]))
@@ -218,8 +208,8 @@ function UsersiteHomepage() {
     setdeficy(name2[1][2])
     setchronic(name2[1][3])
     setID(walletAddress)
-    let prom= await CheckPermission("0x2a7e2c15e86ffb78b89b21ae6f02ecdf110f758f")
-    console.log(prom)
+    // let prom= await CheckPermission("0x2a7e2c15e86ffb78b89b21ae6f02ecdf110f758f")
+    // console.log(prom)
 
 
   }
@@ -239,6 +229,10 @@ function UsersiteHomepage() {
   useEffect(() => {
     console.log('Timeline state updated:', timeline);
   }, [timeline]); // Log the state whenever it changes
+  useEffect(()=>{
+    fetch_data();
+    console.log("EDITING NAME AGE GENDER CONTACT")
+  },[openUpdate])
 
 
 
@@ -257,7 +251,7 @@ function UsersiteHomepage() {
   //   // console.log(78)
   //   InsertReport()
   // }
-  const [Notif, setNotif] = useState([])
+  const [Notif, setNotif] = useState("")
   const getNotification = async () => {
     const provider = new ethers.BrowserProvider(window.ethereum);
     const signer = await provider.getSigner();
@@ -284,7 +278,7 @@ function UsersiteHomepage() {
     //   })
     // console.log("buddy",FetchRequest(walletAddress));
     let data  = await FetchRequest(walletAddress);
-    setNotif([...Notif,data]);
+    setNotif(data);
   }
 
   //!!TESTING STATES!!
@@ -328,11 +322,6 @@ function UsersiteHomepage() {
         <div className="logoutdiv" onClick={disconnectFromMetaMask}>
           <i class="fa-solid fa-arrow-right-from-bracket"></i>
         </div>
-
-        {/* <div className='upload'>
-            <i class="fa-solid fa-circle-plus" id='uploadicon'></i>
-            <span>Upload</span>
-          </div> */}
 
       </div>
       {/*Here i have to apply a js script which can render with respect to the existence of user
@@ -393,8 +382,8 @@ function UsersiteHomepage() {
           <button type="button" className="btn-close cross-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-          {//Yaha notification state pass kardena as a prop
-            Notif.map((value) => <Notification hospitalAddress={value} />)
+          {(Notif!=="0x0000000000000000000000000000000000000000" && Notif!=="")?
+             (<Notification hospitalAddress={Notif} />):""
           }
           {/* <All></All> */}
 
@@ -421,106 +410,10 @@ function UsersiteHomepage() {
           <span>Contact Info:</span>
           <input type="text" onChange={(e) => { contact = e.target.value }} />
         </div>
-        {/* <div className="update update-bloodgroup">
-          <span>Blood group:</span>
-          <input type="text" onChange={(e) => { blood = e.target.value }} />
-        </div>
-        <div className="update update-allergies">
-          <span>Allergies:</span>
-          <input type="text" onChange={(e) => { allergy = e.target.value }} />
-        </div>
-        <div className="update update-deficiencies">
-          <span>Deficiencies:</span>
-          <input type="text" onChange={(e) => { deficy = e.target.value }} />
-        </div>
-        <div className="update update-chronic">
-          <span>Chronic Dieases:</span>
-          <input type="text" onChange={(e) => { chronic = e.target.value }} />
-        </div> */}
         <div className="submit-update" onClick={updateBio}>
           SUBMIT
         </div>
       </div>) : ""}
-
-      {/* !!ONLY FOR TESTING PURPOSE WE WILL REMOVE IT LATER!!
-      START!!! */}
-      <button className='TEST' onClick={()=>setopentest1(true)}>test1</button>
-      <button className='TEST' onClick={()=>setopentest2(true)}>test2</button>
-      <button className='TEST' onClick={()=>setopentest3(true)}>test3</button>
-      <button className='TEST' onClick={()=>setopentest4(true)}>test4</button>
-
-{opentest1 === true ? (<div className="test">
-        <div className="close-update">
-          <i class="fa-solid fa-xmark" id='cross' onClick={() => setopentest1(false)}></i>
-        </div>
-        <div className="update update-name">
-          <span>Name:</span>
-          <input type="text" onChange={(e) => { name = e.target.value }} />
-        </div>
-        <div className="update update-age">
-          <span>Age:</span>
-          <input type="text" onChange={(e) => { age = e.target.value }} />
-        </div>
-        
-        <div className="submit-update" onClick={updatetest1}>
-          SUBMIT
-        </div>
-      </div>) : ""}
-
-      {opentest2 === true ? (<div className="test">
-        <div className="close-update">
-          <i class="fa-solid fa-xmark" id='cross' onClick={() => setopentest2(false)}></i>
-        </div>
-        <div className="update update-name">
-          <span>Name:</span>
-          <input type="text" onChange={(e) => { name = e.target.value }} />
-        </div>
-        <div className="update update-age">
-          <span>Age:</span>
-          <input type="text" onChange={(e) => { age = e.target.value }} />
-        </div>
-        
-        <div className="submit-update" onClick={updatetest2}>
-          SUBMIT
-        </div>
-      </div>) : ""}
-
-      {opentest3 === true ? (<div className="test">
-        <div className="close-update">
-          <i class="fa-solid fa-xmark" id='cross' onClick={() => setopentest3(false)}></i>
-        </div>
-        <div className="update update-name">
-          <span>Name:</span>
-          <input type="text" onChange={(e) => { name = e.target.value }} />
-        </div>
-        <div className="update update-age">
-          <span>Age:</span>
-          <input type="text" onChange={(e) => { age = e.target.value }} />
-        </div>
-        
-        <div className="submit-update" onClick={updatetest3}>
-          SUBMIT
-        </div>
-      </div>) : ""}
-
-      {opentest4 === true ? (<div className="test">
-        <div className="close-update">
-          <i class="fa-solid fa-xmark" id='cross' onClick={() => setopentest4(false)}></i>
-        </div>
-        <div className="update update-name">
-          <span>Name:</span>
-          <input type="text" onChange={(e) => { name = e.target.value }} />
-        </div>
-        <div className="update update-age">
-          <span>Age:</span>
-          <input type="text" onChange={(e) => { age = e.target.value }} />
-        </div>
-        
-        <div className="submit-update" onClick={updatetest4}>
-          SUBMIT
-        </div>
-      </div>) : ""}
-      {/* !!TESTNG CODE ENDS HERE!! */}
 
     </div>
   )

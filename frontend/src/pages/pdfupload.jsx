@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Set_My_Data, Set_User_Data, InsertReport, GivePermission } from "../Set_function"
+import './pdfupload.css'
 
 function PdfUpload(props) {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -52,15 +53,14 @@ function PdfUpload(props) {
         {uploading ? 'Uploading...' : 'Upload PDF'}
       </button>
       {uploadResult && (
-        <div>
+        <div className='success-status'>
           {uploadResult.success ? (
             <div>
               <p>PDF file uploaded successfully!</p>
-              <p>IPFS hash: {uploadResult.ipfsHash}</p>
-              <p>Timestamp: {uploadResult.timestamp}</p>
             </div>
           ) : (
             <p>Failed to upload file to IPFS.</p>
+            
           )}
         </div>
       )}

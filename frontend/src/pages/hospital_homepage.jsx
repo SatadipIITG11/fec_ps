@@ -309,12 +309,7 @@ function HospitalHomepage() {
         </div>
 
       </div>
-      {/*Here i have to apply a js script which can render with respect to the existence of user
-     Kam baccha hai eske bad user existence check karna padega */}
-      {/* on search rendering, User Exsistence define kar
-       */}
-
-
+    
       <div className="bodyhospi">
         {user_existence?(<div className="details">
           <div className="name">

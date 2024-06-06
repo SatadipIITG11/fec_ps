@@ -26,7 +26,7 @@ function Loginpage() {
 
 
   const connectWalletHandler = async () => {
-    window.web3 = new Web3(window.ethereum)
+    try{window.web3 = new Web3(window.ethereum)
     if (window.ethereum && window.ethereum.isMetaMask) {
       console.log('MetaMask Here!');
 
@@ -106,12 +106,17 @@ function Loginpage() {
          alert("You are not registered! Please go to registration page Okay!")
       }
 
-    }
-
+    } 
+     
 
     } else {
-      console.log('Need to install MetaMask');
+      alert('Need to install MetaMask');
 
+    }
+    }
+    catch(err)
+    {
+      alert("Error Message:"+" "+err.message);
     }
   }
 
