@@ -169,15 +169,15 @@ const RegistrationPage = () => {
      <div className='navbar-regis'>
         <div className="logo">LIFE LEDGER</div>
      </div>
-     {/* <h1 className='regis-header'>REGISTRATION PAGE</h1> */}
-      <div className="form-container"> {/* Applying form-container class */}
-        {/* <h2>Registration Page</h2> */}
+    
+      <div className="form-container">
         <div className="registration-tabs">
           <div className={tabState === 1 ? "registration-tab-focused" : "registration-tab"} onClick={() => setTabState(1)}>Patient</div>
           <div className={tabState === 2 ? "registration-tab-focused" : "registration-tab"} onClick={() => setTabState(2)}>Hospital</div>
 
         </div>
-        <form onSubmit={handleSubmit} className='regis-form'>
+        {tabState===1?(
+          <form onSubmit={handleSubmit} className='regis-form'>
           <div className="form-group"> {/* Applying form-group class */}
             <label className='white-text'>Name</label>
             <input
@@ -224,6 +224,22 @@ const RegistrationPage = () => {
           </div>
           <button type="submit" >Register</button>
         </form>
+        ):(
+          <form onSubmit={handleSubmit} className='regis-form'>
+          <div className="form-group"> {/* Applying form-group class */}
+            <label className='white-text'>Name</label>
+            <input
+              className='bg-theme'
+              type="text"
+              name="Name"
+              value={formData.Name}
+              onChange={handleChange}
+            />
+            {errors.Name && <span className="error-message">{errors.Name}</span>}
+          </div>
+          <button type="submit" >Register</button>
+        </form>
+        )}
       </div>
     </div>
   );

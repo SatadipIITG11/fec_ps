@@ -139,7 +139,6 @@ button[type='submit']:hover {
 
 .bg-theme{
   background-color: rgb(140, 137, 137, 0.5);
-  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.6); */
   box-shadow: 3px 3px 3px  rgba(0, 0, 0, 0.4);
 
 }

@@ -1,6 +1,13 @@
 .success-status{
     margin-left: 10px;
     margin-top: 101px;
-    color:lightgreen;
+    /* color:lightgreen; */
     position:absolute;
+}
+
+.text-success{
+    color: lightgreen;
+}
+.text-fail{
+    color: red;
 }

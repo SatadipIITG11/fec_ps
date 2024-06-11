@@ -27,14 +27,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    /* margin-right: 5px; */
-    /* background-color: rgb(140, 137, 137,0.5);
-    border-radius: 50%;
-    margin-right: 20px; */
+    
 }
 
 #update {
+    cursor: pointer;
     color: white;
 }
 
@@ -44,16 +41,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    padding-left: 40px;
-    /* background-color: rgb(140, 137, 137,0.5);
-    border-radius: 50%; */
-
-
+    padding-left: 25px;
 }
 
 #message {
     color: white;
+    cursor: pointer;
 }
 
 .logouser {
@@ -77,6 +70,9 @@
 .logoutdiv {
     color: white;
     padding-left: 40px;
+    
+}
+.logout{
     cursor: pointer;
 }
 
@@ -251,34 +247,37 @@
 .to-update {
     position: absolute;
     display: flex;
-    box-sizing: border-box;
-    margin: 17px 0;
+    /* box-sizing: border-box; */
+    
     flex-direction: column;
     align-items: center;
-    height: 400px;
+    height: 550px;
     width: 400px;
-    background-color: rgb(140, 137, 137, 0.5);
+    /* background-color: rgb(140, 137, 137, 0.5); */
     border-radius: 10px;
     backdrop-filter: blur(12px);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
-    top: 150px;
+    top: 100px;
 
+}
+.text-red{
+    color: red;
+    margin:0px;
 }
 
 .update {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     color: white;
-    margin: 4px 0px;
-    width: 300px;
+    margin-bottom: 20px;
+    width: 350px;
 }
 
 .submit-update {
+    outline: none;
+    border: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: blue;
+    background-color: rgb(207, 91, 167);
     width: 80px;
     height: 40px;
     border-radius: 5px;
@@ -286,6 +285,9 @@
     margin-top: 10px;
     color: white;
 
+}
+.submit-update:hover{
+    background-color: rgb(162, 21, 113);
 }
 
 .close-update {
@@ -300,13 +302,33 @@
 #cross {
     margin-left: 10px;
     margin-top: 4px;
+    margin-bottom: 4px;
 }
 
 .update input {
     border-radius: 5px;
+    width: 350px;
     outline: none;
     border: none;
+    background-color: rgb(140, 137, 137, 0.5);
+  /* box-shadow: 3px 3px 3px  rgba(0, 0, 0, 0.3); */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color:white;
 }
+.update input:focus{
+   border: 2px solid white;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
 
 .canvas-div{
     background-color: rgb(140, 137, 137, 0.5);

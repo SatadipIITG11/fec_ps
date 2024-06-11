@@ -169,7 +169,7 @@ function UsersiteHomepage() {
   // const [NOTI, SETNOTI] = useState(["APOLLO", "LALPATH", "EYECARE", "EYECARE", "EYECARE", "EYECARE", "EYECARE", "EYECARE", "EYECARE"])
 
   //update biodata section
-
+  const [intError,setError]=useState("");
   let name, age, gender, contact;
   const [Name, setname] = useState("")
   const [Age, setage] = useState("")
@@ -181,10 +181,19 @@ function UsersiteHomepage() {
   const [Chronic, setchronic] = useState("")
   const [Meta_ID, setID] = useState("")
 
-  const updateBio = () => {
-    setopenUpdate(false)
+  const updateBio = (e) => {
+    e.preventDefault();
     console.log("wow1");
-    Set_Data(name, age, gender, contact);//this will edit the bio
+    if(isNaN(age) || age.trim() === '' || age===null)
+    {
+      setError("Age Must Be A Number")
+
+    }
+    else{
+      setopenUpdate(false);
+      setError("");
+      Set_Data(name, age, gender, contact);
+    }//this will edit the bio
     console.log("wow2");
   }
 
@@ -317,10 +326,10 @@ function UsersiteHomepage() {
     <div id='userhome'>
       <div className="navbaruser">
         <div className="logouser">LIFE LEDGER</div>
-        <div className="updatediv" onClick={() => setopenUpdate(true)}><i class="fa-solid fa-pen" id='update'></i></div>
-        <div className="messagediv" onClick={testyz}><i class="fa-solid fa-message" id='message'></i></div>
-        <div className="logoutdiv" onClick={disconnectFromMetaMask}>
-          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <div className="updatediv"><i  onClick={() => setopenUpdate(true)}class="fa-solid fa-pen" id='update'></i></div>
+        <div className="messagediv"><i  onClick={testyz} class="fa-solid fa-message" id='message'></i></div>
+        <div className="logoutdiv" >
+          <i class="fa-solid fa-arrow-right-from-bracket logout" onClick={disconnectFromMetaMask}></i>
         </div>
 
       </div>
@@ -390,30 +399,32 @@ function UsersiteHomepage() {
         </div>
       </div>
 
-      {openUpdate === true ? (<div className="to-update">
+      {openUpdate === true ? (<form onSubmit={updateBio} className='to-update'>
         <div className="close-update">
-          <i class="fa-solid fa-xmark" id='cross' onClick={() => setopenUpdate(false)}></i>
+          <i class="fa-solid fa-xmark" id='cross' onClick={() => {setError("");
+            setopenUpdate(false)}}></i>
         </div>
         <div className="update update-name">
-          <span>Name:</span>
+          <p>Name:</p>
           <input type="text" onChange={(e) => { name = e.target.value }} />
         </div>
         <div className="update update-age">
-          <span>Age:</span>
-          <input type="text" onChange={(e) => { age = e.target.value }} />
+          <p>Age:</p>
+          <input type="text" onChange={(e) => { age = e.target.value;setError(""); }} />
+          {intError && <p className='text-red'>{intError}</p>}
         </div>
         <div className="update update-gender">
-          <span>Gender:</span>
+          <p>Gender:</p>
           <input type="text" onChange={(e) => { gender = e.target.value }} />
         </div>
         <div className="update update-contact-info">
-          <span>Contact Info:</span>
+          <p>Contact Info:</p>
           <input type="text" onChange={(e) => { contact = e.target.value }} />
         </div>
-        <div className="submit-update" onClick={updateBio}>
-          SUBMIT
-        </div>
-      </div>) : ""}
+        <input className="submit-update" type="submit"  value="SUBMIT"/>
+      
+        
+      </form>) : ""}
 
     </div>
   )

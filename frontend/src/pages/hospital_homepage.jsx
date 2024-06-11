@@ -154,26 +154,12 @@ function HospitalHomepage() {
     let element=document.getElementById("pdf-select")
     setaddressValue(event.target.value);
     console.log(addressValue)
-    if(addressValue!==null && addressValue!=="")
-      {
-        
-        if (element.hasAttribute('disabled')) {
-          element.removeAttribute('disabled');
-         
-         }
-        
-      }
-      else if(addressValue===""){
-        // element.setAttribute('disabled', 'disabled');
-       // samaj nhi aa raha yeh set nhi ho raha
-       
-      }
       
   };
   useEffect(() => {
     console.log('Address updated:', addressValue);
-    setUploaddisable(addressValue==="");
-  }, [addressValue]);
+    setUploaddisable(addressValue==="" || category==="");
+  }, [addressValue,category]);
   //upload dropdown button
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -304,8 +290,8 @@ function HospitalHomepage() {
         <div className='edit'>
           <div className="updatediv" onClick={() => setopenUpdate(true)}><i class="fa-solid fa-pen" id='update'></i></div>
         </div>
-        <div className="logoutdiv" onClick={disconnectFromMetaMask}>
-          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <div className="logoutdiv">
+          <i class="fa-solid fa-arrow-right-from-bracket logout" onClick={disconnectFromMetaMask}></i>
         </div>
 
       </div>
@@ -424,22 +410,6 @@ function HospitalHomepage() {
         <div className="close-update">
           <i class="fa-solid fa-xmark" id='cross' onClick={() => setopenUpdate(false)}></i>
         </div>
-        {/* <div className="update update-name">
-       <span>Name:</span>
-       <input type="text" onChange={(e)=>{name=e.target.value}}/>
-     </div>
-     <div className="update update-age">
-     <span>Age:</span>
-     <input type="text" onChange={(e)=>{age=e.target.value}} />
-     </div>
-     <div className="update update-gender">
-     <span>Gender:</span>
-     <input type="text" onChange={(e)=>{gender=e.target.value}} />
-     </div>
-     <div className="update update-contact-info">
-     <span>Contact Info:</span>
-     <input type="text" onChange={(e)=>{contact=e.target.value}} />
-     </div> */}
         <div className="update update-bloodgroup">
           <span>Blood group:</span>
           <input type="text" onChange={(e) => { blood = e.target.value }} />
