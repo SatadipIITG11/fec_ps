@@ -14,11 +14,12 @@ Immutability ensures that data , once uploaded cannot be manipulated by any unau
 * GPS integration to allow info access to nearby hospitals
 
 # Tech Stack
-Blockchain: Solidity
-Front-End: HTML,CSS(Bootstrap),ReactJS
-Back-End: IPFS, MongoDB
-Others: Ether.js
-CryptoWallet: Metamask
+* Blockchain: Solidity
+* Front-End: HTML,CSS(Bootstrap),ReactJS
+* DataBase: IPFS, MongoDB
+* Backend: Node,Express
+* Others: Ether.js
+* CryptoWallet: Metamask
 
 
 ## Features
