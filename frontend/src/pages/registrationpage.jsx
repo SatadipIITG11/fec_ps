@@ -127,18 +127,6 @@ const RegistrationPage = () => {
 
     if (Object.keys(validationErrors).length === 0) {
 
-      // Handle registration logic here, e.g., API call
-      // fetch('https://localhost:8080/',{
-      //   method:'POST',
-      //   headers:{
-      //     'Content-Type':'application/json'
-      //   },
-      //   body : JSON.stringify(formData)
-      // }).then(response => {
-      //   window.alert('submitted');
-      // }
-
-      // )
       let info = await CheckUser(walletAddress) ;
       if(info) {
         console.log("Already registered") ;
@@ -146,6 +134,18 @@ const RegistrationPage = () => {
       else {
         await AddUser(walletAddress) ;
         await Set_My_Data( walletAddress,  formData.Name,  formData.Age,  formData.Gender,  formData.ContactInfo) ;
+         // Handle registration logic here, e.g., API call
+      fetch('https://localhost:3000/register',{
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json'
+        },
+        body : JSON.stringify( { id : walletAddress } ) 
+      }).then(response => {
+        window.alert('submitted');
+      }
+
+      )
         console.log("registered now") ;
       }
       
