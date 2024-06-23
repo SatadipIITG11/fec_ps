@@ -4,7 +4,7 @@
     align-items: center;
     height: 100vh;
     width: 100vw;
-    overflow: scroll;
+    overflow-x:hidden;
 }
 
 .navbaruser {
@@ -16,9 +16,14 @@
     border-bottom-right-radius: 15px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0 30px;
 
     /* justify-content: flex-start; */
+}
+.nav-right{
+    display: flex;
+    align-items: center;
 }
 
 .updatediv {
@@ -51,8 +56,7 @@
 
 .logouser {
     height: 50px;
-    width: 150px;
-    /* background-color: rgb(217, 110, 110); */
+    width: 150px; 
     background-color: rgb(140, 137, 137, 0.5);
     border-radius: 10px;
     display: flex;
@@ -61,10 +65,9 @@
     font-weight: 600;
     font-size: 15px;
     cursor: pointer;
-
     color: white;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
-    margin-right: 75vw;
+    
 }
 
 .logoutdiv {
@@ -97,13 +100,16 @@
 
 .Name {
     display: flex;
+    align-items: center;
 }
 
 #Id {
     display: flex;
+    align-items: center;
 }
 
 .Nametext {
+    width: 85px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -117,6 +123,7 @@
 .Namebox {
     height: 43px;
     width: 30vw;
+    min-width: 370.31px;
     display: flex;
     align-items: center;
     color: white;
@@ -340,4 +347,66 @@ input[type='password'] {
 }
 .cross-close{
     background-color: white;
+}
+
+@media only screen and (max-width:488px) {
+
+    .blocksuser {
+        /* margin-top: 30px;
+        display: grid;
+        grid-row-gap: 45px;
+        grid-column-gap: 45px; */
+        grid-template-columns:auto;
+    }
+    .Box{
+        width: 80vw;
+    }
+
+    .Details{
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        
+    }
+    .Namebox{
+        width: 70vw;
+        margin-bottom: 10px;
+        /* overflow-x: hidden; */
+        overflow-x: scroll;
+        scrollbar-width: none;
+        min-width: 320.31px;
+        
+
+    }
+
+    .logouser{
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width:1058.4px) and (min-width:488.1px){
+
+    .Box{
+        width: 40vw;
+    }
+
+    .Details{
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        
+    }
+    .Namebox{
+        width: 70vw;
+        margin-bottom: 10px;
+        /* overflow-x: hidden; */
+        overflow-x: scroll;
+        scrollbar-width: none;
+        
+
+    }
+    .logouser{
+        margin-top: 10px;
+    }
+
 }

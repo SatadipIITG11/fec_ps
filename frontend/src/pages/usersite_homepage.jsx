@@ -326,15 +326,15 @@ function UsersiteHomepage() {
     <div id='userhome'>
       <div className="navbaruser">
         <div className="logouser">LIFE LEDGER</div>
+        <div className='nav-right'>
         <div className="updatediv"><i  onClick={() => setopenUpdate(true)}class="fa-solid fa-pen" id='update'></i></div>
-        <div className="messagediv"><i  onClick={testyz} class="fa-solid fa-message" id='message'></i></div>
+        <div className="messagediv"><i class="fa-solid fa-message" id='message'></i></div>
         <div className="logoutdiv" >
           <i class="fa-solid fa-arrow-right-from-bracket logout" onClick={disconnectFromMetaMask}></i>
         </div>
+        </div>
 
       </div>
-      {/*Here i have to apply a js script which can render with respect to the existence of user
-     Kam baccha hai eske bad user existence check karna padega */}
       <div className="bodyuser">
         <div className="Details">
           <div className="Name">

@@ -32,7 +32,6 @@
     border-radius: 10px;
     background-color: rgb(140, 137, 137, 0.005);
     backdrop-filter: blur(40px);
-    /* box-shadow: 0 0 12px rgba(0, 0, 0, 0.7); */
     box-shadow: 3px 2px 3px  rgba(0, 0, 0, 0.4);
 }
 .card-title{

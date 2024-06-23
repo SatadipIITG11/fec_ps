@@ -56,7 +56,7 @@ function PdfUpload(props) {
         <div className='success-status'>
           {uploadResult.success ? (
             <div>
-              <p className='text-success'>PDF file uploaded successfully!</p>
+              <p className='text-s'>PDF file uploaded successfully!</p>
             </div>
           ) : (
             <p className='text-fail'>Failed to upload file to IPFS.</p>

@@ -24,8 +24,19 @@ function Loginpage() {
 
   }
 
-
+  const [isRequesting,setRequesting]=useState(false);
   const connectWalletHandler = async () => {
+    console.log("KAUN BHEJ RHA BC")
+    if (isRequesting) {
+      alert("Already processing eth_requestAccounts. Please wait.");
+      return;
+      }
+
+      if (typeof window.ethereum === 'undefined') {
+        alert("MetaMask is not installed. Please install it to use this DApp.");
+        return;
+      }
+      setRequesting(true);
     try{window.web3 = new Web3(window.ethereum)
     if (window.ethereum && window.ethereum.isMetaMask) {
       console.log('MetaMask Here!');
@@ -84,10 +95,10 @@ function Loginpage() {
       // } catch (e) {
       //   console.log(e);
       // }
-      if(toggleState==1){
+      if(toggleState===1){
         let info = await CheckUser(accounts[0]) ;
         console.log("info",info);
-      if (info == true) {
+      if (info === true) {
         handleclick(toggleState);
       }
           //else navigate to registration page
@@ -98,7 +109,7 @@ function Loginpage() {
     else {
       console.log("hospi working?" , CheckHospital(accounts[0]));
       let info = await CheckHospital(accounts[0]) ;
-      if (info == true) {
+      if (info === true) {
         handleclick(toggleState);
       }
           //else navigate to registration page
@@ -114,9 +125,21 @@ function Loginpage() {
 
     }
     }
-    catch(err)
+    catch(error)
     {
-      alert("Error Message:"+" "+err.message);
+      // alert("Error Message:"+" "+err.message);
+      if (error.code === -32002) {
+        alert("Request already in progress. Please wait..");
+        setTimeout(() => {
+            alert("Retrying request...");
+            connectWalletHandler();
+        }, 5000); // Retry after 5 seconds
+         } else {
+        console.error("Error requesting accounts:", error);
+        }
+    }
+    finally{
+      setRequesting(false);
     }
   }
 

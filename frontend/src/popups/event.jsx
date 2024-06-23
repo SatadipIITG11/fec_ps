@@ -8,6 +8,7 @@ const Event = ({ data, position }) => {
   return (
     <a href={`https://gateway.pinata.cloud/ipfs/${data.cid}`} className='link-click'><li className={`event ${alignment}`}>
       <div className="event-content">
+      <i className="fa-solid fa-calendar-days calender"></i>
         {data.content}
       </div>
     </li></a>

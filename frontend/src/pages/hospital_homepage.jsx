@@ -247,7 +247,7 @@ function HospitalHomepage() {
   const [timelinePop, settimelinePop] = useState(false)
   //baki hai reports ki designing....
   const [reportsPop, setreportsPop] = useState(false)
-  
+  const [sideBar,setSidebaropen]=useState(false);
 
   // const handleEnter = (event) => {
 
@@ -275,14 +275,12 @@ function HospitalHomepage() {
   return (
     <div id='hospihome'>
       <div className="navbarhospi">
-        <div className="logohospi">LIFE LEDGER</div>
+        <div className="logohospi hospi-logo">LIFE LEDGER</div>
         <div className="Searchdiv">
           <div className='searchdiv'><div className='searchButton' ><i class="fa-solid fa-magnifying-glass" id='searchicon'></i></div>
             <input className='searchbar' id='searchbar' type="text" placeholder='Search by Id' onChange={handleInputChange}  /></div>
-
-            
-
         </div>
+        <div className='flex-nav'>
         <div className='upload' onClick={() => setopenupload(true)}>
           <i class="fa-solid fa-circle-plus" id='uploadicon'></i>
           <span>Upload</span>
@@ -293,29 +291,31 @@ function HospitalHomepage() {
         <div className="logoutdiv">
           <i class="fa-solid fa-arrow-right-from-bracket logout" onClick={disconnectFromMetaMask}></i>
         </div>
+        </div>
+        <i class="fa-solid fa-bars fa-2x" id='notiicon' onClick={()=>setSidebaropen(!sideBar)}></i>
 
       </div>
     
       <div className="bodyhospi">
         {user_existence?(<div className="details">
-          <div className="name">
-            <div className="nametext">Name:</div>
-            <div className="namebox"> {Name} </div>
+          <div className="Name">
+            <div className="Nametext">Name:</div>
+            <div className="Namebox"> {Name} </div>
           </div>
           <div id="id">
-            <div className="nametext">Id:</div>
-            <div className="namebox"> {Meta_ID} </div>
+            <div className="Nametext">Id:</div>
+            <div className="Namebox"> {Meta_ID} </div>
           </div>
         </div>):
         (
-          <div className="details">
-          <div className="name">
-            <div className="nametext">Name:</div>
-            <div className="namebox"></div>
+          <div className="Details">
+          <div className="Name">
+            <div className="Nametext">Name:</div>
+            <div className="Namebox"></div>
           </div>
           <div id="id">
-            <div className="nametext">Id:</div>
-            <div className="namebox"></div>
+            <div className="Nametext">Id:</div>
+            <div className="Namebox"></div>
           </div>
         </div>
 
@@ -359,24 +359,43 @@ function HospitalHomepage() {
           )
           :
           (
-            <div className="blockshospi">
-              <div className="box1 box"></div>
-              <div className="box2 box"></div>
-              <div className="box3 box"></div>
-              <div className="box4 box"></div>
+            <div className="blocksuser">
+              <div className="box1 Box"></div>
+              <div className="box2 Box"></div>
+              <div className="box3 Box"></div>
+              <div className="box4 Box"></div>
             </div>
 
           )}</div>
-        {/* <div className="blockshospi">
-            <div className="box1 box"></div>
-            <div className="box2 box"></div>
-            <div className="box3 box"></div>
-            <div className="box4 box"></div>
-          </div> */}
       </div>
-      <div className="notificationhospi" onClick={testy}>
-        <i class="fa-solid fa-bars fa-2x" id='notiicon' ></i>
-      </div>
+      {sideBar?<div className="sidebarhospi">
+        <i className="fa-solid fa-xmark fa-2x abs-close" onClick={()=>setSidebaropen(!sideBar)}></i>
+        <div className="logohospi g-margin">LIFE LEDGER</div>
+        <div className='upload g-margin' onClick={() => setopenupload(true)}>
+          <i class="fa-solid fa-circle-plus" id='uploadicon'></i>
+          <span>Upload</span>
+        </div>
+        <div className='edit'>
+          <div className="updatediv" onClick={() => setopenUpdate(true)}><i class="fa-solid fa-pen" id='update'></i></div>
+        </div>
+        
+          <i className="fa-solid fa-arrow-right-from-bracket logout g-margin" onClick={disconnectFromMetaMask}></i>
+        
+      </div>:""}
+      {/* <div className="sidebarhospi">
+        <i className="fa-solid fa-xmark fa-2x abs-close"></i>
+        <div className="logohospi g-margin">LIFE LEDGER</div>
+        <div className='upload g-margin' onClick={() => setopenupload(true)}>
+          <i class="fa-solid fa-circle-plus" id='uploadicon'></i>
+          <span>Upload</span>
+        </div>
+        <div className='edit'>
+          <div className="updatediv" onClick={() => setopenUpdate(true)}><i class="fa-solid fa-pen" id='update'></i></div>
+        </div>
+        
+          <i className="fa-solid fa-arrow-right-from-bracket logout g-margin" onClick={disconnectFromMetaMask}></i>
+        
+      </div> */}
 
       {openupload === true ? (<div id="uploadpop">
         <div className="close-upload" >
@@ -433,15 +452,6 @@ function HospitalHomepage() {
       </div>) : ""}
 
       {issearchlistopen === true ? <Searchlist Inputtext={inputValue} setInputtext={setInputIDValue} Registeredusers={registeredUsers} setOpenlist={setSearchlistopen} /> : ""}
-
-
-      {/* <Searchlist Inputtext={inputValue} setInputtext={setInputValue} Registeredusers={registeredUsers}/> */}
-
-
-
-
-
-
     </div>
 
   )

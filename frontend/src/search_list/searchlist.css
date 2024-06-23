@@ -40,3 +40,16 @@
     cursor: pointer;
     
 }
+
+@media only screen and (max-width:800px) {
+    
+    .registered-user{
+        width: 403.1px;
+    }
+    .search-list{
+        width: 450.1px;
+        position: absolute;
+        left: 0;
+       
+    }
+}

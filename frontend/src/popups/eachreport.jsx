@@ -11,9 +11,10 @@ function Eachreport(props) {
       <div className='PDF'>
         <div className="close" >
           <div id="close" onClick={() => props.SetTrigger(false)}>
-            <i class="fa-solid fa-xmark"></i>
+          <i class="fa-solid fa-xmark fa-2x"></i>
           </div>
         </div>
+        <h1 className='report-heading'>{props.reportType}</h1>
         <div className='report'><p>Your Report Is Currently Unavailable!</p></div>
         
       </div>
@@ -27,13 +28,14 @@ function Eachreport(props) {
     <div className='PDF'>
       <div className="close" >
         <div id="close" onClick={() => props.SetTrigger(false)}>
-          <i class="fa-solid fa-xmark"></i>
+          <i class="fa-solid fa-xmark fa-2x"></i>
         </div>
       </div>
+      <h1 className='report-heading'>{props.reportType}</h1>
       <div className='report'>{
-        report.map((value)=>{
+        report.map((value,index)=>{
           return(
-            <><a className='pdf-link' href={`https://gateway.pinata.cloud/ipfs/${value}`}>https://gateway.pinata.cloud/ipfs/{value}</a><br></br></>
+            <div className='eachreport'><i class="fa-solid fa-file-medical fa-2x"></i><a className='pdf-link' href={`https://gateway.pinata.cloud/ipfs/${value}`}>Report:  {index+1}</a></div>
           )
         })
       }</div>
@@ -41,5 +43,5 @@ function Eachreport(props) {
     </div>
   ) : "";
 }
-
+// https://gateway.pinata.cloud/ipfs/{value}
 export default Eachreport

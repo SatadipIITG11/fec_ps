@@ -95,7 +95,7 @@ function Reports(props) {
                     </div>
 
                 </div>
-                <Eachreport Trigger={eachreportPop} SetTrigger={seteachreportPop} reportCid={pushReport} />
+                <Eachreport Trigger={eachreportPop} SetTrigger={seteachreportPop} reportCid={pushReport} reportType={reportType}/>
             </div>
         </div>
 

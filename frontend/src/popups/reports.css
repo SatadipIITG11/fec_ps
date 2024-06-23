@@ -15,9 +15,12 @@
     backdrop-filter: blur(12px);
     display: flex;
     flex-direction: column;
+    background-image: url("../../public/darkbg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     /* justify-content: center; */
     /* align-items: center; */
-    overflow: scroll;
+    /* overflow: scroll; */
 
 }
 
@@ -62,11 +65,10 @@
     display: flex;
     align-items: center;
 
-
+    background-color: rgba(109, 109, 109, 0.4);
     height: 55px;
     width: 60vw;
     border-radius: 10px;
-    background-color: rgb(140, 137, 137, 0.);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(12px);
     cursor: pointer;
