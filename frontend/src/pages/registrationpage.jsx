@@ -135,7 +135,7 @@ const RegistrationPage = () => {
         await AddUser(walletAddress) ;
         await Set_My_Data( walletAddress,  formData.Name,  formData.Age,  formData.Gender,  formData.ContactInfo) ;
          // Handle registration logic here, e.g., API call
-      fetch('https://localhost:3000/register',{
+      fetch('https://lifeledger3.onrender.com/register',{
         method:'POST',
         headers:{
           'Content-Type':'application/json'
