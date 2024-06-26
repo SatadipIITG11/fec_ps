@@ -1,4 +1,4 @@
-const forwarderOrigin = 'http://localhost:3000';
+const forwarderOrigin = 'https://lifeledger3.onrender.com';
 
 const initialize = () => {
     const connectButton = document.getElementsByClassName('metamask');
