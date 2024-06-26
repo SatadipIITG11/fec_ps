@@ -84,7 +84,7 @@ app.post("/", (req, res) => {
         let registered_users = [];
         db.collection('registered_users')
             .find()
-            .forEach(user => registered_users.push(user._id))
+            .forEach(user => registered_users.push(user.id))
             .then(() => {
                 // res.status(200).json(books)
                 // console.log(books);
@@ -167,7 +167,7 @@ app.get("/get_registered_users", (req, res) => {
     let registered_users = [];
     db.collection('registered_users')
         .find()
-        .forEach(user => registered_users.push(user._id))
+        .forEach(user => registered_users.push(user.id))
         .then(() => {
             res.status(200).json(registered_users);
 
