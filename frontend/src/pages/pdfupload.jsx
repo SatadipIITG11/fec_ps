@@ -22,7 +22,7 @@ function PdfUpload(props) {
     setUploading(true);
 
     try {
-      const response = await axios.post('http://localhost:4000/upload', formData, {
+      const response = await axios.post('https://fec-ps-3.onrender.com/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         }
