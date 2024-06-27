@@ -48,6 +48,7 @@
 
     height: 480px;
     width: 600px;
+    
 }
 
 .containernew {
@@ -168,3 +169,9 @@
     width: 100%;
 
 } */
+ @media screen and (max-width:600px) {
+    .LOGIN{
+        width: 400px;
+    }
+    
+ }

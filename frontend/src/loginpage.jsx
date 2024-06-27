@@ -134,8 +134,9 @@ function Loginpage() {
             alert("Retrying request...");
             connectWalletHandler();
         }, 5000); // Retry after 5 seconds
+        
          } else {
-        console.error("Error requesting accounts:", error);
+          alert("Error requesting accounts:", error);
         }
     }
     finally{

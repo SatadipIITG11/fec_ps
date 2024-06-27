@@ -297,7 +297,7 @@ function HospitalHomepage() {
       </div>
     
       <div className="bodyhospi">
-        {user_existence?(<div className="details">
+        {user_existence?(<div className="Details">
           <div className="Name">
             <div className="Nametext">Name:</div>
             <div className="Namebox"> {Name} </div>

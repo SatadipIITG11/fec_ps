@@ -357,6 +357,7 @@ input[type='password'] {
         grid-row-gap: 45px;
         grid-column-gap: 45px; */
         grid-template-columns:auto;
+        margin-bottom: 10px;
     }
     .Box{
         width: 80vw;
@@ -385,6 +386,10 @@ input[type='password'] {
 }
 
 @media only screen and (max-width:1058.4px) and (min-width:488.1px){
+
+    .blocksuser{
+        margin-bottom: 10px;
+    }
 
     .Box{
         width: 40vw;
