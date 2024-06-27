@@ -27,7 +27,7 @@ function HospitalHomepage() {
   
   useEffect(() => {
 
-    fetch('http://localhost:3000/get_registered_users'
+    fetch('https://lifeledger3.onrender.com/get_registered_users'
       //  , {
       //   method : 'GET' ,
       //   headers : {

@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const { connectToDb, getDb } = require('./db')
-const { ObjectId } = require('mongodb')
+// const { ObjectId } = require('mongodb')
 
 // const objectId = new ObjectId("5ca4bbc7a2dd94ee5816238c");
 
@@ -84,7 +84,7 @@ app.post("/", (req, res) => {
         let registered_users = [];
         db.collection('registered_users')
             .find()
-            .forEach(user => registered_users.push(user._id))
+            .forEach(user => registered_users.push(user.id))
             .then(() => {
                 // res.status(200).json(books)
                 // console.log(books);
@@ -144,12 +144,30 @@ app.post("/", (req, res) => {
 
     // res.json(obj );
 })
+// db.collection('document_col1').insertOne({documentId : id , data : defaultValue})
+app.post("/register", (req, res) => {
+    // res.
+    let a = req.body.id.toString();
+    console.log(a.toLowerCase());
+    let b = a.toLowerCase();
+    db.collection('registered_users').insertOne({id : b})
+    .then(()=>{
+        res.status(200).json("Registered now");
+    }
+    )
+    .catch(
+       (e)=>{ res.status(500).json("error:", e);}
+    )
+    
+})
+
+
 
 app.get("/get_registered_users", (req, res) => {
     let registered_users = [];
     db.collection('registered_users')
         .find()
-        .forEach(user => registered_users.push(user._id))
+        .forEach(user => registered_users.push(user.id))
         .then(() => {
             res.status(200).json(registered_users);
 

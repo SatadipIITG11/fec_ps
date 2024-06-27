@@ -17,8 +17,8 @@ app.use(cors());
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-const PINATA_API_KEY = '38ccd0564e632727b2df';
-const PINATA_SECRET_API_KEY = '495f29abd3ef585f358898601103ae46f9f373b61033ef1b8419ff3743f293e4';
+const PINATA_API_KEY = '17adeeb0f822a5b73cb2';
+const PINATA_SECRET_API_KEY = '8d20a9ed8eb2e829d5e9146dc9082e3b2f8f990d10fe71bdc1a8ebf0fc634c77';
 
 const pinata = axios.create({
   baseURL: 'https://api.pinata.cloud/',
