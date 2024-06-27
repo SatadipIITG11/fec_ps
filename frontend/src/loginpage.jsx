@@ -133,7 +133,7 @@ function Loginpage() {
         setTimeout(() => {
             alert("Retrying request...");
             connectWalletHandler();
-        }, 5000); // Retry after 5 seconds
+        }, 50000); // Retry after 50 seconds
         
          } else {
           alert("Error requesting accounts:", error);
