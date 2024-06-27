@@ -33,7 +33,7 @@ function Loginpage() {
       }
 
       if (typeof window.ethereum === 'undefined') {
-        alert("MetaMask is not installed. Please install it to use this DApp.");
+        alert("MetaMask is not installed. Please install it to use this Wallet.");
         return;
       }
       setRequesting(true);
