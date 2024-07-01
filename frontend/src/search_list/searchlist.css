@@ -16,7 +16,7 @@
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
-    
+
 }
 
 .registered-user {
@@ -27,7 +27,7 @@
     display: flex;
     align-items: center;
     margin-top: 8px;
-    margin-bottom:8px ;
+    margin-bottom: 8px;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(222px);
@@ -36,20 +36,21 @@
 }
 
 .registered-user:hover {
-    background-color: rgb(15, 19, 34,0.5);
+    background-color: rgb(15, 19, 34, 0.5);
     cursor: pointer;
-    
+
 }
 
 @media only screen and (max-width:800px) {
-    
-    .registered-user{
+
+    .registered-user {
         width: 403.1px;
     }
-    .search-list{
+
+    .search-list {
         width: 450.1px;
         position: absolute;
         left: 0;
-       
+
     }
 }

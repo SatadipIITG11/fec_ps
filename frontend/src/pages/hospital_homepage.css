@@ -4,7 +4,7 @@
     align-items: center;
     height: 100vh;
     width: 100vw;
-    overflow-x:hidden;
+    overflow-x: hidden;
 }
 
 .navbarhospi {
@@ -49,7 +49,8 @@
     backdrop-filter: blur(12px);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
 }
-.searchButton{
+
+.searchButton {
     width: 4vw;
     height: 30px;
     display: flex;
@@ -57,12 +58,13 @@
     align-items: center;
     cursor: pointer;
 }
-#searchicon:hover{
+
+#searchicon:hover {
     color: rgba(0, 0, 0, 0.9);
 }
 
-.Searchdiv{
-  display: flex;
+.Searchdiv {
+    display: flex;
 }
 
 
@@ -85,7 +87,7 @@
     padding-left: 6px;
     padding-right: 4px;
     color: white;
-    
+
 }
 
 .upload {
@@ -127,7 +129,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
     right: 8vw;
     top: 68px;
     backdrop-filter: blur(5px);
@@ -151,7 +153,7 @@
     margin-bottom: 20px;
     height: 25px;
     width: 400px;
-    
+
 
 }
 
@@ -165,28 +167,32 @@
     background-color: rgba(255, 255, 255, 0.1);
     /* backdrop-filter: blur(22px);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.6); */
-    
-    
+
+
 }
+
 input::placeholder {
-    color: white; /* Change this to your desired color */
-    opacity: 1; /* Optional: ensures the color is fully opaque */
+    color: white;
+    /* Change this to your desired color */
+    opacity: 1;
+    /* Optional: ensures the color is fully opaque */
 }
-.dropdown-toggle{
+
+.dropdown-toggle {
     width: 270px;
     border-radius: 10px;
     margin-bottom: 9px;
     background-color: rgba(255, 255, 255, 0.008);
     backdrop-filter: blur(222px);
-    box-shadow: 2px 2px 2px  rgba(0, 0, 0, 0.4);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
     outline: none;
-    border:none;
+    border: none;
     color: white;
 }
 
 .dropdown-item {
     background-color: rgb(140, 137, 137, 0.8);
-    box-shadow: 3px 6px 6px  rgba(0, 0, 0, 0.4);
+    box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.4);
     height: 30px;
     color: white;
     width: 300px;
@@ -199,7 +205,8 @@ input::placeholder {
     justify-content: center;
 
 }
-.dropdown-div{
+
+.dropdown-div {
     margin-top: 9px;
     margin-bottom: 9px;
     background-color: rgb(140, 137, 137, 0.7);
@@ -212,6 +219,7 @@ input::placeholder {
     justify-content: space-evenly;
     border-radius: 10px;
 }
+
 /* .dropdown-menu{
     height: 200px;
     width: 200px;
@@ -219,7 +227,7 @@ input::placeholder {
 } */
 
 .browse-upload {
-   
+
     display: flex;
     justify-content: center;
     /* border: 2px solid black; */
@@ -227,15 +235,16 @@ input::placeholder {
     width: 360px;
     align-items: center;
 }
-.upload-button{
+
+.upload-button {
     width: 200px;
     height: 40px;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.008);
     backdrop-filter: blur(222px);
-    box-shadow: 2px 2px 2px  rgba(0, 0, 0, 0.4);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
     outline: none;
-    border:none;
+    border: none;
     color: white;
 
 }
@@ -325,7 +334,7 @@ input::placeholder {
     border-radius: 5px;
     /* background-color: rgb(140, 137, 137, 0.005); */
     backdrop-filter: blur(40px);
-    box-shadow: 3px 2px 3px  rgba(0, 0, 0, 0.4);
+    box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.4);
 }
 
 #notiicon {
@@ -333,42 +342,48 @@ input::placeholder {
     cursor: pointer;
 
 }
-.logout{
+
+.logout {
     color: white;
 }
 
-.g-margin{
+.g-margin {
     margin: 12px 0;
 }
-.abs-close{
+
+.abs-close {
     position: absolute;
     right: 4px;
     color: white;
 }
 
-#notiicon{
+#notiicon {
     display: none;
 }
-.flex-nav{
+
+.flex-nav {
     display: flex;
     align-items: center;
 }
+
 @media only screen and (max-width:940px) {
-    #notiicon{
+    #notiicon {
         margin-top: 15px;
         display: block;
     }
 
-    .flex-nav{
-        display: none;   
-    }
-    .hospi-logo{
+    .flex-nav {
         display: none;
     }
 
-    .searchdiv{
+    .hospi-logo {
+        display: none;
+    }
+
+    .searchdiv {
         margin-top: 15px;
     }
+
     /* .Details{
         flex-direction: column;
         align-items: center;
@@ -379,9 +394,10 @@ input::placeholder {
 
 @media only screen and (min-width:1080.1px) {
 
-    .sidebarhospi{
+    .sidebarhospi {
         display: none;
     }
+
     /* .details{
         flex-direction: column;
         align-items: center;
@@ -390,11 +406,13 @@ input::placeholder {
     } */
 
 }
+
 @media only screen and (min-width:910.1px) and (max-width:1080px) {
 
-    .sidebarhospi{
+    .sidebarhospi {
         display: none;
     }
+
     /* .Details{
         flex-direction: column;
         align-items: center;
@@ -403,15 +421,16 @@ input::placeholder {
     } */
 
 }
-@media screen and (max-width:540px){
-    #uploadpop{
+
+@media screen and (max-width:540px) {
+    #uploadpop {
         width: 400px;
         height: 400px;
     }
 
     .type-address {
         height: 30px;
-        width: 200px; 
+        width: 200px;
     }
 
     .addressdiv {
@@ -419,7 +438,7 @@ input::placeholder {
         margin-bottom: 20px;
         height: 25px;
         width: 300px;
-        
-    
+
+
     }
 }

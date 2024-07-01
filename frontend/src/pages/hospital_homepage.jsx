@@ -4,46 +4,30 @@ import { testy, testyz } from './testy'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import PdfUpload from './pdfupload'
-// import { func1, func2,CheckPermission } from '../Get_functions'
 import Timeline from '../popups/timeline'
 import Reports from '../popups/reports'
-// const { ethers } = require("ethers");
-import {FetchRequest , responseToRequest , SendRequest } from '../Notif' 
-import { ethers } from 'ethers';
-import { func1, func2,CheckPermission } from '../Get_functions'
+import { func1, func2, CheckPermission } from '../Get_functions'
 import { InsertReport } from "../Set_function"
 import { Set_User_Data } from "../Set_function"
 import Searchlist from '../search_list/searchlist'
-let name, age, gender, contact, blood, allergy, deficy, chronic;
+let blood, allergy, deficy, chronic;
 
 function HospitalHomepage() {
 
-  const [allReports,setallReports]=useState([]);
-  const [timeline,setTimeline]=useState([]);
-  
+  const [allReports, setallReports] = useState([]);
+  const [timeline, setTimeline] = useState([]);
+
   const [registeredUsers, setRegisteredUsers] = useState([]);
   const [issearchlistopen, setSearchlistopen] = useState(true);
-  // useEffect ( ()=>{console.log(registeredUsers) } ,  registeredUsers );
-  
+
   useEffect(() => {
 
-    fetch('https://lifeledgerfinal2.onrender.com/get_registered_users'
-      //  , {
-      //   method : 'GET' ,
-      //   headers : {
-      //     'Content-Type':'application/json'
-      //   },
-      //   body: JSON.stringify(postData)
-      // }
-    )
-      // .then(()=>{
-      //   console.log("doing")
-      // })
+    fetch('https://lifeledgerfinal2.onrender.com/get_registered_users')
       .then(response => response.json())
       .then((data) => {
         // console.log('success:',data )
         setRegisteredUsers(data);
-        console.log("regisuser>>"+registeredUsers);
+        console.log("regisuser>>" + registeredUsers);
       }).then(() => {
         // console.log(registeredUsers);
       })
@@ -52,13 +36,13 @@ function HospitalHomepage() {
       })
 
   }, [])
-  
+
   //inputValue
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   //!!!!!Yaha dekh category me "category" string rahega!!!!!
   const [category, setCategory] = useState("");
-  const [typeAddress,setTypeAddress]=useState("");
+  const [typeAddress, setTypeAddress] = useState("");
   const options = [
     { id: 1, label: 'Diagnostic' },
     { id: 2, label: 'Medication' },
@@ -71,95 +55,94 @@ function HospitalHomepage() {
   //guys inputvalue me search string rahega apne hisab se use karlo
 
   const [user_existence, setuser_existence] = useState(false)
-  const getReportHospital = async() => {
+  const getReportHospital = async () => {
     // if(inputValue.length != 41)  return ;
-    try
-    {console.log("func1",func1(inputIDValue));
-    setuser_existence(false)
-    console.log("user Existence:",user_existence)
-    if(inputIDValue) fetch_data(inputIDValue)
-      let checky=await CheckPermission(inputIDValue)
-   
-    if(checky === false ){
+    try {
+      console.log("func1", func1(inputIDValue));
+      setuser_existence(false)
+      console.log("user Existence:", user_existence)
+      if (inputIDValue) fetch_data(inputIDValue)
+      let checky = await CheckPermission(inputIDValue)
+
+      if (checky === false) {
         //yaha popup dede ki permission mangi hain par abhi info access nahi kar sakte aur page refresh karde
         console.log("Dont have permission");
         //aage ka sure nahi dekh lena
         setuser_existence(true);
 
 
-    }
-    
-    else if(checky===true){
-      try{
-        setuser_existence(true)
-      console.log("func2",func2(inputIDValue));
-      let reports= await func2(inputIDValue);
-        
-      let sizeofcids=reports[1].length
-      let allreports=[];
-      for(let i=0;i<sizeofcids;i++){
-          let report={
-            "cid":reports[1][i],
-            "type":reports[2][i]
-          }
-          
-          allreports.push(report);
-          setallReports(allreports);
-          
       }
-      let sizeofdates=reports[0].length
-      let times=[];
-      for(let i=0;i<sizeofdates;i++)
-        {
-          let time={
-             date:reports[0][i],
-             cid:reports[1][i]
+
+      else if (checky === true) {
+        try {
+          setuser_existence(true)
+          console.log("func2", func2(inputIDValue));
+          let reports = await func2(inputIDValue);
+
+          let sizeofcids = reports[1].length
+          let allreports = [];
+          for (let i = 0; i < sizeofcids; i++) {
+            let report = {
+              "cid": reports[1][i],
+              "type": reports[2][i]
+            }
+
+            allreports.push(report);
+            setallReports(allreports);
+
           }
-          times.push(time);
-          setTimeline(times);
+          let sizeofdates = reports[0].length
+          let times = [];
+          for (let i = 0; i < sizeofdates; i++) {
+            let time = {
+              date: reports[0][i],
+              cid: reports[1][i]
+            }
+            times.push(time);
+            setTimeline(times);
+          }
+
         }
-        
-      }
-      catch(e){
-        console.log(e)
-      }
+        catch (e) {
+          console.log(e)
+        }
 
+      }
     }
-   }
-   catch(e){
-    console.log(e,"kya error hai bc bata ab")
-   }
+    catch (e) {
+      console.log(e, "kya error hai bc bata ab")
+    }
 
-  } 
+  }
   useEffect(() => {
     getReportHospital();
   }, [inputIDValue]);
-  
+
 
   const handleInputChange = (event) => {
 
     setuser_existence(false);
     setInputValue(event.target.value);
     setInputIDValue("");
-    console.log("handleSEARCHCHANGE",event.target.value)
+    console.log("handleSEARCHCHANGE", event.target.value)
     setSearchlistopen(true);
 
 
   };
   const [addressValue, setaddressValue] = useState('')
-  const [uploaddisable,setUploaddisable]=useState(true)
+  const [uploaddisable, setUploaddisable] = useState(true)
 
   const handleAddressChange = (event) => {
-    
-    let element=document.getElementById("pdf-select")
+
+    let element = document.getElementById("pdf-select")
     setaddressValue(event.target.value);
     console.log(addressValue)
-      
+
   };
   useEffect(() => {
     console.log('Address updated:', addressValue);
-    setUploaddisable(addressValue==="" || category==="");
-  }, [addressValue,category]);
+    setUploaddisable(addressValue === "" || category === "");
+  }, [addressValue, category]);
   //upload dropdown button
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -169,7 +152,7 @@ function HospitalHomepage() {
     setSelectedOption(option);
     setCategory(option.label);
     console.log(option.label);
-    console.log("cat2",category);
+    console.log("cat2", category);
     setIsOpen(false);
   };
 
@@ -192,27 +175,27 @@ function HospitalHomepage() {
   const [Meta_ID, setID] = useState("")
 
   const fetch_data = async (User_Address) => {
-    
-    try
-    {let walletAddress = User_Address
-    // let walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE"
-    let name2 = await func1(walletAddress)
-    // func_get_reports(walletAddress)
-    // SetAge(walletAddress)
-    console.log(name2);
-    setname(name2[0][0])
-    // console.log(name2[1])
-    setage(Number(name2[0][1]))
-    setgender(name2[0][2])
-    setcontact(Number(name2[0][3]))
-    setblood(name2[1][0])
-    setallergy(name2[1][1])
-    setdeficy(name2[1][2])
-    setchronic(name2[1][3])
-    setID(walletAddress)
+
+    try {
+      let walletAddress = User_Address
+      // let walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE"
+      let name2 = await func1(walletAddress)
+      // func_get_reports(walletAddress)
+      // SetAge(walletAddress)
+      console.log(name2);
+      setname(name2[0][0])
+      // console.log(name2[1])
+      setage(Number(name2[0][1]))
+      setgender(name2[0][2])
+      setcontact(Number(name2[0][3]))
+      setblood(name2[1][0])
+      setallergy(name2[1][1])
+      setdeficy(name2[1][2])
+      setchronic(name2[1][3])
+      setID(walletAddress)
     }
-    catch(e){
-      console.log(e,"kya bcc error")
+    catch (e) {
+      console.log(e, "kya bcc error")
     }
   }
   const updateBio = () => {
@@ -232,11 +215,8 @@ function HospitalHomepage() {
   }
 
   const Set_Data = async (Blood, Allergy, Deficy, Chronic) => {
-    // const provider = new ethers.BrowserProvider(window.ethereum);
-    // const signer = await provider.getSigner();
-    // let walletAddress = await signer.getAddress();
-    // let walletAddress = "0xaEB837233665fc43309dABF4abD53338E60a61bE";
-    console.log("aaj ki raat",inputIDValue);
+    ;
+    console.log("aaj ki raat", inputIDValue);
     await Set_User_Data(inputIDValue, Blood, Allergy, Deficy, Chronic);
   }
 
@@ -247,57 +227,34 @@ function HospitalHomepage() {
   const [timelinePop, settimelinePop] = useState(false)
   //baki hai reports ki designing....
   const [reportsPop, setreportsPop] = useState(false)
-  const [sideBar,setSidebaropen]=useState(false);
+  const [sideBar, setSidebaropen] = useState(false);
 
-  // const handleEnter = (event) => {
-
-  //   if (event.key === 'Enter') {
-  //     //for checking purpose only
-  //     //here I have to check existence of user and set user_existence
-  //     fetch_data(event.target.value)
-  //     setuser_existence(true)
-  //     // console.log("wowoowooowow")
-  //   }
-
-  // }
-//onKeyDown={handleEnter}
-
-// const searchHandler= async()=>{
-  
-// }
-// const handleKeyDown=(event)=>{
-//   if (event.key === 'Backspace') {
-//     setuser_existence(false)
-    
-    
-// }
-// }
   return (
     <div id='hospihome'>
       <div className="navbarhospi">
         <div className="logohospi hospi-logo">LIFE LEDGER</div>
         <div className="Searchdiv">
           <div className='searchdiv'><div className='searchButton' ><i class="fa-solid fa-magnifying-glass" id='searchicon'></i></div>
-            <input className='searchbar' id='searchbar' type="text" placeholder='Search by Id' onChange={handleInputChange}  /></div>
+            <input className='searchbar' id='searchbar' type="text" placeholder='Search by Id' onChange={handleInputChange} /></div>
         </div>
         <div className='flex-nav'>
-        <div className='upload' onClick={() => setopenupload(true)}>
-          <i class="fa-solid fa-circle-plus" id='uploadicon'></i>
-          <span>Upload</span>
+          <div className='upload' onClick={() => setopenupload(true)}>
+            <i class="fa-solid fa-circle-plus" id='uploadicon'></i>
+            <span>Upload</span>
+          </div>
+          <div className='edit'>
+            <div className="updatediv" onClick={() => setopenUpdate(true)}><i class="fa-solid fa-pen" id='update'></i></div>
+          </div>
+          <div className="logoutdiv">
+            <i class="fa-solid fa-arrow-right-from-bracket logout" onClick={disconnectFromMetaMask}></i>
+          </div>
         </div>
-        <div className='edit'>
-          <div className="updatediv" onClick={() => setopenUpdate(true)}><i class="fa-solid fa-pen" id='update'></i></div>
-        </div>
-        <div className="logoutdiv">
-          <i class="fa-solid fa-arrow-right-from-bracket logout" onClick={disconnectFromMetaMask}></i>
-        </div>
-        </div>
-        <i class="fa-solid fa-bars fa-2x" id='notiicon' onClick={()=>setSidebaropen(!sideBar)}></i>
+        <i class="fa-solid fa-bars fa-2x" id='notiicon' onClick={() => setSidebaropen(!sideBar)}></i>
 
       </div>
-    
+
       <div className="bodyhospi">
-        {user_existence?(<div className="Details">
+        {user_existence ? (<div className="Details">
           <div className="Name">
             <div className="Nametext">Name:</div>
             <div className="Namebox"> {Name} </div>
@@ -306,22 +263,22 @@ function HospitalHomepage() {
             <div className="Nametext">Id:</div>
             <div className="Namebox"> {Meta_ID} </div>
           </div>
-        </div>):
-        (
-          <div className="Details">
-          <div className="Name">
-            <div className="Nametext">Name:</div>
-            <div className="Namebox"></div>
-          </div>
-          <div id="id">
-            <div className="Nametext">Id:</div>
-            <div className="Namebox"></div>
-          </div>
-        </div>
+        </div>) :
+          (
+            <div className="Details">
+              <div className="Name">
+                <div className="Nametext">Name:</div>
+                <div className="Namebox"></div>
+              </div>
+              <div id="id">
+                <div className="Nametext">Id:</div>
+                <div className="Namebox"></div>
+              </div>
+            </div>
 
-        )}
-         
-         <div>{user_existence?
+          )}
+
+        <div>{user_existence ?
           (
             <div className="blocksuser">
               <div className="Box1 Box">
@@ -368,8 +325,8 @@ function HospitalHomepage() {
 
           )}</div>
       </div>
-      {sideBar?<div className="sidebarhospi">
-        <i className="fa-solid fa-xmark fa-2x abs-close" onClick={()=>setSidebaropen(!sideBar)}></i>
+      {sideBar ? <div className="sidebarhospi">
+        <i className="fa-solid fa-xmark fa-2x abs-close" onClick={() => setSidebaropen(!sideBar)}></i>
         <div className="logohospi g-margin">LIFE LEDGER</div>
         <div className='upload g-margin' onClick={() => setopenupload(true)}>
           <i class="fa-solid fa-circle-plus" id='uploadicon'></i>
@@ -378,52 +335,39 @@ function HospitalHomepage() {
         <div className='edit'>
           <div className="updatediv" onClick={() => setopenUpdate(true)}><i class="fa-solid fa-pen" id='update'></i></div>
         </div>
-        
-          <i className="fa-solid fa-arrow-right-from-bracket logout g-margin" onClick={disconnectFromMetaMask}></i>
-        
-      </div>:""}
-      {/* <div className="sidebarhospi">
-        <i className="fa-solid fa-xmark fa-2x abs-close"></i>
-        <div className="logohospi g-margin">LIFE LEDGER</div>
-        <div className='upload g-margin' onClick={() => setopenupload(true)}>
-          <i class="fa-solid fa-circle-plus" id='uploadicon'></i>
-          <span>Upload</span>
-        </div>
-        <div className='edit'>
-          <div className="updatediv" onClick={() => setopenUpdate(true)}><i class="fa-solid fa-pen" id='update'></i></div>
-        </div>
-        
-          <i className="fa-solid fa-arrow-right-from-bracket logout g-margin" onClick={disconnectFromMetaMask}></i>
-        
-      </div> */}
+
+        <i className="fa-solid fa-arrow-right-from-bracket logout g-margin" onClick={disconnectFromMetaMask}></i>
+
+      </div> : ""}
+      { }
 
       {openupload === true ? (<div id="uploadpop">
         <div className="close-upload" >
-          <i class="fa-solid fa-xmark" onClick={() => {setopenupload(false);setUploaddisable(true)}}></i>
+          <i class="fa-solid fa-xmark" onClick={() => { setopenupload(false); setUploaddisable(true) }}></i>
         </div>
         <div className="addressdiv">
-          <input type="text" className='type-address' placeholder='Type Address' onChange={handleAddressChange}/>
+          <input type="text" className='type-address' placeholder='Type Address' onChange={handleAddressChange} />
         </div>
         <button className="dropdown-toggle" onClick={toggleDropdown}>
           {selectedOption ? selectedOption.label : 'Select an option'}
         </button>
-        {isOpen?(
-          
+        {isOpen ? (
+
           <div className='dropdown-div'>{options.map((option) => {
-              
-              return (<div
-                key={option.id}
-                className="dropdown-item"
-                onClick={() => handleOptionClick(option)}
-               >
-                {option.label}
-              </div>);
-            })}</div>
-          
-        ):""}
-        {/* <div className="browse-upload"> */}
-          <PdfUpload user_id = {inputIDValue} category = {category} isdisabled={uploaddisable} setdisabled={setUploaddisable}  />
-        {/* </div> */}
+
+            return (<div
+              key={option.id}
+              className="dropdown-item"
+              onClick={() => handleOptionClick(option)}
+            >
+              {option.label}
+            </div>);
+          })}</div>
+
+        ) : ""}
+        { }
+        <PdfUpload user_id={inputIDValue} category={category} isdisabled={uploaddisable} setdisabled={setUploaddisable} />
+        { }
       </div>) : ""}
       {openUpdate === true ? (<div className="to-update">
         <div className="close-update">

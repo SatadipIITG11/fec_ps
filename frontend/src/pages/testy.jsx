@@ -5,5 +5,3 @@ export const testy = () => {
 export const testyz = () => {
     console.log("checking twice")
 }
-
-// export default {testy,testyz}

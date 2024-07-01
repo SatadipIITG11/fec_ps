@@ -2,9 +2,6 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const { connectToDb, getDb } = require('./db')
-// const { ObjectId } = require('mongodb')
-
-// const objectId = new ObjectId("5ca4bbc7a2dd94ee5816238c");
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*'); // Set the allowed origin
@@ -32,40 +29,6 @@ connectToDb((err) => {
 
 console.log()
 
-
-// app.send("/" ,() => {
-//     <h1>hi </h1>
-// })
-
-// app.get("/", (req,res) => {
-
-
-//     db.collection('registered_users')
-//     .find()
-//     .forEach(book => books.push(book))
-//     .then( () =>{
-//         res.status(200).json(books)
-//         // console.log(books);
-//     })
-//     .catch(()=>{
-//         res.status(500).json({error :'could not'})
-//     })
-
-//     // db.collection('accounts')
-//     // .findOne({limit : 10000})
-//     // .then( (doc) =>{
-//     //     res.status(200).json(doc)
-//     //     console.log(doc);
-//     // })
-//     // .catch(()=>{
-//     //     res.status(500).json({error :'could not'})
-//     // })
-
-//     // res.
-//     // console.log(req);
-//     // res.sendFile(__dirname + '/index.html');
-// })
-
 let obj = {
     data: 1
 }
@@ -86,11 +49,6 @@ app.post("/", (req, res) => {
             .find()
             .forEach(user => registered_users.push(user.id))
             .then(() => {
-                // res.status(200).json(books)
-                // console.log(books);
-                ;
-
-                // cosole.log(value);
                 console.log(registered_users);
                 console.log(typeof registered_users[0]);
                 let member;
@@ -106,7 +64,6 @@ app.post("/", (req, res) => {
 
             })
             .catch(() => {
-                // res.status(500).json({error :'could not'})
                 console.log("error")
             })
 
@@ -117,11 +74,8 @@ app.post("/", (req, res) => {
             .find()
             .forEach(user => registered_hospitals.push(user._id))
             .then(() => {
-                // res.status(200).json(books)
-                // console.log(books);
                 ;
 
-                // cosole.log(value);
                 console.log(registered_hospitals);
                 console.log(typeof registered_hospitals[0]);
                 let member;
@@ -150,15 +104,15 @@ app.post("/register", (req, res) => {
     let a = req.body.id.toString();
     console.log(a.toLowerCase());
     let b = a.toLowerCase();
-    db.collection('registered_users').insertOne({id : b})
-    .then(()=>{
-        res.status(200).json("Registered now");
-    }
-    )
-    .catch(
-       (e)=>{ res.status(500).json("error:", e);}
-    )
-    
+    db.collection('registered_users').insertOne({ id: b })
+        .then(() => {
+            res.status(200).json("Registered now");
+        }
+        )
+        .catch(
+            (e) => { res.status(500).json("error:", e); }
+        )
+
 })
 
 
@@ -201,8 +155,8 @@ app.post("/get_notification", (req, res) => {
 
 
 
-})    
- 
+})
+
 app.post("/delete_notification", (req, res) => {
 
     let a = req.body.user_id.toString();
@@ -210,28 +164,22 @@ app.post("/delete_notification", (req, res) => {
     let b = a.toLowerCase();
     let c = req.body.hospital_id.toString();
     let d = c.toLowerCase();
-    // let dummy = "0x12CB2FfF48C573eB77A592714Bd49004e090574F";
-    // let dum2 = dummy.toLowerCase();
     db.collection('pending_approvals')
-    .updateMany(
-        { user_id: b },
-        { $pull : {hospital_list:d} }
+        .updateMany(
+            { user_id: b },
+            { $pull: { hospital_list: d } }
         )
-    .then( () =>{
-        console.log("del " ,req.body );
-        res.status(200).json("success");
-    }
-    )    
-    .catch((e) => {
+        .then(() => {
+            console.log("del ", req.body);
+            res.status(200).json("success");
+        }
+        )
+        .catch((e) => {
             res.status(500).json("error:", e);
-    }) 
-    //db.stores.updateMany(
-    // { },
-    // { $pull: { fruits: { $in: [ "apples", "oranges" ] }, vegetables: "carrots" } }
-// )
+        })
 
 
-})  
+})
 
 app.post("/add_notification", (req, res) => {
 
@@ -240,29 +188,14 @@ app.post("/add_notification", (req, res) => {
     let b = a.toLowerCase();
     let c = req.body.hospital_id.toString();
     let d = c.toLowerCase();
-    // let dummy = "0x12CB2FfF48C573eB77A592714Bd49004e090574F";
-    // let dum2 = dummy.toLowerCase();
     db.collection('pending_approvals')
-    .updateMany(
-        { user_id: b },
-        {$push:{hospital_list:d}}
+        .updateMany(
+            { user_id: b },
+            { $push: { hospital_list: d } }
         )
-    .catch((e) => {
+        .catch((e) => {
             res.status(500).json("error:", e);
-    })        
-        // .findOne({ user_id: b })
-        // .then((data) => {
-        //     if(!data)  res.status(200).json("");
-        //     else res.status(200).json(data.hospital_list);
-        //     console.log(data)
-        // })
-        // .catch((e) => {
-        //     res.status(500).json("error:", e);
-    
-
-    //db.employees.updateMany(
-    //{_id:3},
-    //{$push:{"skills":"Sports"}})
+        })
 
 
 }) 
