@@ -33,7 +33,7 @@ function Loginpage() {
       }
 
       if (typeof window.ethereum === 'undefined') {
-        alert("MetaMask is not installed. Please install it to use this DApp.");
+        alert("MetaMask is not installed. Please install it to use this Wallet.");
         return;
       }
       setRequesting(true);
@@ -133,7 +133,7 @@ function Loginpage() {
         setTimeout(() => {
             alert("Retrying request...");
             connectWalletHandler();
-        }, 5000); // Retry after 5 seconds
+        }, 50000); // Retry after 50 seconds
         
          } else {
           alert("Error requesting accounts:", error);
