@@ -43,7 +43,7 @@ function HospitalHomepage() {
       .then((data) => {
         // console.log('success:',data )
         setRegisteredUsers(data);
-        console.log(registeredUsers);
+        console.log("regisuser>>"+registeredUsers);
       }).then(() => {
         // console.log(registeredUsers);
       })
