@@ -1,12 +1,13 @@
-.success-status{
+.success-status {
     margin-left: 10px;
     margin-top: 101px;
-    position:absolute;
+    position: absolute;
 }
 
-.text-s{
+.text-s {
     color: white;
 }
-.text-fail{
+
+.text-fail {
     color: red;
 }

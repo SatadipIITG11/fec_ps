@@ -27,8 +27,8 @@ function PdfUpload(props) {
           'Content-Type': 'multipart/form-data',
         }
       });
-      console.log("cat",props.category.toString)
-      await InsertReport(props.user_id, response.data.timestamp, response.data.ipfsHash,props.category ); //props.category.toString//"Procedural"
+      console.log("cat", props.category.toString)
+      await InsertReport(props.user_id, response.data.timestamp, response.data.ipfsHash, props.category); //props.category.toString//"Procedural"
       setUploading(false);
       setUploadResult(response.data);
       setSelectedFile(null);
@@ -60,7 +60,7 @@ function PdfUpload(props) {
             </div>
           ) : (
             <p className='text-fail'>Failed to upload file to IPFS.</p>
-            
+
           )}
         </div>
       )}

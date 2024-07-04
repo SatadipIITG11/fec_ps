@@ -1,4 +1,4 @@
-.access{
+.access {
     width: 80px;
     height: 30px;
     border-radius: 8px;
@@ -6,17 +6,20 @@
     backdrop-filter: blur(22px);
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
     outline: none;
-    border:none;
+    border: none;
     color: white;
-   
+
 }
-.access:hover{
+
+.access:hover {
     background-color: rgba(32, 31, 31, 0.1);
 }
-.deny:hover{
+
+.deny:hover {
     background-color: rgba(32, 31, 31, 0.1);
 }
-.deny{
+
+.deny {
     width: 80px;
     height: 30px;
     border-radius: 8px;
@@ -24,20 +27,23 @@
     backdrop-filter: blur(22px);
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
     outline: none;
-    border:none;
+    border: none;
     color: white;
 }
-.card{
+
+.card {
     margin-bottom: 15px;
     border-radius: 10px;
     background-color: rgb(140, 137, 137, 0.005);
     backdrop-filter: blur(40px);
-    box-shadow: 3px 2px 3px  rgba(0, 0, 0, 0.4);
+    box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.4);
 }
-.card-title{
+
+.card-title {
     color: white;
     font-weight: 400;
 }
-.card-text{
+
+.card-text {
     color: rgb(233, 227, 227);
 }

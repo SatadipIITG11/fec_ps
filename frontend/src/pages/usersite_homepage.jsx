@@ -6,24 +6,23 @@ import Timeline from '../popups/timeline'
 import Reports from '../popups/reports'
 import { useNavigate } from 'react-router-dom'
 import { ethers } from 'ethers';
-import {FetchRequest , responseToRequest , SendRequest } from '../Notif' 
+import { FetchRequest, responseToRequest, SendRequest } from '../Notif'
 import '../notifications/notification.css'
-import { func1, func2,CheckPermission } from '../Get_functions'
-// import { Set_My_Data, } from '../Set_functions'
-import { Set_My_Data,Set_User_Data,InsertReport,GivePermission } from "../Set_function"
-// import Notification from '../notifications/notification'
-// import {All} from '../NotifReact.js'
+import { func1, func2, CheckPermission } from '../Get_functions'
+import { Set_My_Data } from "../Set_function"
 
 function UsersiteHomepage() {
 
-  // const try_promise = async () =>{
+  const [allReports, setallReports] = useState([]);
+  const [timeline, setTimeline] = useState([]);
+
+
+  // let allReports=[];
+  // const getReports = async () => {
   //   const provider = new ethers.BrowserProvider(window.ethereum);
   //   const signer = await provider.getSigner();
   //   let walletAddress = await signer.getAddress();
-  //   CheckPermission(walletAddress);
-
-
-  // }.then( ()=>{
+  //   let reports = await func2(walletAddress);
 
   // })
 
@@ -35,8 +34,8 @@ function UsersiteHomepage() {
       setopenUpdate(false);
     }
  }
-  const [allReports,setallReports]=useState([]);
-  const [timeline,setTimeline]=useState([]);
+  // const [allReports,setallReports]=useState([]);
+  // const [timeline,setTimeline]=useState([]);
   
   
     // let allReports=[];
@@ -60,44 +59,49 @@ function UsersiteHomepage() {
           setallReports(allreports);
           
       }
-      let sizeofdates=reports[0].length
-      let times=[];
-      for(let i=0;i<sizeofdates;i++)
-        {
-          let time={
-             date:reports[0][i],
-             cid:reports[1][i]
-          }
-          times.push(time);
-          setTimeline(times);
-        }
-      
 
-      // console.log(allReports);
-      // setallReports(prevReports => [...prevReports, report]);
-      // console.log("NEW REPORTS ARRAY",allReports)
-      
-      
-      // console.log("func2",func2(walletAddress));
-      //isse jaise present karna hain karde
-      
+      // allreports.push(report);
+      // setallReports(allreports);
+
+    
+    let sizeofdates = reports[0].length
+    let times = [];
+    for (let i = 0; i < sizeofdates; i++) {
+      let time = {
+        date: reports[0][i],
+        cid: reports[1][i]
+      }
+      times.push(time);
+      setTimeline(times);
     }
+   }
+
+
+    // console.log(allReports);
+    // setallReports(prevReports => [...prevReports, report]);
+    // console.log("NEW REPORTS ARRAY",allReports)
+
+
+    // console.log("func2",func2(walletAddress));
+    //isse jaise present karna hain karde
 
   
-  
-    
-    
 
-  
-  const  deleteNotif = async (event) => {
+
+
+
+
+
+
+  const deleteNotif = async (event) => {
     const provider = new ethers.BrowserProvider(window.ethereum);
     const signer = await provider.getSigner();
     let walletAddress = await signer.getAddress();
     let postData = {
-      user_id : walletAddress ,
-      hospital_id : event.target.value 
-  }
-    
+      user_id: walletAddress,
+      hospital_id: event.target.value
+    }
+
     // fetch('http://localhost:3000/delete_notification', {
     //   method: 'POST',
     //   headers: {
@@ -107,7 +111,7 @@ function UsersiteHomepage() {
     // }).then( (data) => {
     //     // console.log(data);
     //     getNotification();
-        
+
     // })
 
     // await responseToRequest(1,postData.hospital_id,postData.user_id );
@@ -115,31 +119,31 @@ function UsersiteHomepage() {
     // getNotification();
 
   }
-  const  requestApproved = async (event) => {
+  const requestApproved = async (event) => {
     const provider = new ethers.BrowserProvider(window.ethereum);
     const signer = await provider.getSigner();
     let walletAddress = await signer.getAddress();
-    await responseToRequest(1,event.target.value,walletAddress );
+    await responseToRequest(1, event.target.value, walletAddress);
     setNotif("");
     getNotification();
     // GivePermission(event.target.value);
     // deleteNotif(event);
-    console.log("now?:",CheckPermission())
+    console.log("now?:", CheckPermission())
     // setNotif([]);
   }
-  
+
 
 
   function Notification(props) {
     return (
       <div className="card">
-    <div className="card-body">
-      <h5 className="card-title">{props.hospitalAddress}</h5>
-      <p className="card-text">Wants to view your records</p>
-      <button type="button" className='access' value= {props.hospitalAddress} onClick = {requestApproved}>Access</button>
-      <button type="button" className='deny' value= {props.hospitalAddress} onClick = {()=>{setNotif("")}} >Deny</button>
-    </div>
-  </div>
+        <div className="card-body">
+          <h5 className="card-title">{props.hospitalAddress}</h5>
+          <p className="card-text">Wants to view your records</p>
+          <button type="button" className='access' value={props.hospitalAddress} onClick={requestApproved}>Access</button>
+          <button type="button" className='deny' value={props.hospitalAddress} onClick={() => { setNotif("") }} >Deny</button>
+        </div>
+      </div>
     )
   }
 
@@ -178,7 +182,7 @@ function UsersiteHomepage() {
   // const [NOTI, SETNOTI] = useState(["APOLLO", "LALPATH", "EYECARE", "EYECARE", "EYECARE", "EYECARE", "EYECARE", "EYECARE", "EYECARE"])
 
   //update biodata section
-  const [intError,setError]=useState("");
+  const [intError, setError] = useState("");
   let name, age, gender, contact;
   const [Name, setname] = useState("")
   const [Age, setage] = useState("")
@@ -193,12 +197,11 @@ function UsersiteHomepage() {
   const updateBio = (e) => {
     e.preventDefault();
     console.log("wow1");
-    if(isNaN(age) || age.trim() === '' || age===null)
-    {
+    if (isNaN(age) || age.trim() === '' || age === null) {
       setError("Age Must Be A Number")
 
     }
-    else{
+    else {
       setopenUpdate(false);
       setError("");
       Set_Data(name, age, gender, contact);
@@ -215,7 +218,7 @@ function UsersiteHomepage() {
     // func_get_reports(walletAddress)
     // SetAge(walletAddress)
     console.log(1);
-    console.log(name2,"DETAILS OF USER");
+    console.log(name2, "DETAILS OF USER");
     setname(name2[0][0])
     // console.log(name2[1])
     setage(Number(name2[0][1]))
@@ -247,10 +250,10 @@ function UsersiteHomepage() {
   useEffect(() => {
     console.log('Timeline state updated:', timeline);
   }, [timeline]); // Log the state whenever it changes
-  useEffect(()=>{
+  useEffect(() => {
     fetch_data();
     console.log("EDITING NAME AGE GENDER CONTACT")
-  },[openUpdate])
+  }, [openUpdate])
 
 
 
@@ -292,43 +295,11 @@ function UsersiteHomepage() {
     //     console.log("notif:", data)
     //     if (data) setNotif(data);
     //     // console.log("Permisssion",CheckPermission(walletAddress));
-        
+
     //   })
     // console.log("buddy",FetchRequest(walletAddress));
-    let data  = await FetchRequest(walletAddress);
+    let data = await FetchRequest(walletAddress);
     setNotif(data);
-  }
-
-  //!!TESTING STATES!!
-   
-  const [opentest1, setopentest1] = useState(false)
-  const [opentest2, setopentest2] = useState(false)
-  const [opentest3, setopentest3] = useState(false)
-  const [opentest4, setopentest4] = useState(false)
-
-  const updatetest1 = () => {
-    
-    setopentest1(false)
-    
-    
-    
-  }
-  const updatetest2 = () => {
-    
-    setopentest2(false)
-   
-    
-   
-  }
-  const updatetest3 = () => {
-    
-    setopentest3(false)
-    
-  }
-  const updatetest4 = () => {
-    
-    setopentest4(false)
-    
   }
 
   return (
@@ -336,11 +307,11 @@ function UsersiteHomepage() {
       <div className="navbaruser">
         <div className="logouser">LIFE LEDGER</div>
         <div className='nav-right'>
-        <div className="updatediv"><i  onClick={() => setopenUpdate(true)}class="fa-solid fa-pen" id='update'></i></div>
-        <div className="messagediv"><i class="fa-solid fa-message" id='message'></i></div>
-        <div className="logoutdiv" >
-          <i class="fa-solid fa-arrow-right-from-bracket logout" onClick={disconnectFromMetaMask}></i>
-        </div>
+          <div className="updatediv"><i onClick={() => setopenUpdate(true)} class="fa-solid fa-pen" id='update'></i></div>
+          <div className="messagediv"><i class="fa-solid fa-message" id='message'></i></div>
+          <div className="logoutdiv" >
+            <i class="fa-solid fa-arrow-right-from-bracket logout" onClick={disconnectFromMetaMask}></i>
+          </div>
         </div>
 
       </div>
@@ -398,8 +369,8 @@ function UsersiteHomepage() {
           <button type="button" className="btn-close cross-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-          {(Notif!=="0x0000000000000000000000000000000000000000" && Notif!=="")?
-             (<Notification hospitalAddress={Notif} />):""
+          {(Notif !== "0x0000000000000000000000000000000000000000" && Notif !== "") ?
+            (<Notification hospitalAddress={Notif} />) : ""
           }
           {/* <All></All> */}
 
@@ -408,8 +379,10 @@ function UsersiteHomepage() {
 
       {openUpdate === true ? (<div className='blur-screen-two' ref={backScreentwo} onClick={closeBackscreentwo}><form onSubmit={updateBio} className='to-update'>
         <div className="close-update">
-          <i class="fa-solid fa-xmark" id='cross' onClick={() => {setError("");
-            setopenUpdate(false)}}></i>
+          <i class="fa-solid fa-xmark" id='cross' onClick={() => {
+            setError("");
+            setopenUpdate(false)
+          }}></i>
         </div>
         <div className="update update-name">
           <p>Name:</p>
@@ -417,7 +390,7 @@ function UsersiteHomepage() {
         </div>
         <div className="update update-age">
           <p>Age:</p>
-          <input type="text" onChange={(e) => { age = e.target.value;setError(""); }} />
+          <input type="text" onChange={(e) => { age = e.target.value; setError(""); }} />
           {intError && <p className='text-red'>{intError}</p>}
         </div>
         <div className="update update-gender">

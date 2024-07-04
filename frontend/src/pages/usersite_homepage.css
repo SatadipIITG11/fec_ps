@@ -4,7 +4,7 @@
     align-items: center;
     height: 100vh;
     width: 100vw;
-    overflow-x:hidden;
+    overflow-x: hidden;
 }
 
 .navbaruser {
@@ -21,7 +21,8 @@
 
     /* justify-content: flex-start; */
 }
-.nav-right{
+
+.nav-right {
     display: flex;
     align-items: center;
 }
@@ -32,7 +33,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 
 #update {
@@ -56,7 +57,7 @@
 
 .logouser {
     height: 50px;
-    width: 150px; 
+    width: 150px;
     background-color: rgb(140, 137, 137, 0.5);
     border-radius: 10px;
     display: flex;
@@ -67,15 +68,16 @@
     cursor: pointer;
     color: white;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
-    
+
 }
 
 .logoutdiv {
     color: white;
     padding-left: 40px;
-    
+
 }
-.logout{
+
+.logout {
     cursor: pointer;
 }
 
@@ -130,7 +132,7 @@
     box-sizing: border-box;
     padding-left: 10px;
     /* background-color: rgb(221, 219, 219); */
-    background-color: rgb(140, 137, 137,0.5);
+    background-color: rgb(140, 137, 137, 0.5);
     /* opacity: 0.5; */
     backdrop-filter: blur(12px);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
@@ -221,21 +223,24 @@
     z-index: -1;
 
 }
-.access{
-    background-color:aqua;
+
+.access {
+    background-color: aqua;
     margin-right: 20px;
     border-radius: 5px;
     outline: none;
-    
- }
- .deny{
-     background-color: red;
-     border-radius: 5px;
-     outline: none;
- }
- .card{
-     margin-bottom: 5px;
- }
+
+}
+
+.deny {
+    background-color: red;
+    border-radius: 5px;
+    outline: none;
+}
+
+.card {
+    margin-bottom: 5px;
+}
 
 #notiIcon {
     color: white;
@@ -255,7 +260,7 @@
     position: absolute;
     display: flex;
     /* box-sizing: border-box; */
-    
+
     flex-direction: column;
     align-items: center;
     height: 550px;
@@ -267,9 +272,10 @@
     top: 100px;
 
 }
-.text-red{
+
+.text-red {
     color: red;
-    margin:0px;
+    margin: 0px;
 }
 
 .update {
@@ -293,7 +299,8 @@
     color: white;
 
 }
-.submit-update:hover{
+
+.submit-update:hover {
     background-color: rgb(162, 21, 113);
 }
 
@@ -318,34 +325,37 @@
     outline: none;
     border: none;
     background-color: rgb(140, 137, 137, 0.5);
-  /* box-shadow: 3px 3px 3px  rgba(0, 0, 0, 0.3); */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  color:white;
+    /* box-shadow: 3px 3px 3px  rgba(0, 0, 0, 0.3); */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: white;
 }
-.update input:focus{
-   border: 2px solid white;
+
+.update input:focus {
+    border: 2px solid white;
 }
 
 input[type='text'],
 input[type='email'],
 input[type='password'] {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 
-.canvas-div{
+.canvas-div {
     background-color: rgb(140, 137, 137, 0.5);
     backdrop-filter: blur(5px);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }
-.canvas-header{
+
+.canvas-header {
     color: white;
 }
-.cross-close{
+
+.cross-close {
     background-color: white;
 }
 
@@ -356,61 +366,65 @@ input[type='password'] {
         display: grid;
         grid-row-gap: 45px;
         grid-column-gap: 45px; */
-        grid-template-columns:auto;
+        grid-template-columns: auto;
         margin-bottom: 10px;
     }
-    .Box{
+
+    .Box {
         width: 80vw;
     }
 
-    .Details{
+    .Details {
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
-        
+
     }
-    .Namebox{
+
+    .Namebox {
         width: 70vw;
         margin-bottom: 10px;
         /* overflow-x: hidden; */
         overflow-x: scroll;
         scrollbar-width: none;
         min-width: 320.31px;
-        
+
 
     }
 
-    .logouser{
+    .logouser {
         margin-top: 10px;
     }
 }
 
-@media only screen and (max-width:1058.4px) and (min-width:488.1px){
+@media only screen and (max-width:1058.4px) and (min-width:488.1px) {
 
-    .blocksuser{
+    .blocksuser {
         margin-bottom: 10px;
     }
 
-    .Box{
+    .Box {
         width: 40vw;
     }
 
-    .Details{
+    .Details {
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
-        
+
     }
-    .Namebox{
+
+    .Namebox {
         width: 70vw;
         margin-bottom: 10px;
         /* overflow-x: hidden; */
         overflow-x: scroll;
         scrollbar-width: none;
-        
+
 
     }
-    .logouser{
+
+    .logouser {
         margin-top: 10px;
     }
 
