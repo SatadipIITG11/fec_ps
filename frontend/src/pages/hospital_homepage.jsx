@@ -1,13 +1,10 @@
 import React from 'react'
 import './hospital_homepage.css'
-import { testy, testyz } from './testy'
 import { useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState, useEffect,useRef } from 'react'
 import PdfUpload from './pdfupload'
-// import { func1, func2,CheckPermission } from '../Get_functions'
 import Timeline from '../popups/timeline'
 import Reports from '../popups/reports'
-// const { ethers } = require("ethers");
 import {FetchRequest , responseToRequest , SendRequest } from '../Notif' 
 import { ethers } from 'ethers';
 import { func1, func2,CheckPermission } from '../Get_functions'
@@ -24,7 +21,22 @@ function HospitalHomepage() {
   const [registeredUsers, setRegisteredUsers] = useState([]);
   const [issearchlistopen, setSearchlistopen] = useState(true);
   // useEffect ( ()=>{console.log(registeredUsers) } ,  registeredUsers );
-  
+  const backScreen=useRef();
+  const backScreentwo=useRef();
+
+  const closeBackscreen=(e)=>{
+     if(backScreen.current===e.target)
+     {
+      setopenupload(false);
+      setUploaddisable(true);
+     }
+  }
+  const closeBackscreentwo=(e)=>{
+    if(backScreentwo.current===e.target)
+    {
+      setopenUpdate(false);
+    }
+ }
   useEffect(() => {
 
     fetch('https://lifeledgerfinal2.onrender.com/get_registered_users'
@@ -353,8 +365,6 @@ function HospitalHomepage() {
               </div>
               <Timeline trigger={timelinePop} setTrigger={settimelinePop} timeline={timeline} />
               <Reports trigger={reportsPop} setTrigger={setreportsPop} allReports={allReports} />
-              {/* <Timeline trigger={timelinePop} setTrigger={settimelinePop} /> */}
-              {/* <Reports trigger={reportsPop} setTrigger={setreportsPop} /> */}
             </div>
           )
           :
@@ -382,22 +392,8 @@ function HospitalHomepage() {
           <i className="fa-solid fa-arrow-right-from-bracket logout g-margin" onClick={disconnectFromMetaMask}></i>
         
       </div>:""}
-      {/* <div className="sidebarhospi">
-        <i className="fa-solid fa-xmark fa-2x abs-close"></i>
-        <div className="logohospi g-margin">LIFE LEDGER</div>
-        <div className='upload g-margin' onClick={() => setopenupload(true)}>
-          <i class="fa-solid fa-circle-plus" id='uploadicon'></i>
-          <span>Upload</span>
-        </div>
-        <div className='edit'>
-          <div className="updatediv" onClick={() => setopenUpdate(true)}><i class="fa-solid fa-pen" id='update'></i></div>
-        </div>
-        
-          <i className="fa-solid fa-arrow-right-from-bracket logout g-margin" onClick={disconnectFromMetaMask}></i>
-        
-      </div> */}
 
-      {openupload === true ? (<div id="uploadpop">
+      {openupload === true ? (<div className='blur-screen' ref={backScreen} onClick={closeBackscreen}><div id="uploadpop">
         <div className="close-upload" >
           <i class="fa-solid fa-xmark" onClick={() => {setopenupload(false);setUploaddisable(true)}}></i>
         </div>
@@ -424,8 +420,8 @@ function HospitalHomepage() {
         {/* <div className="browse-upload"> */}
           <PdfUpload user_id = {inputIDValue} category = {category} isdisabled={uploaddisable} setdisabled={setUploaddisable}  />
         {/* </div> */}
-      </div>) : ""}
-      {openUpdate === true ? (<div className="to-update">
+      </div></div>) : ""}
+      {openUpdate === true ? (<div className='blur-screen-two' ref={backScreentwo} onClick={closeBackscreentwo}><div className="to-update">
         <div className="close-update">
           <i class="fa-solid fa-xmark" id='cross' onClick={() => setopenUpdate(false)}></i>
         </div>
@@ -449,7 +445,7 @@ function HospitalHomepage() {
         <div className="submit-update" onClick={updateBio}>
           SUBMIT
         </div>
-      </div>) : ""}
+      </div></div>) : ""}
 
       {issearchlistopen === true ? <Searchlist Inputtext={inputValue} setInputtext={setInputIDValue} Registeredusers={registeredUsers} setOpenlist={setSearchlistopen} /> : ""}
     </div>

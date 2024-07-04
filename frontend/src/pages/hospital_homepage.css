@@ -353,6 +353,24 @@ input::placeholder {
     display: flex;
     align-items: center;
 }
+
+.blur-screen{
+    min-height: 100vh;
+    min-width: 110vw;
+    position: fixed;
+    backdrop-filter: blur(12px);
+}
+
+.blur-screen-two{
+    min-height: 100vh;
+    min-width: 110vw;
+    position: fixed;
+    backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
 @media only screen and (max-width:940px) {
     #notiicon{
         margin-top: 15px;

@@ -1,11 +1,17 @@
 import React, { useEffect } from 'react'
 import './reports.css'
-import { useState } from 'react';
+import { useState,useRef } from 'react';
 import Eachreport from './eachreport';
 
 function Reports(props) {
 
-   
+   const backScreenthree=useRef();
+   const closeBackscreenthree=(e)=>{
+       if(backScreenthree.current===e.target)
+       {
+        props.setTrigger(false);
+       }
+   }
     const [eachreportPop, seteachreportPop] = useState(false)
     const [reportType,setReportType]=useState("");
     let Daignostic=[],MedicationPrescriptions=[],Procedural=[],OtherReports=[];
@@ -36,8 +42,6 @@ function Reports(props) {
 
      const reporthandler=(event)=>{
          setReportType(event.target.textContent);
-         console.log(event.target.textContent)
-        
 
          if(event.target.textContent==="Diagnostic")
          {
@@ -50,27 +54,21 @@ function Reports(props) {
          else if(event.target.textContent==="Procedural")
          {
             
-            setpushReport(Procedural);
-            
-            
+            setpushReport(Procedural); 
             
          }
          else if(event.target.textContent==="Others")
          {
-            setpushReport(OtherReports);
-            
+            setpushReport(OtherReports);  
          }
-         console.log("MKC",OtherReports)
          seteachreportPop(true)
          
      }
 
-     
-     console.log("HEHEHEHEEEEEE",Procedural)
 
     return props.trigger === true ? (
 
-        <div className='reportsdiv'>
+        <div className='blur-screen-three' ref={backScreenthree} onClick={closeBackscreenthree}><div className='reportsdiv'>
             <div className="close" >
                 <div id="close" onClick={() => props.setTrigger(false)}>
                     <i class="fa-solid fa-xmark fa-2x"></i>
@@ -99,7 +97,7 @@ function Reports(props) {
             </div>
         </div>
 
-    ) : "";
+        </div>): "";
 }
 
 export default Reports

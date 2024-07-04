@@ -24,35 +24,9 @@ const RegistrationPage = () => {
   const [tabState,setTabState]=useState(1);
   // !!! tab 1 state is for patient and tab 2 state is for hospital !!!
 
-
-  
-
-
-  // const connectWalletHandler = async () => {
-  //   window.web3 = new Web3(window.ethereum)
-  //   if (window.ethereum && window.ethereum.isMetaMask) {
-  //     console.log('MetaMask Here!');
-  //    const accounts=await window.ethereum.request({ method: 'eth_requestAccounts'})
-  //     try{
-  //       setToggle(1);
-  //       console.log(accounts[0]);
-  //       setFormData({
-  //         ...formData,
-  //         Metamask_id: accounts[0] 
-  //       });
-
-
-  //       // handleclick(toggleState);
-
-  //     }catch(e){
-  //       console.log(e);
-  //     }
-  //   } else {
-  //     console.log('Need to install MetaMask');
-  //   }
-  // }
   const connectWalletHandler = async () => {
-    window.web3 = new Web3(window.ethereum);
+    
+    try {window.web3 = new Web3(window.ethereum);
     if (window.ethereum && window.ethereum.isMetaMask) {
       console.log('MetaMask Here!');
       window.ethereum.request({ method: 'eth_requestAccounts' })
@@ -70,6 +44,20 @@ const RegistrationPage = () => {
     } else {
       console.log('Need to install MetaMask');
     }
+   }
+   catch(error)
+   {
+     if (error.code === -32002) {
+      alert("Request already in progress. Please wait..");
+      setTimeout(() => {
+          alert("Retrying request...");
+          connectWalletHandler();
+      }, 50000); // Retry after 50 seconds
+      
+       } else {
+        alert("Error requesting accounts:", error.message);
+      }
+   }
   };
 
 
@@ -79,7 +67,9 @@ const RegistrationPage = () => {
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
+    setErrors("");
     const { name, value } = e.target;
+
     setFormData({
       ...formData,
       [name]: value,
@@ -93,15 +83,33 @@ const RegistrationPage = () => {
     const signer = await provider.getSigner();
     let walletAddress = await signer.getAddress();
 
-    if(tabState==2){
+    if(tabState===2){
+      const validationErrors = {};
+      
+      if (!formData.Name.trim()) {
+        validationErrors.Name = 'Name is required';
+        setErrors(validationErrors);
+        return;
+      }
+      
       let info = await CheckHospital(walletAddress) ; 
       if(info) {
-        console.log("Already registered") ;
+        alert("Already registered") ;
       }
       else {
         await AddHospital(walletAddress) ;
-        console.log("registered now") ;
+        alert("registered now") ;
       }
+
+      setFormData({
+        Metamask_id: '',
+        Name: '',
+        Age: '',
+        Gender: '',
+        ContactInfo: ''
+    });
+
+
 
     }
     else{
@@ -122,14 +130,13 @@ const RegistrationPage = () => {
       validationErrors.ContactInfo = 'ContactInfo is required';
     }
 
-    console.log("me reg?",(CheckUser("0x2A7e2C15e86FFB78b89B21ae6F02ECdf110F758f")))
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
 
       let info = await CheckUser(walletAddress) ;
       if(info) {
-        console.log("Already registered") ;
+        alert("Already registered") ;
       }
       else {
         await AddUser(walletAddress) ;
@@ -142,22 +149,20 @@ const RegistrationPage = () => {
         },
         body : JSON.stringify( { id : walletAddress } ) 
       }).then(response => {
-        window.alert('submitted');
+        alert('submitted');
       }
 
       )
-        console.log("registered now") ;
+        alert("registered now") ;
       }
-      
 
-
-
-      console.log('Form submitted:', formData);
       // Reset form fields after submission
       setFormData({
-        username: '',
-        email: '',
-        password: '',
+          Metamask_id: '',
+          Name: '',
+          Age: '',
+          Gender: '',
+          ContactInfo: ''
       });
     }
 
@@ -226,7 +231,7 @@ const RegistrationPage = () => {
         </form>
         ):(
           <form onSubmit={handleSubmit} className='regis-form'>
-          <div className="form-group"> {/* Applying form-group class */}
+          <div className="form-group">
             <label className='white-text'>Name</label>
             <input
               className='bg-theme'

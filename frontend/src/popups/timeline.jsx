@@ -1,11 +1,17 @@
-import React from 'react'
+import React ,{useRef} from 'react'
 import './timeline.css'
 import Timelinegrid from './timelinegrid';
 
 function Timeline(props) {
 
   //checking event list just for checking
-
+  const backScreenthree=useRef();
+  const closeBackscreenthree=(e)=>{
+      if(backScreenthree.current===e.target)
+      {
+       props.setTrigger(false);
+      }
+  }
   const myEvents = [];
  
   for(let i=0;i<props.timeline.length;i++)
@@ -18,11 +24,8 @@ function Timeline(props) {
       myEvents.push(time);
     }
 
-    console.log("MY EVENTS:",myEvents)
-
-
   return props.trigger === true ? (
-    <div id='timeline'>
+    <div className='blur-screen-three' ref={backScreenthree} onClick={closeBackscreenthree}><div id='timeline'>
       <div className='timelinediv'>
         <div className="close" >
           <div id="close" onClick={() => props.setTrigger(false)}>
@@ -38,7 +41,7 @@ function Timeline(props) {
           </div>
         </div>
       </div>
-    </div>
+    </div></div>
   ) : "";
 }
 

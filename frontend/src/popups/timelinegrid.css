@@ -27,4 +27,7 @@
   transform: rotate(90deg);
 }
 
+.color-white{
+  color: white;
+}
 /* Add more styles for the timeline appearance */

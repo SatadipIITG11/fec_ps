@@ -1,7 +1,7 @@
 import React from 'react'
 import './usersite_homepage.css'
 import { testy, testyz } from './testy'
-import { useState, useEffect } from 'react'
+import { useState, useEffect,useRef } from 'react'
 import Timeline from '../popups/timeline'
 import Reports from '../popups/reports'
 import { useNavigate } from 'react-router-dom'
@@ -26,6 +26,15 @@ function UsersiteHomepage() {
   // }.then( ()=>{
 
   // })
+
+  const backScreentwo=useRef();
+
+  const closeBackscreentwo=(e)=>{
+    if(backScreentwo.current===e.target)
+    {
+      setopenUpdate(false);
+    }
+ }
   const [allReports,setallReports]=useState([]);
   const [timeline,setTimeline]=useState([]);
   
@@ -383,8 +392,6 @@ function UsersiteHomepage() {
         <i class="fa-solid fa-bars fa-2x" id='notiIcon' ></i>
       </div>
 
-      {/* <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button> */}
-
       <div class="offcanvas offcanvas-end canvas-div" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header" >
           <h5 class="offcanvas-title canvas-header" id="offcanvasRightLabel">Notifications:</h5>
@@ -399,7 +406,7 @@ function UsersiteHomepage() {
         </div>
       </div>
 
-      {openUpdate === true ? (<form onSubmit={updateBio} className='to-update'>
+      {openUpdate === true ? (<div className='blur-screen-two' ref={backScreentwo} onClick={closeBackscreentwo}><form onSubmit={updateBio} className='to-update'>
         <div className="close-update">
           <i class="fa-solid fa-xmark" id='cross' onClick={() => {setError("");
             setopenUpdate(false)}}></i>
@@ -424,7 +431,7 @@ function UsersiteHomepage() {
         <input className="submit-update" type="submit"  value="SUBMIT"/>
       
         
-      </form>) : ""}
+      </form></div>) : ""}
 
     </div>
   )

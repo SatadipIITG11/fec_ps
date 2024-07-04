@@ -5,7 +5,7 @@ import './timelinegrid.css';
 const Timelinegrid = ({ events }) => {
   if (!events || events === 0 || events === null || events.length===0)
     {
-      return <p>Your Timeline is Currently Unavailable!</p>
+      return <p className='color-white'>Your Timeline is Currently Unavailable!</p>
     }
   return (
     <div className="timeline-container">

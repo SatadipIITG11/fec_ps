@@ -26,7 +26,6 @@ function Loginpage() {
 
   const [isRequesting,setRequesting]=useState(false);
   const connectWalletHandler = async () => {
-    console.log("KAUN BHEJ RHA BC")
     if (isRequesting) {
       alert("Already processing eth_requestAccounts. Please wait.");
       return;
