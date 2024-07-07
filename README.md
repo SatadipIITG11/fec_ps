@@ -24,25 +24,25 @@ Immutability ensures that data , once uploaded cannot be manipulated by any unau
 
 ## Features
 ## Patient side:
-*Registration implemented via metamask id and emergency info.
-*Patient will login via metamask id.
-*Once logged in,the patient can view and modify his general info.Medical reports can be viewed in chronological order on the timeline tab.
-*The patient can also grant updation access to hospitals.  
+* Registration implemented via metamask id and emergency info.
+* Patient will login via metamask id.
+* Once logged in,the patient can view and modify his general info.Medical reports can be viewed in chronological order on the timeline tab.
+* The patient can also grant updation access to hospitals.  
 
 ## Hospital side:
-*Hospital will also login via metamask id.
-*The hospital can search the patient using the search bar.(Implemented using MongoDB for faster results)
-*Emergency info and general info will be visible.
-*Medical reports can be viewed in chronological order on the timeline tab,after permission has been granted via the user to the hospital.
-*Medical reports however will require user permission for updation.
+* Hospital will also login via metamask id.
+* The hospital can search the patient using the search bar.(Implemented using MongoDB for faster results)
+* Emergency info and general info will be visible.
+* Medical reports can be viewed in chronological order on the timeline tab,after permission has been granted via the user to the hospital.
+* Medical reports however will require user permission for updation.
 
 
 ## Installation
-Change directory to frontend: cd frontend
-Install dependencies: npm install
-Run frontend server: npm start
-Navigate to backend directory in terminal
-Install dependencies: npm install
-Start backend server: node server
-Start IPFS server: node server
-Make sure to setup your own .env file for Api keys of Piniata IPFS and Mongo Atlas
+* Change directory to frontend: cd frontend
+* Install dependencies: npm install
+* Run frontend server: npm start
+* Navigate to backend directory in terminal
+* Install dependencies: npm install
+* Start backend server: node server
+* Start IPFS server: node server
+* Make sure to setup your own .env file for Api keys of Piniata IPFS and Mongo Atlas
