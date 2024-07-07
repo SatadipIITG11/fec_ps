@@ -2,6 +2,10 @@
 
 We propose a unified health ledger which helps store their medical history and all sensitive medical data on a decentralized peer to peer network(IPFS) and can be accessed only through metadata stored on blockchain with the permission of the patient. We  introduce a website for our product. 
 
+Lifeledger:https://lifeledger.vercel.app/
+
+Sepolia Faucet:https://www.alchemy.com/faucets/ethereum-sepolia
+
 ## Use of blockchain
 Data breaches: Data stored on a blockchain is immutable, meaning once recorded, it cannot be altered or deleted. This feature prevents unauthorized tampering with patient record Permissioned Access: Blockchain networks can implement permissioned access controls, where only authorized parties are granted access to sensitive patient information. 
 Consolidation: Blockchain-based health ledgers facilitate secure and efficient sharing of health data between hospital chains while ensuring patient privacy and consent.
